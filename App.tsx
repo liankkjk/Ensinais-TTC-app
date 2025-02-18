@@ -1,10 +1,12 @@
+import React from 'react';
 import { View } from 'react-native';
-import Routes from './src/routes';
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/routes/Routes';
 
 export default function Ensinais() {
   return (
-    <View>
-      <Routes />
-    </View>
+    <NavigationContainer>
+      <Routes/>
+    </NavigationContainer>
   );
 }

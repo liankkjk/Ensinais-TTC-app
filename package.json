@@ -11,7 +11,9 @@
   "dependencies": {
     "@react-native-vector-icons/common": "^11.0.0",
     "@react-native-vector-icons/fontawesome6": "^6.7.1",
+    "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/elements": "^2.2.5",
+    "@react-navigation/native": "^7.0.14",
     "expo": "~52.0.35",
     "expo-status-bar": "~2.0.1",
     "prop-types": "^15.8.1",
