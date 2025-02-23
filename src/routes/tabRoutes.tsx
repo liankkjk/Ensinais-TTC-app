@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { TouchableOpacity, Dimensions } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Perfil from '../screens/Perfil';
@@ -8,8 +8,9 @@ import Inicio from '../screens/Inicio';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
+const { width } = Dimensions.get('window');
 
-export default function Routes() {
+export default function TabRoutes() {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -19,34 +20,23 @@ export default function Routes() {
           position: 'absolute',
           bottom: 25,
           marginLeft: 12,
+          marginRight: 10,
           elevation: 0,
-          width: 370,
-          paddingBottom: 15,
+          height: width * 0.28,
+          paddingBottom: width * 0.03,
           paddingTop: 10,
           paddingLeft: 10,
+          paddingRight: 10,
           backgroundColor: '#121212',
-          borderRadius: 20, 
-          height: 100,
+          borderRadius: 20,
        },
-
-       tabBarLabelPosition: 'below-icon',
-
-       tabBarLabelStyle: {
-        fontSize: 18,
-        fontFamily: 'Georgia',
-        fontWeight: 'bold',
-      },
 
       tabBarIconStyle: { 
         marginBottom: 2,
-        width: 45,
-        height: 45,
+        width: width * 0.20,
+        height: width * 0.20,
       },
-
-      tabBarInactiveTintColor: '#fffff5', //a cor da label quando estiver inativo (não-focado)
      
-      tabBarActiveTintColor: '#707807', //a cor da label quando o tab's for pressionado (focado)
-
       tabBarInactiveBackgroundColor: '#5f4ff3', //a cor de fundo do icon quando não estiver focado
 
       tabBarActiveBackgroundColor: '#2145f1',
@@ -57,10 +47,11 @@ export default function Routes() {
       component={Sinalario} 
       options={{
         tabBarIcon: ({ focused }) => (
-          <Icon name="book-alphabet" size={focused ? 45 : 35} color='#ffffff' />
+          <Icon name="book-alphabet" size={focused ? width * 0.20 : width * 0.18} color='#ffffff'/>
         ),
         tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, //isso tira o efeito de click do botão
         headerShown: false,
+        tabBarShowLabel: false,
       }}
       />
 
@@ -69,10 +60,11 @@ export default function Routes() {
       component={Inicio} 
       options={{
         tabBarIcon: ({ focused }) => (
-          <Icon name="home" size={focused ? 45 : 35} color='#ffffff' />
+          <Icon name="home" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
         ),
         tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, //isso tira o efeito de click do botão
         headerShown: false,
+        tabBarShowLabel: false,
       }}
       />
       
@@ -81,10 +73,11 @@ export default function Routes() {
       component={Perfil}
       options={{
         tabBarIcon: ({ focused }) => (
-          <Icon name="account" size={focused ? 45 : 35} color='#ffffff' />
+          <Icon name="account" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
         ),
         tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, //isso tira o efeito de click do botão
         headerShown: false,
+        tabBarShowLabel: false,
       }} 
       />
     </Tab.Navigator>
