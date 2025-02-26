@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 
-export default function Dicionario() {
+export default function Sinalario() {
   return (
     <View>
       <Text> 
