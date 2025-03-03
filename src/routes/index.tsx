@@ -1,10 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
-import TabRoutes from './tabRoutes';
+import LoginNav from './tabRoutes';
 
 export default function Routes() {
   return (
-    <NavigationContainer>
-      <TabRoutes />
-    </NavigationContainer>
+      <LoginNav />
   );
 }
