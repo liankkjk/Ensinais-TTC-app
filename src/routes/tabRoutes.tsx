@@ -1,16 +1,21 @@
 import React from 'react';
 import { TouchableOpacity, Dimensions } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Perfil from '../screens/Perfil';
 import Sinalario from '../screens/Sinalario';
 import Inicio from '../screens/Inicio';
+import Login from '../screens/Login';
+import Cadastrar from '../screens/Cadastrar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const { width } = Dimensions.get('window');
 
-export default function TabRoutes() {
+const MainTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -82,4 +87,18 @@ export default function TabRoutes() {
       />
     </Tab.Navigator>
   )
+};
+
+const LoginNav = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login'>
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Cadastrar" component={Cadastrar} options={{ headerShown: false }} />
+        <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
+
+export default LoginNav;
