@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Dimensions } from 'react-native';
+import { TouchableOpacity, Dimensions, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -11,15 +11,53 @@ import Sinalario from '../screens/Sinalario';
 import Inicio from '../screens/Inicio';
 import Login from '../screens/Login';
 import Cadastrar from '../screens/Cadastrar';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+//import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { View } from 'react-native-reanimated/lib/typescript/Animated';
+import Profile from '../screens/Perfil';
+import { Icon } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 const { width } = Dimensions.get('window');
 
+const DrawerContent = (props: any) => {
+  return (
+    <DrawerContentScrollView {...props}>
+      <Text style={{fontSize:18, fontWeight:"bold", marginLeft: 15, marginBottom: 10}}>Configuraçoes</Text>
+
+      <DrawerItem
+        label="Editar Perfil"
+        onPress={() => props.navigation.navigate("Perfil")}
+        />
+
+        <DrawerItem
+          label="Alterar Senha"
+          onPress={() => console.log("Alterar senha")}
+        />
+
+        <DrawerItem
+          label="Sair"
+          onPress={() => props.navigation.navigate("Login")}
+        />
+    </DrawerContentScrollView>
+  );
+};
+
+
 const ProfileScreenWithDrawer = () => {
+  return (
+    <Drawer.Navigator 
+      initialRouteName="Perfil" 
+      drawerContent={(props) => <DrawerContent {...props} />}
+    >
+      <Drawer.Screen name="Perfil" component={Profile} />
+    </Drawer.Navigator>
+  );
+};
+
+
+/*const ProfileScreenWithDrawer = () => {
   return (
   <Drawer.Navigator
     initialRouteName={Perfil} 
@@ -37,7 +75,7 @@ const ProfileScreenWithDrawer = () => {
   </Drawer.Navigator>
 
   );
-};
+};*/
 
 const MainTabs = () => {
   return (
