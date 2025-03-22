@@ -3,17 +3,41 @@ import { TouchableOpacity, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
+import 'react-native-reanimated';
+import 'react-native-gesture-handler';
 import Perfil from '../screens/Perfil';
 import Sinalario from '../screens/Sinalario';
 import Inicio from '../screens/Inicio';
 import Login from '../screens/Login';
 import Cadastrar from '../screens/Cadastrar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { View } from 'react-native-reanimated/lib/typescript/Animated';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 const { width } = Dimensions.get('window');
+
+const ProfileScreenWithDrawer = () => {
+  return (
+  <Drawer.Navigator
+    initialRouteName={Perfil} 
+    drawerContent={props => (
+    <DrawerContentScrollView {...props}>
+      <Text>Ola</Text>
+      <DrawerItem label={'Perfil'} onPress={() => {
+        props.navigation.navigate(Perfil);
+        }}/>
+    </DrawerContentScrollView>
+  )}>
+
+    <Drawer.Screen name='Perfil' component={Perfil} />
+
+  </Drawer.Navigator>
+
+  );
+};
 
 const MainTabs = () => {
   return (
@@ -50,6 +74,7 @@ const MainTabs = () => {
       <Tab.Screen 
       name="Sinalário" 
       component={Sinalario} 
+
       options={{
         tabBarIcon: ({ focused }) => (
           <Icon name="book-alphabet" size={focused ? width * 0.20 : width * 0.18} color='#ffffff'/>
@@ -63,6 +88,7 @@ const MainTabs = () => {
       <Tab.Screen 
       name="Inicio" 
       component={Inicio} 
+
       options={{
         tabBarIcon: ({ focused }) => (
           <Icon name="home" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
@@ -75,7 +101,8 @@ const MainTabs = () => {
       
       <Tab.Screen 
       name="Perfil" 
-      component={Perfil}
+      component={ProfileScreenWithDrawer}
+
       options={{
         tabBarIcon: ({ focused }) => (
           <Icon name="account" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
@@ -88,6 +115,9 @@ const MainTabs = () => {
     </Tab.Navigator>
   )
 };
+
+
+
 
 const LoginNav = () => {
   return (
