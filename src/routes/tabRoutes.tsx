@@ -11,10 +11,9 @@ import Sinalario from '../screens/Sinalario';
 import Inicio from '../screens/Inicio';
 import Login from '../screens/Login';
 import Cadastrar from '../screens/Cadastrar';
-//import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { View } from 'react-native-reanimated/lib/typescript/Animated';
 import Profile from '../screens/Perfil';
-import { Icon } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
