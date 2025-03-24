@@ -21,7 +21,6 @@ const Cadastrar = () => {
     setLoading(true);
     try {
       const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log('Cadastro bem-sucedido:', response.user);
       Alert.alert('Sucesso', 'Cadastro realizado com sucesso!');
       navigation.navigate('Login');
     } catch (error: unknown) {
