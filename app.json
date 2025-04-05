@@ -4,14 +4,14 @@
     "slug": "Ensinais",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/adaptive-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "plugins": [
       [
         "expo-splash-screen",
         {
-          "image": "./assets/splash-icon.png",
+          "image": "./assets/icon.png",
           "resizeMode": "contain",
           "backgroundColor": "#F2F2F2"
         }
