@@ -5,16 +5,14 @@ import { Icon } from "react-native-paper";
 const Profile = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.container}>
-      
-      <Text style={styles.title}>Usuário</Text>
-      <Button title="" onPress={() => navigation.openDrawer()} />
+     
       
       <StatusBar backgroundColor= "#32CD32" />
 
       <View style={{ width: "100%"}}>
 
         <Image
-        source={require("assets/fundo-perfil.jpg")}
+        source={require("../../assets/fundo-perfil.jpg")}
         resizeMode='cover'
         style={{ width: "100%", height: 228 }}
         />
@@ -24,7 +22,7 @@ const Profile = ({ navigation }: any) => {
       <View style={{ flex: 1, alignItems: "center"}}>
 
         <Image
-        source={require("assets/user-perfil.png")}
+        source={require("../../assets/user.jpg")}
         resizeMode='contain'
         style={{ width: 155, height: 155, borderRadius: 999, borderColor: "#000080", borderWidth: 2, marginTop: -90 }}
         />
