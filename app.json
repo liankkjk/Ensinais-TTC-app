@@ -2,7 +2,9 @@
   "expo": {
     "name": "Ensinais",
     "slug": "Ensinais",
+    "owner": "liankkjk",
     "version": "1.0.0",
+    "scheme": "ensinais",
     "orientation": "portrait",
     "icon": "./assets/adaptive-icon.png",
     "userInterfaceStyle": "light",
