@@ -10,54 +10,37 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
-import * as Google from 'expo-auth-session/providers/google';
 import { signInWithEmailAndPassword, signInWithCredential, GoogleAuthProvider } from 'firebase/auth';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { GoogleSignin, User, isSuccessResponse } from '@react-native-google-signin/google-signin';
 
-WebBrowser.maybeCompleteAuthSession();
+GoogleSignin.configure({
+  iosClientId:
+    "456086389243-gek0tsd8vk2ahnv3fdj7qb4v9529jc8c.apps.googleusercontent.com",
+})
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [secureText, setSecureText] = useState(true);
-  const auth = FIREBASE_AUTH;
+  const [auth, setAuth] = useState<User | null>(null);
 
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    expoClientId: '456086389243-bq028qc0tm25g4vh02bpvug4360ppjaf.apps.googleusercontent.com',
-    iosClientId: '456086389243-gek0tsd8vk2ahnv3fdj7qb4v9529jc8c.apps.googleusercontent.com',
-    androidClientId: '456086389243-fshq56f459hqv0lehlm4r2cdon3t8cv6.apps.googleusercontent.com',
-    webClientId: '456086389243-bq028qc0tm25g4vh02bpvug4360ppjaf.apps.googleusercontent.com',
-  });
-
-  useEffect(() => {
-    if (response?.type === 'success') {
-      const { id_token } = response.authentication;
-      const credential = GoogleAuthProvider.credential(id_token);
-      signInWithCredential(auth, credential)
-        .then(() => {
-          navigation.navigate('MainTabs');
-        })
-        .catch((err) => {
-          Alert.alert('Erro ao fazer login com Google', err.message);
-        });
-    }
-  }, [response]);
-
-  const signIn = async () => {
-    setLoading(true);
+  async function handleGoogleSignIn(){
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigation.navigate('MainTabs');
-    } catch (error: any) {
-      Alert.alert('Erro ao fazer login', error.message);
-    } finally {
-      setLoading(false);
+      await GoogleSignin.hasPlayServices()
+      const response = await GoogleSignin.signIn()
+
+      if(isSuccessResponse(response))
+      {
+        console.log(response.data)
+      }
+    } catch (error) {
+      console.log(error)
     }
-  };
+  }
 
   return (
     <LinearGradient
@@ -116,11 +99,12 @@ const LoginScreen = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.button, styles.googleButton]}
-              onPress={() => promptAsync()}
-              disabled={!request}
+              onPress={handleGoogleSignIn}
             >
-              <MaterialCommunityIcons name="google" size={20} color="#fff" />
-              <Text style={styles.googleButtonText}>Entrar com Google</Text>
+              <View style={styles.googleContent}>
+                <MaterialCommunityIcons name="google" size={20} color="#fff" />
+                <Text style={styles.googleButtonText}>Entrar com Google</Text>
+              </View>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.registerButton}
@@ -217,12 +201,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 15,
   },
   googleButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 10,
+  },
+  googleContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   registerButton: {
     marginTop: 20,

@@ -19,6 +19,12 @@
         }
       ],
       [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.456086389243-gek0tsd8vk2ahnv3fdj7qb4v9529jc8c"
+        }
+      ],
+      [
         "expo-video",
         {
           "supportsPictureInPicture": true
@@ -26,6 +32,7 @@
       ]
     ],
     "ios": {
+      "bundleIdentifier": "com.ensinais.ios",
       "supportsTablet": true
     },
     "android": {
@@ -33,7 +40,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.Ensinais"
+      "package": "com.ensinais.android"
     },
     "web": {
       "favicon": "./assets/favicon.png"
