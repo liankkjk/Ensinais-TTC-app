@@ -13,11 +13,12 @@ import Login from '../screens/Login';
 import Cadastrar from '../screens/Cadastrar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { View } from 'react-native-reanimated/lib/typescript/Animated';
-import Profile from '../screens/Perfil';
-
+import Profile from '../screens/Perfil'
+import EditarPerfil from '../screens/EditarPerfil';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+
 const { width } = Dimensions.get('window');
 
 const DrawerContent = (props: any) => {
@@ -27,7 +28,7 @@ const DrawerContent = (props: any) => {
 
       <DrawerItem
         label="Editar Perfil"
-        onPress={() => props.navigation.navigate("Perfil")}
+        onPress={() => props.navigation.navigate("EditarPerfil")}
         />
 
         <DrawerItem
@@ -44,6 +45,9 @@ const DrawerContent = (props: any) => {
 };
 
 
+
+
+
 const ProfileScreenWithDrawer = () => {
   return (
     <Drawer.Navigator 
@@ -56,25 +60,6 @@ const ProfileScreenWithDrawer = () => {
 };
 
 
-/*const ProfileScreenWithDrawer = () => {
-  return (
-  <Drawer.Navigator
-    initialRouteName={Perfil} 
-    drawerContent={props => (
-    <DrawerContentScrollView {...props}>
-      <Text>Ola</Text>
-      <DrawerItem label={'Perfil'} onPress={() => {
-        props.navigation.navigate(Perfil);
-        }}/>
-    </DrawerContentScrollView>
-  )}>
-
-    <Drawer.Screen name='Perfil' component={Perfil} />
-
-  </Drawer.Navigator>
-
-  );
-};*/
 
 const MainTabs = () => {
   return (
