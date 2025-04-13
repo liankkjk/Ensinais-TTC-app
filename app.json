@@ -32,12 +32,10 @@
       ]
     ],
     "ios": {
-      "googleServicesFile": "./client_456086389243-gek0tsd8vk2ahnv3fdj7qb4v9529jc8c.apps.googleusercontent.com.plist",
       "bundleIdentifier": "com.ensinais.ios",
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./client_secret_456086389243-fshq56f459hqv0lehlm4r2cdon3t8cv6.apps.googleusercontent.com.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

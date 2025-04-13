@@ -12,9 +12,8 @@ import Inicio from '../screens/Inicio';
 import Login from '../screens/Login';
 import Cadastrar from '../screens/Cadastrar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { View } from 'react-native-reanimated/lib/typescript/Animated';
-import Profile from '../screens/Perfil'
-import EditarPerfil from '../screens/EditarPerfil';
+import { useAuth } from './authcontext'; 
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -22,31 +21,28 @@ const Drawer = createDrawerNavigator();
 const { width } = Dimensions.get('window');
 
 const DrawerContent = (props: any) => {
+  const { logout } = useAuth();
   return (
     <DrawerContentScrollView {...props}>
-      <Text style={{fontSize:18, fontWeight:"bold", marginLeft: 15, marginBottom: 10}}>Configuraçoes</Text>
+      <Text style={{fontSize:18, fontWeight:"bold", marginLeft: 15, marginBottom: 10}}>Configurações</Text>
 
       <DrawerItem
         label="Editar Perfil"
         onPress={() => props.navigation.navigate("EditarPerfil")}
-        />
+      />
 
-        <DrawerItem
-          label="Alterar Senha"
-          onPress={() => console.log("Alterar senha")}
-        />
+      <DrawerItem
+        label="Alterar Senha"
+        onPress={() => console.log("Alterar senha")}
+      />
 
-        <DrawerItem
-          label="Sair"
-          onPress={() => props.navigation.navigate("Login")}
-        />
+      <DrawerItem
+        label="Sair"
+        onPress={() => logout()}
+      />
     </DrawerContentScrollView>
   );
 };
-
-
-
-
 
 const ProfileScreenWithDrawer = () => {
   return (
@@ -54,20 +50,17 @@ const ProfileScreenWithDrawer = () => {
       initialRouteName="Perfil" 
       drawerContent={(props) => <DrawerContent {...props} />}
     >
-      <Drawer.Screen name="Perfil" component={Profile} />
+      <Drawer.Screen name="Perfil" component={Perfil} />
     </Drawer.Navigator>
   );
 };
-
-
 
 const MainTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-       animation: 'fade',
-
-       tabBarStyle: {
+        animation: 'fade',
+        tabBarStyle: {
           position: 'absolute',
           bottom: 25,
           marginLeft: 12,
@@ -80,77 +73,74 @@ const MainTabs = () => {
           paddingRight: 10,
           backgroundColor: '#121212',
           borderRadius: 20,
-       },
-
-      tabBarIconStyle: { 
-        marginBottom: 2,
-        width: width * 0.20,
-        height: width * 0.20,
-      },
-     
-      tabBarInactiveBackgroundColor: '#5f4ff3', //a cor de fundo do icon quando não estiver focado
-
-      tabBarActiveBackgroundColor: '#2145f1',
+        },
+        tabBarIconStyle: { 
+          marginBottom: 2,
+          width: width * 0.20,
+          height: width * 0.20,
+        },
+        tabBarInactiveBackgroundColor: '#5f4ff3', // a cor de fundo do icon quando não estiver focado
+        tabBarActiveBackgroundColor: '#2145f1',
       }}
     >
       <Tab.Screen 
-      name="Sinalário" 
-      component={Sinalario} 
-
-      options={{
-        tabBarIcon: ({ focused }) => (
-          <Icon name="book-alphabet" size={focused ? width * 0.20 : width * 0.18} color='#ffffff'/>
-        ),
-        tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, //isso tira o efeito de click do botão
-        headerShown: false,
-        tabBarShowLabel: false,
-      }}
+        name="Sinalário" 
+        component={Sinalario}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon name="book-alphabet" size={focused ? width * 0.20 : width * 0.18} color='#ffffff'/>
+          ),
+          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, // isso tira o efeito de click do botão
+          headerShown: false,
+          tabBarShowLabel: false,
+        }}
       />
 
       <Tab.Screen 
-      name="Inicio" 
-      component={Inicio} 
-
-      options={{
-        tabBarIcon: ({ focused }) => (
-          <Icon name="home" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
-        ),
-        tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, //isso tira o efeito de click do botão
-        headerShown: false,
-        tabBarShowLabel: false,
-      }}
+        name="Inicio" 
+        component={Inicio}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon name="home" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
+          ),
+          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, // isso tira o efeito de click do botão
+          headerShown: false,
+          tabBarShowLabel: false,
+        }}
       />
       
       <Tab.Screen 
-      name="Perfil" 
-      component={ProfileScreenWithDrawer}
-
-      options={{
-        tabBarIcon: ({ focused }) => (
-          <Icon name="account" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
-        ),
-        tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, //isso tira o efeito de click do botão
-        headerShown: false,
-        tabBarShowLabel: false,
-      }} 
+        name="Perfil" 
+        component={ProfileScreenWithDrawer}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon name="account" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
+          ),
+          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, // isso tira o efeito de click do botão
+          headerShown: false,
+          tabBarShowLabel: false,
+        }} 
       />
     </Tab.Navigator>
-  )
+  );
 };
 
-
-
-
 const LoginNav = () => {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
+      <Stack.Navigator initialRouteName={user ? 'MainTabs' : 'Login'}>
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Cadastrar" component={Cadastrar} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
 export default LoginNav;

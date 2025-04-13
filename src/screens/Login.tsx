@@ -6,52 +6,53 @@ import {
   Text,
   Alert,
   ActivityIndicator,
-  StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Image
 } from 'react-native';
-import { signInWithEmailAndPassword, signInWithCredential, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithCredential } from 'firebase/auth';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { GoogleSignin, User, isSuccessResponse } from '@react-native-google-signin/google-signin';
+import { useAuth } from '../routes/authcontext';
+import styles from '../styles/styleLogin';
 
-GoogleSignin.configure({
-  iosClientId:
-    "456086389243-gek0tsd8vk2ahnv3fdj7qb4v9529jc8c.apps.googleusercontent.com",
-})
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [secureText, setSecureText] = useState(true);
-  const [auth, setAuth] = useState<User | null>(null);
+  const { loginWithEmail, loginWithGoogle } = useAuth();
+  const auth = FIREBASE_AUTH;
 
-  async function handleGoogleSignIn(){
+  const signIn = async () => {
+    setLoading(true);
     try {
-      await GoogleSignin.hasPlayServices()
-      const response = await GoogleSignin.signIn()
-
-      if(isSuccessResponse(response))
-      {
-        console.log(response.data)
-      }
-    } catch (error) {
-      console.log(error)
+      const response = await loginWithEmail(email, password);
+      console.log(response);
+      navigation.navigate('MainTabs');
+    } catch (error: any) {
+      Alert.alert('Erro ao fazer login', error.message);
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <LinearGradient
-      colors={['#f6fafd', '#e0ecf8']}
+      colors={['#f6fafd', '#F27127']}
       style={{ flex: 1 }}
     >
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        <Text style={styles.title}>Faça o login</Text>
+        <Image
+        style={styles.logo}
+        source={require('../../assets/favicon.png')}
+        />
 
         <Text style={styles.inputLabel}>Insira o e-mail:</Text>
         <View style={styles.inputContainer}>
@@ -98,15 +99,6 @@ const LoginScreen = ({ navigation }) => {
               <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.button, styles.googleButton]}
-              onPress={handleGoogleSignIn}
-            >
-              <View style={styles.googleContent}>
-                <MaterialCommunityIcons name="google" size={20} color="#fff" />
-                <Text style={styles.googleButtonText}>Entrar com Google</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
               style={styles.registerButton}
               onPress={() => navigation.navigate('Cadastrar')}
             >
@@ -114,113 +106,13 @@ const LoginScreen = ({ navigation }) => {
             </TouchableOpacity>
           </>
         )}
+        <Image
+        style={styles.bottomLogo}
+        source={require('../../assets/favicon.png')}
+        />
       </KeyboardAvoidingView>
     </LinearGradient>
   );
 };
 
 export default LoginScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    justifyContent: 'center',
-  },
-  backButton: {
-    position: 'absolute',
-    top: 50,
-    left: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  backText: {
-    marginLeft: 6,
-    fontSize: 16,
-    color: '#333',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '600',
-    color: '#2e64e5',
-    marginBottom: 30,
-    alignSelf: 'center',
-  },
-  inputLabel: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#333',
-    marginBottom: 8,
-    marginLeft: 10,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#ffffffee',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    marginBottom: 15,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  icon: {
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    color: '#333',
-  },
-  iconButton: {
-    position: 'absolute',
-    right: 10,
-  },
-  button: {
-    backgroundColor: '#2e64e5',
-    paddingVertical: 14,
-    borderRadius: 10,
-    marginTop: 20,
-    shadowColor: '#2e64e5',
-    shadowOpacity: 0.4,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-  },
-  googleButton: {
-    backgroundColor: '#db4437',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 15,
-  },
-  googleButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginLeft: 10,
-  },
-  googleContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  registerButton: {
-    marginTop: 20,
-    alignSelf: 'center',
-  },
-  registerText: {
-    color: '#2e64e5',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
