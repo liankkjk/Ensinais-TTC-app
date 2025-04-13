@@ -13,6 +13,8 @@ import Login from '../screens/Login';
 import Cadastrar from '../screens/Cadastrar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useAuth } from './authcontext'; 
+import { FIREBASE_AUTH } from '../../FireBaseConfig';
+import { signOut } from 'firebase/auth';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,7 +23,17 @@ const Drawer = createDrawerNavigator();
 const { width } = Dimensions.get('window');
 
 const DrawerContent = (props: any) => {
-  const { logout } = useAuth();
+  const handleLogout = async () => {
+    try {
+      await signOut(FIREBASE_AUTH);
+      props.navigation.reset({
+        index: 0,
+        routes: [{ name: 'Login' }],
+      });
+    } catch (error) {
+      console.log('Erro ao sair:', error);
+    }
+  };
   return (
     <DrawerContentScrollView {...props}>
       <Text style={{fontSize:18, fontWeight:"bold", marginLeft: 15, marginBottom: 10}}>Configurações</Text>
@@ -38,7 +50,7 @@ const DrawerContent = (props: any) => {
 
       <DrawerItem
         label="Sair"
-        onPress={() => logout()}
+        onPress={handleLogout}
       />
     </DrawerContentScrollView>
   );

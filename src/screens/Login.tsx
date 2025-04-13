@@ -8,7 +8,8 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
-  Image
+  Image,
+  BackHandler
 } from 'react-native';
 import { signInWithEmailAndPassword, signInWithCredential } from 'firebase/auth';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
@@ -31,14 +32,35 @@ const LoginScreen = ({ navigation }) => {
     setLoading(true);
     try {
       const response = await loginWithEmail(email, password);
-      console.log(response);
-      navigation.navigate('MainTabs');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'MainTabs' }],
+      })
     } catch (error: any) {
       Alert.alert('Erro ao fazer login', error.message);
     } finally {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    const onBackPress = () => {
+      Alert.alert(
+        'Sair do app',
+        'Deseja realmente sair do aplicativo?',
+        [
+          { text: 'Cancelar', style: 'cancel' },
+          { text: 'Sim', onPress: () => BackHandler.exitApp() },
+        ]
+      );
+      return true; 
+    };
+
+    BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+  }, []);
 
   return (
     <LinearGradient
