@@ -6,7 +6,7 @@ import {
   Text,
   Alert,
   ActivityIndicator,
-  StyleSheet,
+  Image,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
@@ -14,6 +14,8 @@ import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import styles from '../styles/styleCadastro';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Cadastrar = () => {
   const [user, setUser] = useState('');
@@ -46,22 +48,21 @@ const Cadastrar = () => {
   };
 
   return (
+    <LinearGradient
+          colors={['#F27127', '#f6fafd']}
+          style={{ flex: 1 }}
+    >
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        {/* Botão de Voltar */}
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}
-        >
-          <MaterialCommunityIcons name="arrow-left" size={24} color="#333" />
-          <Text style={styles.backText}>Voltar</Text>
-        </TouchableOpacity>
 
-        <Text style={styles.title}>Crie sua conta</Text>
+        <Image
+        style={styles.logo}
+        source={require('../../assets/favicon.png')}
+        />
 
-        {/* Input Nome */}
+        <Text style={styles.inputLabel}>Insira o seu usuário:</Text>
         <View style={styles.inputContainer}>
           <MaterialCommunityIcons name="account" size={20} color="#888" style={styles.icon} />
           <TextInput
@@ -73,7 +74,7 @@ const Cadastrar = () => {
           />
         </View>
 
-        {/* Input Email */}
+        <Text style={styles.inputLabel}>Insira o e-mail:</Text>
         <View style={styles.inputContainer}>
           <MaterialCommunityIcons name="email" size={20} color="#888" style={styles.icon} />
           <TextInput
@@ -87,7 +88,7 @@ const Cadastrar = () => {
           />
         </View>
 
-        {/* Input Senha */}
+        <Text style={styles.inputLabel}>Insira a senha:</Text>
         <View style={styles.inputContainer}>
           <MaterialCommunityIcons name="lock" size={20} color="#888" style={styles.icon} />
           <TextInput
@@ -107,74 +108,20 @@ const Cadastrar = () => {
             <Text style={styles.buttonText}>Cadastrar</Text>
           </TouchableOpacity>
         )}
+            <TouchableOpacity
+              style={styles.loginButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Text style={styles.loginText}>Já possui uma conta? Faça login!</Text>
+            </TouchableOpacity>
+
+        <Image
+        style={styles.bottomLogo}
+        source={require('../../assets/favicon.png')}
+        />
       </KeyboardAvoidingView>
+    </LinearGradient>
   );
 };
 
 export default Cadastrar;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-    justifyContent: 'center',
-  },
-  backButton: {
-    position: 'absolute',
-    top: 50,
-    left: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  backText: {
-    marginLeft: 6,
-    fontSize: 16,
-    color: '#333',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '600',
-    color: '#2e64e5',
-    marginBottom: 30,
-    alignSelf: 'center',
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#ffffffee',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    marginBottom: 15,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  icon: {
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    color: '#333',
-  },
-  button: {
-    backgroundColor: '#2e64e5',
-    paddingVertical: 14,
-    borderRadius: 10,
-    marginTop: 20,
-    shadowColor: '#2e64e5',
-    shadowOpacity: 0.4,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-  },
-});
