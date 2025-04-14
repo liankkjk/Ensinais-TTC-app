@@ -130,7 +130,7 @@ const LoginScreen = ({ navigation }) => {
         )}
         <Image
         style={styles.bottomLogo}
-        source={require('../../assets/favicon.png')}
+        source={require('../../assets/Logo branca.png')}
         />
       </KeyboardAvoidingView>
     </LinearGradient>

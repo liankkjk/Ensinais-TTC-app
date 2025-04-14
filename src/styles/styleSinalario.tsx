@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
+    view: {
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        flex: 1,
+    },
     pressable:{
         paddingVertical: 30,
         paddingHorizontal: 60,
