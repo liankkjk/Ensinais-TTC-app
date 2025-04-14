@@ -1,9 +1,8 @@
-import { View, Text, SafeAreaView, TouchableOpacity, GestureResponderEvent, Image } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity, GestureResponderEvent, Image, ScrollView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { ScrollView } from "react-native-reanimated/lib/typescript/Animated";
 import { TextInput } from "react-native-paper";
 const EditarPerfil = ({ navigation}) => {
     const [nome, setNome] = React.useState("Jonathan");

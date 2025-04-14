@@ -6,11 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
-import Perfil from '../screens/Perfil';
-import Sinalario from '../screens/Sinalario';
-import Inicio from '../screens/Inicio';
-import Login from '../screens/Login';
-import Cadastrar from '../screens/Cadastrar';
+import * as Telas from '../screens';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useAuth } from './authcontext'; 
 
@@ -50,7 +46,7 @@ const ProfileScreenWithDrawer = () => {
       initialRouteName="Perfil" 
       drawerContent={(props) => <DrawerContent {...props} />}
     >
-      <Drawer.Screen name="Perfil" component={Perfil} />
+      <Drawer.Screen name="Perfil" component={Telas.Perfil} />
     </Drawer.Navigator>
   );
 };
@@ -85,7 +81,7 @@ const MainTabs = () => {
     >
       <Tab.Screen 
         name="Sinalário" 
-        component={Sinalario}
+        component={Telas.Sinalario}
         options={{
           tabBarIcon: ({ focused }) => (
             <Icon name="book-alphabet" size={focused ? width * 0.20 : width * 0.18} color='#ffffff'/>
@@ -98,7 +94,7 @@ const MainTabs = () => {
 
       <Tab.Screen 
         name="Inicio" 
-        component={Inicio}
+        component={Telas.Inicio}
         options={{
           tabBarIcon: ({ focused }) => (
             <Icon name="home" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
@@ -135,8 +131,8 @@ const LoginNav = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={user ? 'MainTabs' : 'Login'}>
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="Cadastrar" component={Cadastrar} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Telas.Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Cadastrar" component={Telas.Cadastrar} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
