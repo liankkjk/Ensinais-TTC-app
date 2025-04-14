@@ -1,12 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User, onAuthStateChanged, signOut, signInWithEmailAndPassword, signInWithCredential } from 'firebase/auth';
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import { User, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'firebase/auth';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 
 type AuthContextType = {
   user: User | null;
   loading: boolean;
   loginWithEmail: (email: string, password: string) => Promise<void>;
-  loginWithGoogle: (idToken: string) => Promise<void>;
   logout: () => Promise<void>;
 };
 
@@ -22,7 +21,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setLoading(false);
     });
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   const loginWithEmail = async (email: string, password: string) => {
@@ -30,8 +29,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const logout = async () => {
-    await signOut(FIREBASE_AUTH);
+    try {
+      await signOut(FIREBASE_AUTH);
+    } catch (error) {
+      console.log('Erro ao sair:', error);
+    }
   };
+  
 
   return (
     <AuthContext.Provider value={{ user, loading, loginWithEmail, logout }}>
