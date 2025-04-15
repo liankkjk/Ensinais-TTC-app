@@ -1,55 +1,30 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, SafeAreaView, StatusBar, Image } from "react-native";
-import { Icon } from "react-native-paper";
+import { View, Text, StatusBar, Image, SafeAreaView } from "react-native";
+import styles from "../styles/stylePerfil";
 
 const Profile = ({ navigation }: any) => {
   return (
     <SafeAreaView style={styles.container}>
-     
-      
-      <StatusBar backgroundColor= "#32CD32" />
+      <StatusBar backgroundColor="#32CD32" />
 
-      <View style={{ width: "100%"}}>
-
+      <View style={styles.headerImageContainer}>
         <Image
-        source={require("../../assets/fundo-perfil.jpg")}
-        resizeMode='cover'
-        style={{ width: "100%", height: 228 }}
+          source={require("../../assets/fundo-perfil.jpg")}
+          resizeMode="cover"
+          style={styles.headerImage}
         />
-
       </View>
 
-      <View style={{ flex: 1, alignItems: "center"}}>
-
+      <View style={styles.profileContainer}>
         <Image
-        source={require("../../assets/user.jpg")}
-        resizeMode='contain'
-        style={{ width: 155, height: 155, borderRadius: 999, borderColor: "#000080", borderWidth: 2, marginTop: -90 }}
+          source={require("../../assets/user.jpg")}
+          resizeMode="contain"
+          style={styles.profileImage}
         />
-        <Text>Jonathan</Text>
+        <Text style={styles.profileName}>Jonathan</Text>
       </View>
-      
-      
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  text: {
-    fontSize: 16,
-    marginBottom: 10,
-    color: "#000000",
-    marginVertical: 8,
-  }
-});
 
 export default Profile;

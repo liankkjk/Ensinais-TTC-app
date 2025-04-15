@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   Image,
   ScrollView,
   Modal,
 } from 'react-native';
+import styles from '../styles/styleInicio';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 type Pergunta = {
   pergunta: string;
@@ -28,12 +29,29 @@ export default function Inicio() {
   const [mensagemAcerto, setMensagemAcerto] = useState('');
   const [botaoSelecionado, setBotaoSelecionado] = useState<number | null>(null);
   const [botaoCorreto, setBotaoCorreto] = useState(false);
+  
+  // Timer
+  const [tempoRestante, setTempoRestante] = useState(60); 
+  const [timerAtivo, setTimerAtivo] = useState(true);
+
+  const [acertos, setAcertos] = useState(0);
+  const [erros, setErros] = useState(0);
 
   const cards = [
     ['Saudações', 'Animais'],
     ['Comidas', 'Profissões'],
     ['Estudo', 'Transporte']
   ];
+
+  const imagensPorTema = {
+    Saudações: require('../../assets/aperto-de-mao.png'), 
+    Animais: require('../../assets/favicon.png'),      
+    Comidas: require('../../assets/Logo branca.png'),      
+    Profissões: require('../../assets/adaptive-icon.png'),
+    Estudo: require('../../assets/user.jpg'),        
+    Transporte: require('../../assets/icon.png'),
+  };
+  
 
   const perguntasPorTema: QuestoesPorTema = {
     Saudações: [
@@ -57,13 +75,59 @@ export default function Inicio() {
         opcoes: ['Tudo bem?', 'Oi', 'Bom dia'],
         correta: 'Tudo bem?',
       },
+    ],
+    Animais: [
       {
         pergunta: 'Qual o significado do sinal acima?',
-        opcoes: ['Boa noite', 'Boa tarde', 'Bom dia'],
-        correta: 'Boa noite',
+        opcoes: ['Cachorro', 'Gato', 'Cavalo'],
+        correta: 'Cachorro',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Passarinho', 'Peixe', 'Gato'],
+        correta: 'Passarinho',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Leão', 'Tigre', 'Pantera'],
+        correta: 'Pantera',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Elefante', 'Girafa', 'Búfalo'],
+        correta: 'Elefante',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Cavalo', 'Burro', 'Galo'],
+        correta: 'Galo',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Urso', 'Coelho', 'Raposa'],
+        correta: 'Coelho',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Macaco', 'Jacaré', 'Coelho'],
+        correta: 'Macaco',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Cachorro', 'Onça', 'Cavalo'],
+        correta: 'Onça',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Cachorro', 'Lobo', 'Raposa'],
+        correta: 'Lobo',
+      },
+      {
+        pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Vaca', 'Ovelha', 'Porco'],
+        correta: 'Vaca',
       },
     ],
-    // Você pode adicionar perguntas similares para os outros temas aqui.
   };
 
   const abrirModal = (tema: string) => {
@@ -73,13 +137,40 @@ export default function Inicio() {
     setModalVisible(true);
     setBotaoSelecionado(null);
     setMensagemAcerto('');
+    setAcertos(0); 
+    setErros(0);
+    setTempoRestante(60); // Resetar o tempo para 1 minuto ao abrir o modal
+    setTimerAtivo(true); // Ativar o timer
   };
 
   const fecharModal = () => {
     setModalVisible(false);
     setBotaoSelecionado(null);
     setMensagemAcerto('');
+    setTimerAtivo(false); // Desativar o timer ao fechar o modal
   };
+
+  // Função de contagem do tempo
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (timerAtivo && tempoRestante > 0) {
+      timer = setInterval(() => {
+        setTempoRestante((prevTempo) => prevTempo - 1);
+      }, 1000);
+    }
+
+    if (tempoRestante === 0) {
+      setMensagemAcerto('Tempo esgotado! Você não respondeu!');
+      setErros((prevErros) => prevErros + 1);
+      // Esperar 5 segundos e avançar para a próxima pergunta
+      setTimeout(() => {
+        proximaPergunta();
+      }, 5000); // 5 segundos
+    }
+
+    return () => clearInterval(timer);
+  }, [tempoRestante, timerAtivo]);
 
   const responder = (opcao: string, index: number) => {
     if (!cardSelecionado) return;
@@ -87,28 +178,37 @@ export default function Inicio() {
     const pergunta = perguntasPorTema[cardSelecionado][perguntaAtual];
     const correta = pergunta.correta;
 
+    if (botaoSelecionado !== null) return;
+
     setBotaoSelecionado(index);
 
     if (opcao === correta) {
       setBotaoCorreto(true);
       setMensagemAcerto('Parabéns você acertou!! ganhou 5 de XP <3');
       setXpGanho((prev) => prev + 5);
-
-      setTimeout(() => {
-        setMensagemAcerto('');
-        setBotaoSelecionado(null);
-        setBotaoCorreto(false);
-
-        if (perguntaAtual + 1 < 5) {
-          setPerguntaAtual(perguntaAtual + 1);
-        } else {
-          setModalVisible(false);
-          setModalFinalVisible(true);
-        }
-      }, 2000);
+      setAcertos((prev) => prev + 1); 
     } else {
       setMensagemAcerto('Poxa você errou, tente outra vez');
       setBotaoCorreto(false);
+      setErros((prev) => prev + 1); 
+    }
+
+    // Passa para a próxima pergunta após responder
+    proximaPergunta();
+  };
+
+  const proximaPergunta = () => {
+    if (!cardSelecionado) return; // Garantir que o modal de questões esteja aberto e com um tema selecionado
+  
+    setMensagemAcerto('');
+    setTempoRestante(60); // Resetar o tempo para 1 minuto na próxima pergunta
+    setTimerAtivo(true); // Ativar o timer para a próxima pergunta
+  
+    if (perguntaAtual + 1 < perguntasPorTema[cardSelecionado].length) {
+      setPerguntaAtual(perguntaAtual + 1);
+    } else {
+      setModalVisible(false);
+      setModalFinalVisible(true);
     }
   };
 
@@ -130,7 +230,7 @@ export default function Inicio() {
           <Text style={styles.expText}>80 EXP / 200 EXP</Text>
         </View>
         <TouchableOpacity style={styles.trofeuButton}>
-          <Text style={styles.trofeuText}>trofeu</Text>
+          <Text style={styles.trofeuText}>Troféu</Text>
         </TouchableOpacity>
       </View>
 
@@ -144,7 +244,7 @@ export default function Inicio() {
           <View style={styles.row} key={index}>
             {linha.map((item, i) => (
               <TouchableOpacity key={i} style={styles.card} onPress={() => abrirModal(item)}>
-                <Image style={styles.icon} />
+                <Image style={styles.icon} source={imagensPorTema[item]}/>
                 <Text style={styles.cardText}>{item}</Text>
               </TouchableOpacity>
             ))}
@@ -162,6 +262,12 @@ export default function Inicio() {
 
             <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
+            {/* Timer */}
+            <View style={styles.timerContainer}>
+              <MaterialCommunityIcons name="progress-clock" size={20} color="#FF0000" style={styles.timerIcon} />
+              <Text style={styles.timerText}>Tempo restante: {tempoRestante}s</Text>
+            </View>
+
             {perguntas[perguntaAtual]?.opcoes.map((opcao, index) => (
               <TouchableOpacity
                 key={index}
@@ -172,6 +278,7 @@ export default function Inicio() {
                   },
                 ]}
                 onPress={() => responder(opcao, index)}
+                disabled={botaoSelecionado !== null} // Desabilita as opções depois da escolha
               >
                 <Text style={styles.quizOptionText}>{opcao}</Text>
               </TouchableOpacity>
@@ -198,7 +305,10 @@ export default function Inicio() {
               <Text style={styles.videoText}>Imagem aqui</Text>
             </View>
             <Text style={styles.quizQuestion}>
-              Meus parabéns você acertou todas as perguntas, seu sucesso é nosso orgulho!
+              Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:
+            </Text>
+            <Text style={{ fontSize: 18, marginBottom: 20 }}>
+              Acertos: {acertos} | Erros: {erros}
             </Text>
             <Text style={{ fontSize: 18, marginBottom: 20 }}>XP total: {xpGanho}</Text>
             <TouchableOpacity style={styles.modalCloseButton} onPress={voltarAoMenu}>
@@ -210,143 +320,3 @@ export default function Inicio() {
     </View>
   );
 }
-
-// (Você pode manter os mesmos estilos que já tem, não há necessidade de alterar.)
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    backgroundColor: '#fff',
-    flex: 1,
-    marginBottom: 4,
-  },
-  expContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 15,
-  },
-  level: {
-    marginTop: 10,
-    marginBottom: 35,
-  },
-  expBarBackground: {
-    flex: 1,
-    height: 30,
-    backgroundColor: '#ccc',
-    borderRadius: 10,
-    justifyContent: 'center',
-  },
-  expBarFill: {
-    position: 'absolute',
-    left: 0,
-    height: 30,
-    width: '40%',
-    backgroundColor: '#002366',
-    borderRadius: 10,
-  },
-  expText: {
-    textAlign: 'center',
-    color: '#fff',
-    fontWeight: 'bold',
-    zIndex: 1,
-  },
-  levelText: {
-    marginLeft: 10,
-    fontSize: 16,
-    color: '#002366',
-    fontWeight: 'bold',
-  },
-  trofeuButton: {
-    backgroundColor: '#0a4',
-    marginLeft: 10,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 5,
-  },
-  trofeuText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 25,
-  },
-  card: {
-    width: '48%',
-    borderWidth: 2,
-    borderColor: '#ffa500',
-    borderRadius: 20,
-    padding: 20,
-    alignItems: 'center',
-  },
-  icon: {
-    width: 50,
-    height: 50,
-    marginBottom: 10,
-    tintColor: '#ffa500',
-  },
-  cardText: {
-    fontSize: 16,
-    color: '#ffa500',
-    fontWeight: 'bold',
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  quizContainer: {
-    width: '90%',
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    padding: 20,
-    alignItems: 'center',
-  },
-  videoBox: {
-    backgroundColor: '#4CAF50',
-    width: '100%',
-    height: 180,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  videoText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  quizQuestion: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ff8c00',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  quizOption: {
-    backgroundColor: '#ff8c00',
-    width: '100%',
-    paddingVertical: 12,
-    borderRadius: 25,
-    marginBottom: 12,
-    alignItems: 'center',
-  },
-  quizOptionText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  modalCloseButton: {
-    backgroundColor: '#ffa500',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 10,
-  },
-  modalCloseText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-});

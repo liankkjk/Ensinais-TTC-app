@@ -1,5 +1,5 @@
-import React from 'react';
-import { TouchableOpacity, Dimensions, Text, View, Image } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { TouchableOpacity, Dimensions, Text, View, Image, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -11,6 +11,7 @@ import * as Telas from '../screens';
 import { useAuth } from './authcontext'; 
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { signOut } from 'firebase/auth';
+import styles from '../styles/styleNavigation';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -32,7 +33,7 @@ const DrawerContent = (props: any) => {
   };
   return (
     <DrawerContentScrollView {...props}>
-      <Text style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 15, marginBottom: 10 }}>Configurações</Text>
+      <Text style={styles.drawerContentTitle}>Configurações</Text>
       <DrawerItem label="Editar Perfil" onPress={() => props.navigation.navigate("EditarPerfil")} />
       <DrawerItem label="Alterar Senha" onPress={() => console.log("Alterar senha")} />
       <DrawerItem label="Sair" onPress={handleLogout} />
@@ -52,43 +53,36 @@ const ProfileScreenWithDrawer = () => {
 };
 
 const MainTabs = () => {
+  const scaleAnim = useRef(new Animated.Value(0)).current;  
+  const fadeAnim = useRef(new Animated.Value(0)).current;   
+
+  useEffect(() => {
+    Animated.timing(scaleAnim, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+    
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  }, [scaleAnim, fadeAnim]);
+
   return (
     <Tab.Navigator
       screenOptions={{
         animation: 'fade',
-        tabBarStyle: {
-          position: 'absolute',
-          bottom: 25,
-          marginLeft: 12,
-          marginRight: 10,
-          elevation: 0,
-          height: width * 0.28,
-          paddingBottom: width * 0.03,
-          paddingTop: 10,
-          paddingLeft: 10,
-          paddingRight: 10,
-          borderRadius: 40,
-          backgroundColor: 'transparent',
-        },
-        tabBarIconStyle: { 
-          marginBottom: 2,
-          width: width * 0.20,
-          height: width * 0.20,
-        },
+        tabBarStyle: styles.tabBarStyle,
+        tabBarIconStyle: styles.tabBarIconStyle,
         tabBarShowLabel: false,
         tabBarBackground: () => (
           <LinearGradient
             colors={['#f2921d', '#d94929']}
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              bottom: 0,
-              top: 0,
-              borderRadius: 40,
-            }}
+            style={styles.tabBarBackground}
           />
         ),
       }}
@@ -98,40 +92,25 @@ const MainTabs = () => {
         component={Telas.Sinalario}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View
-              style={{
-                backgroundColor: '#FFF',
-                borderRadius: 50, 
-                width: width * 0.22, 
-                height: width * 0.22,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+            <Animated.View
+              style={[
+                styles.iconContainer,
+                { transform: [{ scale: scaleAnim }] },
+                { opacity: fadeAnim }, 
+              ]}
             >
               <View
-                style={{
-                  backgroundColor: focused ? '#f2921d' : '#FFF',
-                  borderRadius: 50,
-                  width: width * 0.20,
-                  height: width * 0.20,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
+                style={[
+                  styles.iconInnerContainer,
+                  { backgroundColor: focused ? '#f2921d' : '#FFF' },
+                ]}
               >
                 <Image
-                  source={
-                    focused
-                      ? require('../../assets/icons/Sinalário.png')
-                      : require('../../assets/icons/Sinalário.png')
-                  }
-                  style={{
-                    width: width * 0.1,
-                    height: width * 0.1,
-                    resizeMode: 'contain',
-                  }}
+                  source={require('../../assets/icons/Sinalário.png')}
+                  style={styles.iconImage}
                 />
               </View>
-            </View>
+            </Animated.View>
           ),
           tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
           headerShown: false,
@@ -143,40 +122,25 @@ const MainTabs = () => {
         component={Telas.Inicio}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View
-              style={{
-                backgroundColor: '#fff',
-                borderRadius: 50,
-                width: width * 0.22,
-                height: width * 0.22,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+            <Animated.View
+              style={[
+                styles.iconContainer,
+                { transform: [{ scale: scaleAnim }] },
+                { opacity: fadeAnim },
+              ]}
             >
               <View
-                style={{
-                  backgroundColor: focused ? '#f2921d' : '#FFF',
-                  borderRadius: 50,
-                  width: width * 0.20,
-                  height: width * 0.20,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
+                style={[
+                  styles.iconInnerContainer,
+                  { backgroundColor: focused ? '#f2921d' : '#FFF' },
+                ]}
               >
                 <Image
-                  source={
-                    focused
-                      ? require('../../assets/icons/Início.png')
-                      : require('../../assets/icons/Início.png')
-                  }
-                  style={{
-                    width: width * 0.1,
-                    height: width * 0.1,
-                    resizeMode: 'contain',
-                  }}
+                  source={require('../../assets/icons/Início.png')}
+                  style={styles.iconImage}
                 />
               </View>
-            </View>
+            </Animated.View>
           ),
           tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
           headerShown: true,
@@ -188,40 +152,25 @@ const MainTabs = () => {
         component={ProfileScreenWithDrawer}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View
-              style={{
-                backgroundColor: '#FFF',
-                borderRadius: 50,
-                width: width * 0.22,
-                height: width * 0.22,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+            <Animated.View
+              style={[
+                styles.iconContainer,
+                { transform: [{ scale: scaleAnim }] },
+                { opacity: fadeAnim },
+              ]}
             >
               <View
-                style={{
-                  backgroundColor: focused ? '#f2921d' : '#FFF',
-                  borderRadius: 50,
-                  width: width * 0.20,
-                  height: width * 0.20,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
+                style={[
+                  styles.iconInnerContainer,
+                  { backgroundColor: focused ? '#f2921d' : '#FFF' },
+                ]}
               >
                 <Image
-                  source={
-                    focused
-                      ? require('../../assets/icons/Perfil.png')
-                      : require('../../assets/icons/Perfil.png')
-                  }
-                  style={{
-                    width: width * 0.1,
-                    height: width * 0.1,
-                    resizeMode: 'contain',
-                  }}
+                  source={require('../../assets/icons/Perfil.png')}
+                  style={styles.iconImage}
                 />
               </View>
-            </View>
+            </Animated.View>
           ),
           tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
           headerShown: false,
