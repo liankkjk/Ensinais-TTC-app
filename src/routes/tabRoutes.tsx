@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Dimensions, Text } from 'react-native';
+import { TouchableOpacity, Dimensions, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -79,16 +79,15 @@ const MainTabs = () => {
           paddingTop: 10,
           paddingLeft: 10,
           paddingRight: 10,
-          backgroundColor: '#121212',
-          borderRadius: 20,
+          backgroundColor: '#000',
+          borderRadius: 40,
         },
         tabBarIconStyle: { 
           marginBottom: 2,
           width: width * 0.20,
           height: width * 0.20,
         },
-        tabBarInactiveBackgroundColor: '#5f4ff3', // a cor de fundo do icon quando não estiver focado
-        tabBarActiveBackgroundColor: '#2145f1',
+        tabBarShowLabel: false,
       }}
     >
       <Tab.Screen 
@@ -96,11 +95,25 @@ const MainTabs = () => {
         component={Telas.Sinalario}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Icon name="book-alphabet" size={focused ? width * 0.20 : width * 0.18} color='#ffffff'/>
+            <View
+              style={{
+                backgroundColor: focused ? '#2145f1' : '#5f4ff3',
+                borderRadius: 50, 
+                width: width * 0.22, 
+                height: width * 0.22,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Icon
+                name="book-alphabet"
+                size={focused ? width * 0.18 : width * 0.16}
+                color='#ffffff'
+              />
+            </View>
           ),
-          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, // isso tira o efeito de click do botão
+          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
           headerShown: false,
-          tabBarShowLabel: false,
         }}
       />
 
@@ -109,11 +122,25 @@ const MainTabs = () => {
         component={Telas.Inicio}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Icon name="home" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
+            <View
+              style={{
+                backgroundColor: focused ? '#2145f1' : '#5f4ff3',
+                borderRadius: 50,
+                width: width * 0.22,
+                height: width * 0.22,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Icon
+                name="home"
+                size={focused ? width * 0.18 : width * 0.16}
+                color='#ffffff'
+              />
+            </View>
           ),
-          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, // isso tira o efeito de click do botão
-          headerShown: false,
-          tabBarShowLabel: false,
+          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
+          headerShown: true,
         }}
       />
       
@@ -122,11 +149,25 @@ const MainTabs = () => {
         component={ProfileScreenWithDrawer}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Icon name="account" size={focused ? width * 0.20 : width * 0.18} color='#ffffff' />
+            <View
+              style={{
+                backgroundColor: focused ? '#2145f1' : '#5f4ff3',
+                borderRadius: 50,
+                width: width * 0.22,
+                height: width * 0.22,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Icon
+                name="account"
+                size={focused ? width * 0.18 : width * 0.16}
+                color='#ffffff'
+              />
+            </View>
           ),
-          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props}/>, // isso tira o efeito de click do botão
+          tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
           headerShown: false,
-          tabBarShowLabel: false,
         }} 
       />
     </Tab.Navigator>
