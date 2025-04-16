@@ -18,7 +18,17 @@ const style = StyleSheet.create({
         fontSize: 15,
         color: '#092A95',
         fontFamily: 'Poppins-SemiBold',
+    },
+    accordion:{
+        backgroundColor: '#C6C6C6',
+        borderRadius: 15,
+        padding: 30,
+        marginHorizontal: 15,
+    },
+    sinais:{
+        paddingTop: 20,
     }
+    
 
 })
 
