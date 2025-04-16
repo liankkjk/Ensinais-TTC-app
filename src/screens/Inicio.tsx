@@ -174,27 +174,29 @@ export default function Inicio() {
 
   const responder = (opcao: string, index: number) => {
     if (!cardSelecionado) return;
-
+  
     const pergunta = perguntasPorTema[cardSelecionado][perguntaAtual];
     const correta = pergunta.correta;
-
-    if (botaoSelecionado !== null) return;
-
+  
+    if (botaoSelecionado !== null) return; // Prevenir que o usuário escolha outra resposta
+  
     setBotaoSelecionado(index);
-
+  
     if (opcao === correta) {
       setBotaoCorreto(true);
       setMensagemAcerto('Parabéns você acertou!! ganhou 5 de XP <3');
       setXpGanho((prev) => prev + 5);
       setAcertos((prev) => prev + 1); 
     } else {
-      setMensagemAcerto('Poxa você errou, tente outra vez');
       setBotaoCorreto(false);
+      setMensagemAcerto('Poxa você errou, tente outra vez');
       setErros((prev) => prev + 1); 
     }
-
-    // Passa para a próxima pergunta após responder
-    proximaPergunta();
+  
+    // Aguardar 2 segundos para mostrar a mensagem de erro antes de avançar
+    setTimeout(() => {
+      proximaPergunta();
+    }, 2000); // 2 segundos de atraso antes de avançar para a próxima pergunta
   };
 
   const proximaPergunta = () => {
@@ -203,6 +205,7 @@ export default function Inicio() {
     setMensagemAcerto('');
     setTempoRestante(60); // Resetar o tempo para 1 minuto na próxima pergunta
     setTimerAtivo(true); // Ativar o timer para a próxima pergunta
+    setBotaoSelecionado(null); // Resetar o botão selecionado
   
     if (perguntaAtual + 1 < perguntasPorTema[cardSelecionado].length) {
       setPerguntaAtual(perguntaAtual + 1);
