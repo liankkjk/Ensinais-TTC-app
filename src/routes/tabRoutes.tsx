@@ -115,7 +115,7 @@ const MainTabs = () => {
             </Animated.View>
           ),
           tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
-          headerShown: true,
+          headerShown: false,
         }}
       />
 
@@ -145,7 +145,7 @@ const MainTabs = () => {
             </Animated.View>
           ),
           tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
-          headerShown: true,
+          headerShown: false,
         }}
       />
       

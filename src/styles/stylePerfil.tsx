@@ -7,8 +7,7 @@ const scale = size => (width / 375) * size;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#fff",
   },
   headerImageContainer: {
     width: "100%",
@@ -20,6 +19,7 @@ const styles = StyleSheet.create({
   profileContainer: {
     flex: 1,
     alignItems: "center",
+    marginTop: scale(-90),
   },
   profileImage: {
     width: scale(150),
@@ -27,24 +27,24 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderColor: "#fff",
     borderWidth: 2,
-    marginTop: scale(-90),
   },
   profileName: {
-    fontSize: scale(22),
+    fontSize: scale(26),
     fontWeight: "bold",
     marginTop: scale(10),
     color: "#f2921d",
   },
   menuIcon: {
     position: "absolute",
-    top: scale(20),
+    top: scale(40),
     right: scale(20),
     zIndex: 1,
   },
   expContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: scale(15),
+    paddingHorizontal: scale(20),
   },
   level: {
     marginTop: scale(10),
@@ -53,30 +53,31 @@ const styles = StyleSheet.create({
   expBarBackground: {
     flex: 1,
     height: scale(30),
-    backgroundColor: '#ccc',
+    backgroundColor: "#ccc",
     borderRadius: scale(10),
-    justifyContent: 'center',
+    justifyContent: "center",
+    overflow: "hidden",
   },
   expBarFill: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
+    width: "80%",
     height: scale(30),
-    width: '40%',
-    backgroundColor: '#002366',
+    backgroundColor: "#002366",
     borderRadius: scale(10),
   },
   expText: {
-    textAlign: 'center',
-    color: '#fff',
-    fontWeight: 'bold',
+    textAlign: "center",
+    color: "#fff",
+    fontWeight: "bold",
     zIndex: 1,
-    fontSize: scale(18),
+    fontSize: scale(20),
   },
   levelText: {
     marginLeft: scale(10),
-    fontSize: scale(16),
-    color: '#002366',
-    fontWeight: 'bold',
+    fontSize: scale(24),
+    color: "#002366",
+    fontWeight: "bold",
   },
 });
 

@@ -29,17 +29,17 @@ const Profile = ({ navigation }: any) => {
           resizeMode="contain"
           style={styles.profileImage}
         />
-        <Text style={styles.profileName}>Jonathan</Text>
+        <Text style={styles.profileName}>Jonathan</Text> {/* aqui tem que puxar o username que o usuário escolheu no cadastro (firestore) */}
 
         <View style={styles.expContainer}>
         <View style={styles.expBarBackground}>
           <View style={styles.expBarFill} />
-          <Text style={styles.expText}>80 EXP / 200 EXP</Text>
+          <Text style={styles.expText}>80 EXP / 200 EXP</Text>  {/* aqui tem que puxar os dados do firestore (trocar esse 80 exp / 200 exp) */}
         </View>
         </View> 
 
         <View style={styles.level}>
-          <Text style={styles.levelText}>Level 20</Text>
+          <Text style={styles.levelText}>Level 20</Text> {/* puxar o lvl do usuário no firestore tbm :( */}
         </View>
       </View>
     </SafeAreaView>

@@ -1,53 +1,55 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
+const fontSizeBase = width * 0.045;
+const paddingBase = width * 0.06;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    padding: paddingBase,
     justifyContent: 'center',
   },
   backButton: {
     position: 'absolute',
-    top: 50,
-    left: 20,
+    top: width * 0.1,
+    left: width * 0.05,
     flexDirection: 'row',
     alignItems: 'center',
   },
   backText: {
-    marginLeft: 6,
-    fontSize: 16,
+    marginLeft: width * 0.015,
+    fontSize: fontSizeBase,
     color: '#333',
   },
   logo: {
-    width: width * 0.6,  
-    height: width * 0.5, 
+    width: width * 0.6,
+    height: width * 0.5,
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginBottom: 20,
+    marginBottom: width * 0.05,
   },
   bottomLogo: {
-    width: width * 0.4,  
-    height: width * 0.5, 
+    width: width * 0.6,
+    height: width * 0.5,
     resizeMode: 'contain',
     alignSelf: 'center',
   },
   inputLabel: {
-    fontSize: 16,
+    fontSize: fontSizeBase,
     fontWeight: '500',
     color: '#FFF',
-    marginBottom: 8,
-    marginLeft: 10,
+    marginBottom: width * 0.02,
+    marginLeft: width * 0.025,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#ffffffee',
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    marginBottom: 15,
+    borderRadius: width * 0.025,
+    paddingHorizontal: width * 0.025,
+    paddingVertical: width * 0.035,
+    marginBottom: width * 0.04,
     shadowColor: '#D94929',
     shadowOpacity: 0.05,
     shadowOffset: { width: 0, height: 2 },
@@ -55,22 +57,22 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   icon: {
-    marginRight: 8,
+    marginRight: width * 0.02,
   },
   input: {
     flex: 1,
-    fontSize: 16,
+    fontSize: fontSizeBase,
     color: '#333',
   },
   iconButton: {
     position: 'absolute',
-    right: 10,
+    right: width * 0.025,
   },
   button: {
     backgroundColor: '#FFF',
-    paddingVertical: 14,
-    borderRadius: 10,
-    marginTop: 20,
+    paddingVertical: width * 0.04,
+    borderRadius: width * 0.025,
+    marginTop: width * 0.05,
     shadowColor: '#D94929',
     shadowOpacity: 0.4,
     shadowOffset: { width: 0, height: 4 },
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#F2921D',
     fontFamily: 'Poppins-Bold',
-    fontSize: 16,
+    fontSize: fontSizeBase,
     fontWeight: 'bold',
     alignSelf: 'center',
   },
@@ -89,13 +91,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: width * 0.04,
+    paddingVertical: width * 0.035,
+    borderRadius: width * 0.025,
   },
   googleButtonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: fontSizeBase,
     fontWeight: 'bold',
-    marginLeft: 10,
+    marginLeft: width * 0.025,
   },
   googleContent: {
     flexDirection: 'row',
@@ -103,12 +107,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   registerButton: {
-    marginTop: 20,
+    marginTop: width * 0.05,
     alignSelf: 'center',
   },
   registerText: {
     color: '#FFF',
-    fontSize: 16,
+    fontSize: fontSizeBase,
     fontWeight: '600',
   },
 });

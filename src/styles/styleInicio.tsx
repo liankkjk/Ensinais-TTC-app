@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     marginBottom: scale(4),
+    paddingTop: scale(70),
   },
   expContainer: {
     flexDirection: 'row',
@@ -40,11 +41,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     zIndex: 1,
-    fontSize: scale(18),
+    fontSize: scale(21),
   },
   levelText: {
     marginLeft: scale(10),
-    fontSize: scale(16),
+    fontSize: scale(22),
     color: '#002366',
     fontWeight: 'bold',
   },
