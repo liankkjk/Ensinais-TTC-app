@@ -226,7 +226,6 @@ export default function Inicio() {
 
   return (
     <View style={styles.container}>
-      {/* Barra de EXP */}
       <View style={styles.expContainer}>
         <View style={styles.expBarBackground}>
           <View style={styles.expBarFill} />

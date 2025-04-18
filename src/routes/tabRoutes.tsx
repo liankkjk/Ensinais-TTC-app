@@ -46,11 +46,13 @@ const ProfileScreenWithDrawer = () => {
     <Drawer.Navigator 
       initialRouteName="Perfil" 
       drawerContent={(props) => <DrawerContent {...props} />}
+      screenOptions={{ headerShown: false }} 
     >
       <Drawer.Screen name="Perfil" component={Telas.Perfil} />
     </Drawer.Navigator>
   );
 };
+
 
 const MainTabs = () => {
   const scaleAnim = useRef(new Animated.Value(0)).current;  
@@ -113,7 +115,7 @@ const MainTabs = () => {
             </Animated.View>
           ),
           tabBarButton: (props) => <TouchableOpacity activeOpacity={1} {...props} />,
-          headerShown: false,
+          headerShown: true,
         }}
       />
 
