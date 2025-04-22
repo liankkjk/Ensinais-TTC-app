@@ -12,12 +12,23 @@ import { useAuth } from './authcontext';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { signOut } from 'firebase/auth';
 import styles from '../styles/styleNavigation';
+import EditarPerfil from '../screens/EditarPerfil';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+const PerfilStack = createStackNavigator();
 
 const { width } = Dimensions.get('window');
+
+const PerfilStackScreen = () => {
+  return (
+    <PerfilStack.Navigator screenOptions={{ headerShown: false }}>
+      <PerfilStack.Screen name="Perfil" component={Telas.Perfil} />
+      <PerfilStack.Screen name="EditarPerfil" component={Telas.EditarPerfil} />
+    </PerfilStack.Navigator>
+  );
+};
 
 const DrawerContent = (props: any) => {
   const handleLogout = async () => {
@@ -34,7 +45,10 @@ const DrawerContent = (props: any) => {
   return (
     <DrawerContentScrollView {...props}>
       <Text style={styles.drawerContentTitle}>Configurações</Text>
-      <DrawerItem label="Editar Perfil" onPress={() => props.navigation.navigate("EditarPerfil")} />
+      <DrawerItem
+        label="Editar Perfil"
+        onPress={() => props.navigation.navigate("Perfil", { screen: "EditarPerfil" })} // Navigate to PerfilStack and then EditarPerfil
+      />
       <DrawerItem label="Alterar Senha" onPress={() => console.log("Alterar senha")} />
       <DrawerItem label="Sair" onPress={handleLogout} />
     </DrawerContentScrollView>
@@ -48,11 +62,10 @@ const ProfileScreenWithDrawer = () => {
       drawerContent={(props) => <DrawerContent {...props} />}
       screenOptions={{ headerShown: false }} 
     >
-      <Drawer.Screen name="Perfil" component={Telas.Perfil} />
+      <Drawer.Screen name="Perfil" component={PerfilStackScreen} />
     </Drawer.Navigator>
   );
 };
-
 
 const MainTabs = () => {
   const scaleAnim = useRef(new Animated.Value(0)).current;  
@@ -148,7 +161,7 @@ const MainTabs = () => {
           headerShown: false,
         }}
       />
-      
+
       <Tab.Screen 
         name="Perfil" 
         component={ProfileScreenWithDrawer}
@@ -195,9 +208,10 @@ const LoginNav = () => {
         <Stack.Screen name="Login" component={Telas.Login} options={{ headerShown: false }} />
         <Stack.Screen name="Cadastrar" component={Telas.Cadastrar} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="EditarPerfil" component={Telas.EditarPerfil} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
+ 
 export default LoginNav;

@@ -78,7 +78,15 @@ const styles = StyleSheet.create({
     fontSize: scale(24),
     color: "#002366",
     fontWeight: "bold",
+
   },
+  editButtonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  // Removed duplicate properties
 });
 
 export default styles;
