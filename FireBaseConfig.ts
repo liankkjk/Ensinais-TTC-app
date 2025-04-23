@@ -10,7 +10,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCOf6Fyk5yMsySbuFjznx26iajGfksNVg4",
   authDomain: "ensinais-tcc.firebaseapp.com",
   projectId: "ensinais-tcc",
-  storageBucket: "ensinais-tcc.firebasestorage.app",
+  storageBucket: "ensinais-tcc.appspot.com", // CORRIGIDO AQUI
   messagingSenderId: "456086389243",
   appId: "1:456086389243:web:15f2c7a1f1cf89120c4b5e",
   measurementId: "G-VVNQRBKPKP"

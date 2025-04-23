@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { TouchableOpacity, Dimensions, Text, View, Image, Animated } from 'react-native';
+import { TouchableOpacity, Dimensions, Text, View, Image, Animated, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,7 +12,8 @@ import { useAuth } from './authcontext';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { signOut } from 'firebase/auth';
 import styles from '../styles/styleNavigation';
-import EditarPerfil from '../screens/EditarPerfil';
+import AlterarSenha from '../screens/AlterarSenha'; // Adjust the path as needed
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -42,14 +43,17 @@ const DrawerContent = (props: any) => {
       console.log('Erro ao sair:', error);
     }
   };
+
+   
+  
   return (
     <DrawerContentScrollView {...props}>
       <Text style={styles.drawerContentTitle}>Configurações</Text>
       <DrawerItem
         label="Editar Perfil"
-        onPress={() => props.navigation.navigate("Perfil", { screen: "EditarPerfil" })} // Navigate to PerfilStack and then EditarPerfil
+        onPress={() => props.navigation.navigate("Perfil", { screen: "EditarPerfil" })}
       />
-      <DrawerItem label="Alterar Senha" onPress={() => console.log("Alterar senha")} />
+      <DrawerItem label="Alterar Senha" onPress={() => props.navigation.navigate("AlterarSenha")} />
       <DrawerItem label="Sair" onPress={handleLogout} />
     </DrawerContentScrollView>
   );
@@ -209,7 +213,8 @@ const LoginNav = () => {
         <Stack.Screen name="Cadastrar" component={Telas.Cadastrar} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
         <Stack.Screen name="EditarPerfil" component={Telas.EditarPerfil} />
-      </Stack.Navigator>
+        <Stack.Screen name="AlterarSenha" component={AlterarSenha} options={{ headerShown: true }} />
+    </Stack.Navigator>
     </NavigationContainer>
   );
 };
