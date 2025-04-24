@@ -12,7 +12,7 @@ import { useAuth } from './authcontext';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { signOut } from 'firebase/auth';
 import styles from '../styles/styleNavigation';
-import AlterarSenha from '../screens/AlterarSenha'; // Adjust the path as needed
+import AlterarSenha from '../screens/AlterarSenha';
 
 
 const Stack = createStackNavigator();
@@ -213,7 +213,7 @@ const LoginNav = () => {
         <Stack.Screen name="Cadastrar" component={Telas.Cadastrar} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
         <Stack.Screen name="EditarPerfil" component={Telas.EditarPerfil} />
-        <Stack.Screen name="AlterarSenha" component={AlterarSenha} options={{ headerShown: true }} />
+        <Stack.Screen name="AlterarSenha" component={AlterarSenha} options={{ headerShown: false }} />
     </Stack.Navigator>
     </NavigationContainer>
   );

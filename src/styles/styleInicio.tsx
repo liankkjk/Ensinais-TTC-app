@@ -148,6 +148,13 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
     fontWeight: 'bold',
   },
+  resultText: {
+    fontSize: scale(18),
+    fontWeight: 'bold',
+    color: '#002366', 
+    marginBottom: scale(10),  
+    textAlign: 'center',  
+  },
   modalCloseButton: {
     backgroundColor: '#ffa500',
     paddingHorizontal: scale(20),

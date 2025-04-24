@@ -24,7 +24,7 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [secureText, setSecureText] = useState(true);
-  const { loginWithEmail, loginWithGoogle } = useAuth();
+  const { loginWithEmail } = useAuth();
   const auth = FIREBASE_AUTH;
 
   const signIn = async () => {
