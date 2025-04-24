@@ -224,9 +224,10 @@ export default function Inicio() {
           <View style={styles.expBarBackground}>
             <View style={styles.expBarFill} />
             <Text style={styles.expText}>80 EXP / 200 EXP</Text> 
-          </View>
+        </View>
           <TouchableOpacity style={styles.trofeuButton}>
-            <Text style={styles.trofeuText}>Troféu</Text> 
+          <Image source={require("../../assets/trofeu1.png")} style={styles.trofeuIcon} />
+          <Text style={styles.trofeuText}>Troféu</Text>
           </TouchableOpacity>
         </View>
 
