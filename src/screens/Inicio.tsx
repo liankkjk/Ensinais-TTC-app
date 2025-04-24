@@ -223,15 +223,15 @@ export default function Inicio() {
         <View style={styles.expContainer}>
           <View style={styles.expBarBackground}>
             <View style={styles.expBarFill} />
-            <Text style={styles.expText}>80 EXP / 200 EXP</Text> {/* aqui tem que puxar os dados do firestore (trocar esse 80 exp / 200 exp)*/}
+            <Text style={styles.expText}>80 EXP / 200 EXP</Text> 
           </View>
           <TouchableOpacity style={styles.trofeuButton}>
-            <Text style={styles.trofeuText}>Troféu</Text> {/* aqui tem que puxar os dados do firestore e colocar o IMG do trofeu (puxar que lv o usuário é e qual trofeu ele tem)*/}
+            <Text style={styles.trofeuText}>Troféu</Text> 
           </TouchableOpacity>
         </View>
 
         <View style={styles.level}>
-          <Text style={styles.levelText}>Level 20</Text>  {/* aqui tem que puxar os dados do firestore (puxar o lvl do usuário no banco de dados)*/}
+          <Text style={styles.levelText}>Level 20</Text>
         </View>
 
         <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
@@ -251,7 +251,7 @@ export default function Inicio() {
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
               <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text> {/* linkar o vídeo conforme as questões */}
+                <Text style={styles.videoText}>vídeo do sinal</Text> 
               </View>
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
