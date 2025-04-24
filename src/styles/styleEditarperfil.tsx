@@ -1,55 +1,85 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get("window");
-
-const scale = size => (width / 375) * size;
+const { width, height } = Dimensions.get('window');
+const fontSizeBase = width * 0.05;
+const paddingBase = width * 0.03;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#fff",
     flex: 1,
-    padding: 20,
-    backgroundColor: 'white',
+    justifyContent: 'center',
     alignItems: 'center',
   },
+  backButton: {
+    position: 'absolute',
+    top: height * 0.06, 
+    left: paddingBase, 
+    zIndex: 1, 
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  backText: {
+    marginLeft: width * 0.015,
+    fontSize: fontSizeBase,
+    color: '#333',
+  },
   titulo: {
-    fontSize: 20,
+    fontSize: fontSizeBase * 1.5,
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: 'white',
+    color: '#002366',
+    textAlign: 'center',
+    marginBottom: height * 0.05,
   },
   imagemPerfil: {
-    width: 140,
-    height: 140,
-    borderRadius: 70,
-    marginBottom: 10,
-    backgroundColor: '#ccc',
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginBottom: 15,
   },
   trocarFoto: {
-    color: '#F2A516',
-    fontSize: 18,
-    marginBottom: 25,
-    textAlign: 'center',
+    fontSize: fontSizeBase,
+    color: '#F2921D',
+    textAlign: 'center', 
+    marginBottom: 20,
   },
   input: {
     width: '90%',
-    color: 'black',
-    backgroundColor: '#C6C6C6',
-    borderRadius: 10,
-    padding: 12,
+    height: 50,
+    borderColor: '#ccc',
+    borderWidth: 0,
+    borderRadius: width * 0.025,
+    paddingHorizontal: 20,
     marginBottom: 20,
-    fontSize: 18,
+    fontSize: fontSizeBase,
+    backgroundColor: '#ffffffee',
+    shadowColor: '#D94929',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3,
   },
   botao: {
-    backgroundColor: '#F2A516',
-    paddingVertical: 12,
-    paddingHorizontal: 40,
-    borderRadius: 10,
+    backgroundColor: '#F2921D',
+    paddingVertical: width * 0.04, 
+    borderRadius: width * 0.025, 
+    marginTop: width * 0.02,
+    width: '90%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#D94929', 
+    shadowOpacity: 0.4, 
+    shadowOffset: { width: 0, height: 4 }, 
+    shadowRadius: 8,
+    elevation: 5, 
   },
   botaoTexto: {
-    color: 'white',
-    fontSize: 18,
-    borderRadius: 10,
-    borderColor: '#F2A516'
+    color: '#FFF',
+    fontSize: fontSizeBase,
+    fontWeight: 'bold',
+    alignSelf: 'center', 
   },
 });
 

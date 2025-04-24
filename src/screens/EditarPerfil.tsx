@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, Alert } from 'react-native';
+import { SafeAreaView, View, Text, TextInput, Image, TouchableOpacity, Alert, Dimensions } from 'react-native';
 import styles from '../styles/styleEditarperfil';
 import * as ImagePicker from 'expo-image-picker';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+const { width } = Dimensions.get('window');
+const fontSizeBase = width * 0.05;
 
 const EditarPerfil = ({ navigation, route }: any) => {
   const dadosIniciais = route.params || {
@@ -40,7 +44,19 @@ const EditarPerfil = ({ navigation, route }: any) => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <TouchableOpacity 
+        style={styles.backButton} 
+        onPress={() => navigation.goBack()}
+      >
+        <MaterialCommunityIcons 
+          name="arrow-left" 
+          size={24} 
+          color="#333" 
+        />
+        <Text style={styles.backText}>Voltar</Text>
+      </TouchableOpacity>
+
       <Text style={styles.titulo}>Editar Perfil</Text>
 
       <TouchableOpacity onPress={escolherFoto}>
@@ -61,11 +77,8 @@ const EditarPerfil = ({ navigation, route }: any) => {
       <TouchableOpacity style={styles.botao} onPress={salvar}>
         <Text style={styles.botaoTexto}>Salvar</Text>
       </TouchableOpacity>
-
-      
-    </View>
+    </SafeAreaView>
   );
 };
-
 
 export default EditarPerfil;
