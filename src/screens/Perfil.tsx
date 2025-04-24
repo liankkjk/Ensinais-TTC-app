@@ -3,18 +3,43 @@ import { View, Text, Image, SafeAreaView, TouchableOpacity } from "react-native"
 import { DrawerActions } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from "../styles/stylePerfil";
+import { FIREBASE_AUTH, FIREBASE_DB } from "../../FireBaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import { Animated } from "react-native";
 
-const Profile = ({ navigation, route }: any) => {
-  const [nome, setNome] = useState("Jonathan");
+const Profile = ({ navigation }: any) => {
+  const user = FIREBASE_AUTH.currentUser;
+  const [nome, setNome] = useState("Carregando...");
   const [fotoPerfil, setFotoPerfil] = useState(null);
+  const [expAtual, setExpAtual] = useState(0);
+  const [expMaxima, setExpMaxima] = useState(200);
 
-  // Atualiza dados se vierem da tela de edição
   useEffect(() => {
-    if (route.params) {
-      if (route.params.nomeAtualizado) setNome(route.params.nomeAtualizado);
-      if (route.params.fotoAtualizada) setFotoPerfil(route.params.fotoAtualizada);
-    }
-  }, [route.params]);
+    const buscarDadosDoUsuario = async () => {
+      if (user) {
+        try {
+          const docRef = doc(FIREBASE_DB, "usuarios", user.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const dados = docSnap.data();
+            setNome(dados.nome || "Sem nome");
+            setFotoPerfil(dados.foto || null);
+            setExpAtual(dados.expAtual || 0);
+            setExpMaxima(dados.expMaxima || 200);
+          } else {
+            setNome("Usuário não encontrado");
+          }
+        } catch (error) {
+          console.error("Erro ao buscar dados do perfil:", error);
+          setNome("Erro ao carregar");
+        }
+      }
+    };
+
+    buscarDadosDoUsuario();
+  }, []);
+
+  const porcentagem = (expAtual / expMaxima) * 100;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -41,25 +66,25 @@ const Profile = ({ navigation, route }: any) => {
         />
         <Text style={styles.profileName}>{nome}</Text>
 
-        {/* Botão editar perfil */}
         <TouchableOpacity
           onPress={() => navigation.navigate("EditarPerfil", {
-            nome, // Passando o nome para edição
-            fotoPerfil, // Passando a foto para edição
+            nome,
+            fotoPerfil,
           })}
         >
           <Text style={styles.editButtonText}>Editar Perfil</Text>
         </TouchableOpacity>
 
+        {/* Barra de Experiência */}
         <View style={styles.expContainer}>
           <View style={styles.expBarBackground}>
-            <View style={styles.expBarFill} />
-            <Text style={styles.expText}>80 EXP / 200 EXP</Text>
+            <View style={[styles.expBarFill, { width: `${porcentagem}%` }]} />
+            <Text style={styles.expText}>{expAtual} EXP / {expMaxima} EXP</Text>
           </View>
         </View>
 
         <View style={styles.level}>
-          <Text style={styles.levelText}>Level 20</Text>
+          <Text style={styles.levelText}>Level {Math.floor(expAtual / 100)}</Text>
         </View>
       </View>
     </SafeAreaView>
