@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -6,6 +6,8 @@ import {
   Image,
   ScrollView,
   Modal,
+  Animated,
+  SafeAreaView,
 } from 'react-native';
 import styles from '../styles/styleInicio';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -29,13 +31,12 @@ export default function Inicio() {
   const [mensagemAcerto, setMensagemAcerto] = useState('');
   const [botaoSelecionado, setBotaoSelecionado] = useState<number | null>(null);
   const [botaoCorreto, setBotaoCorreto] = useState(false);
-  
-  // Timer
   const [tempoRestante, setTempoRestante] = useState(60); 
   const [timerAtivo, setTimerAtivo] = useState(true);
-
   const [acertos, setAcertos] = useState(0);
   const [erros, setErros] = useState(0);
+
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const cards = [
     ['Saudações', 'Animais'],
@@ -51,7 +52,6 @@ export default function Inicio() {
     Estudo: require('../../assets/user.jpg'),        
     Transporte: require('../../assets/icon.png'),
   };
-  
 
   const perguntasPorTema: QuestoesPorTema = {
     Saudações: [
@@ -139,49 +139,46 @@ export default function Inicio() {
     setMensagemAcerto('');
     setAcertos(0); 
     setErros(0);
-    setTempoRestante(60); // Resetar o tempo para 1 minuto ao abrir o modal
-    setTimerAtivo(true); // Ativar o timer
+    setTempoRestante(60); 
+    setTimerAtivo(true);
+    fadeAnim.setValue(0);
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
   };
 
   const fecharModal = () => {
     setModalVisible(false);
     setBotaoSelecionado(null);
     setMensagemAcerto('');
-    setTimerAtivo(false); // Desativar o timer ao fechar o modal
+    setTimerAtivo(false); 
   };
 
-  // Função de contagem do tempo
   useEffect(() => {
     let timer: NodeJS.Timeout;
-
     if (timerAtivo && tempoRestante > 0) {
       timer = setInterval(() => {
         setTempoRestante((prevTempo) => prevTempo - 1);
       }, 1000);
     }
-
     if (tempoRestante === 0) {
       setMensagemAcerto('Tempo esgotado! Você não respondeu!');
       setErros((prevErros) => prevErros + 1);
-      // Esperar 5 segundos e avançar para a próxima pergunta
       setTimeout(() => {
         proximaPergunta();
-      }, 5000); // 5 segundos
+      }, 5000); 
     }
-
     return () => clearInterval(timer);
   }, [tempoRestante, timerAtivo]);
 
   const responder = (opcao: string, index: number) => {
     if (!cardSelecionado) return;
-  
     const pergunta = perguntasPorTema[cardSelecionado][perguntaAtual];
     const correta = pergunta.correta;
-  
-    if (botaoSelecionado !== null) return; // Prevenir que o usuário escolha outra resposta
-  
+    if (botaoSelecionado !== null) return;
     setBotaoSelecionado(index);
-  
     if (opcao === correta) {
       setBotaoCorreto(true);
       setMensagemAcerto('Parabéns você acertou!! ganhou 5 de XP <3');
@@ -192,21 +189,17 @@ export default function Inicio() {
       setMensagemAcerto('Poxa você errou, tente outra vez');
       setErros((prev) => prev + 1); 
     }
-  
-    // Aguardar 2 segundos para mostrar a mensagem de erro antes de avançar
     setTimeout(() => {
       proximaPergunta();
-    }, 2000); // 2 segundos de atraso antes de avançar para a próxima pergunta
+    }, 2000); 
   };
 
   const proximaPergunta = () => {
-    if (!cardSelecionado) return; // Garantir que o modal de questões esteja aberto e com um tema selecionado
-  
+    if (!cardSelecionado) return;
     setMensagemAcerto('');
-    setTempoRestante(60); // Resetar o tempo para 1 minuto na próxima pergunta
-    setTimerAtivo(true); // Ativar o timer para a próxima pergunta
-    setBotaoSelecionado(null); // Resetar o botão selecionado
-  
+    setTempoRestante(60); 
+    setTimerAtivo(true); 
+    setBotaoSelecionado(null); 
     if (perguntaAtual + 1 < perguntasPorTema[cardSelecionado].length) {
       setPerguntaAtual(perguntaAtual + 1);
     } else {
@@ -225,101 +218,98 @@ export default function Inicio() {
   const perguntas = perguntasPorTema[cardSelecionado] || [];
 
   return (
-    <View style={styles.container}>
-      {/* Barra de EXP */}
-      <View style={styles.expContainer}>
-        <View style={styles.expBarBackground}>
-          <View style={styles.expBarFill} />
-          <Text style={styles.expText}>80 EXP / 200 EXP</Text>
-        </View>
-        <TouchableOpacity style={styles.trofeuButton}>
-          <Text style={styles.trofeuText}>Troféu</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.level}>
-        <Text style={styles.levelText}>Level 20</Text>
-      </View>
-
-      {/* Cards */}
-      <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
-        {cards.map((linha, index) => (
-          <View style={styles.row} key={index}>
-            {linha.map((item, i) => (
-              <TouchableOpacity key={i} style={styles.card} onPress={() => abrirModal(item)}>
-                <Image style={styles.icon} source={imagensPorTema[item]}/>
-                <Text style={styles.cardText}>{item}</Text>
-              </TouchableOpacity>
-            ))}
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <View style={styles.expContainer}>
+          <View style={styles.expBarBackground}>
+            <View style={styles.expBarFill} />
+            <Text style={styles.expText}>80 EXP / 200 EXP</Text> 
           </View>
-        ))}
-      </ScrollView>
+          <TouchableOpacity style={styles.trofeuButton}>
+            <Text style={styles.trofeuText}>Troféu</Text> 
+          </TouchableOpacity>
+        </View>
 
-      {/* Modal de Perguntas */}
-      <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
-        <View style={styles.modalOverlay}>
-          <View style={styles.quizContainer}>
-            <View style={styles.videoBox}>
-              <Text style={styles.videoText}>vídeo do sinal</Text>
+        <View style={styles.level}>
+          <Text style={styles.levelText}>Level 20</Text>
+        </View>
+
+        <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
+          {cards.map((linha, index) => (
+            <View style={styles.row} key={index}>
+              {linha.map((item, i) => (
+                <TouchableOpacity key={i} style={styles.card} onPress={() => abrirModal(item)}>
+                  <Image style={styles.icon} source={imagensPorTema[item]}/>
+                  <Text style={styles.cardText}>{item}</Text>
+                </TouchableOpacity>
+              ))}
             </View>
+          ))}
+        </ScrollView>
 
-            <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
+        <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
+          <View style={styles.modalOverlay}>
+            <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
+              <View style={styles.videoBox}>
+                <Text style={styles.videoText}>vídeo do sinal</Text> 
+              </View>
 
-            {/* Timer */}
-            <View style={styles.timerContainer}>
-              <MaterialCommunityIcons name="progress-clock" size={20} color="#FF0000" style={styles.timerIcon} />
-              <Text style={styles.timerText}>Tempo restante: {tempoRestante}s</Text>
-            </View>
+              <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
-            {perguntas[perguntaAtual]?.opcoes.map((opcao, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.quizOption,
-                  botaoSelecionado === index && {
-                    backgroundColor: botaoCorreto ? 'green' : 'red',
-                  },
-                ]}
-                onPress={() => responder(opcao, index)}
-                disabled={botaoSelecionado !== null} // Desabilita as opções depois da escolha
-              >
-                <Text style={styles.quizOptionText}>{opcao}</Text>
+              <View style={styles.timerContainer}>
+                <MaterialCommunityIcons name="progress-clock" size={20} color="#FF0000" style={styles.timerIcon} />
+                <Text style={styles.timerText}>Tempo restante: {tempoRestante}s</Text>
+              </View>
+
+              {perguntas[perguntaAtual]?.opcoes.map((opcao, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[
+                    styles.quizOption,
+                    botaoSelecionado === index && {
+                      backgroundColor: botaoCorreto ? 'green' : 'red',
+                    },
+                  ]}
+                  onPress={() => responder(opcao, index)}
+                  disabled={botaoSelecionado !== null}
+                >
+                  <Text style={styles.quizOptionText}>{opcao}</Text>
+                </TouchableOpacity>
+              ))}
+
+              {mensagemAcerto !== '' && (
+                <Text style={{ marginTop: 10, fontWeight: 'bold', color: botaoCorreto ? 'green' : 'red' }}>
+                  {mensagemAcerto}
+                </Text>
+              )}
+
+              <TouchableOpacity onPress={fecharModal} style={styles.modalCloseButton}>
+                <Text style={styles.modalCloseText}>Fechar</Text>
               </TouchableOpacity>
-            ))}
+            </Animated.View>
+          </View>
+        </Modal>
 
-            {mensagemAcerto !== '' && (
-              <Text style={{ marginTop: 10, fontWeight: 'bold', color: botaoCorreto ? 'green' : 'red' }}>
-                {mensagemAcerto}
+        <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
+          <View style={styles.modalOverlay}>
+            <View style={styles.quizContainer}>
+              <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
+                <Text style={styles.videoText}>Imagem aqui</Text>
+              </View>
+              <Text style={styles.quizQuestion}>
+                Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:
               </Text>
-            )}
+              <Text style={styles.resultText}>Acertos: {acertos}</Text>
+              <Text style={styles.resultText}>Erros: {erros}</Text>
+              <Text style={styles.resultText}>XP adquirido: {xpGanho}</Text>
 
-            <TouchableOpacity onPress={fecharModal} style={styles.modalCloseButton}>
-              <Text style={styles.modalCloseText}>Fechar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
-
-      {/* Modal Final */}
-      <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
-        <View style={styles.modalOverlay}>
-          <View style={styles.quizContainer}>
-            <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
-              <Text style={styles.videoText}>Imagem aqui</Text>
+              <TouchableOpacity onPress={voltarAoMenu} style={styles.modalCloseButton}>
+                <Text style={styles.modalCloseText}>Voltar ao Menu</Text>
+              </TouchableOpacity>
             </View>
-            <Text style={styles.quizQuestion}>
-              Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:
-            </Text>
-            <Text style={{ fontSize: 18, marginBottom: 20 }}>
-              Acertos: {acertos} | Erros: {erros}
-            </Text>
-            <Text style={{ fontSize: 18, marginBottom: 20 }}>XP total: {xpGanho}</Text>
-            <TouchableOpacity style={styles.modalCloseButton} onPress={voltarAoMenu}>
-              <Text style={styles.modalCloseText}>Voltar</Text>
-            </TouchableOpacity>
           </View>
-        </View>
-      </Modal>
-    </View>
+        </Modal>
+      </View>
+    </SafeAreaView>
   );
 }

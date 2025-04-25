@@ -8,8 +8,8 @@ import SinaisAlfabetizacao from '../SinaisAlfabetizacao';
   export default function SinalarioNavigation(){
     return (
           <Stack.Navigator initialRouteName="Sinalário">
-            <Stack.Screen name="Sinalário" component={ SinalarioMenu } />
-            <Stack.Screen name="SinaisAlfabetização" component={ Sinais.SinaisAlfabetizacao } />
+            <Stack.Screen name="Sinalário" component={ SinalarioMenu } options={{ headerShown: false }} />
+            <Stack.Screen name="SinaisAlfabetização" component={ Sinais.SinaisAlfabetizacao } options={{ headerShown: false }} />
           </Stack.Navigator>
     );
   }

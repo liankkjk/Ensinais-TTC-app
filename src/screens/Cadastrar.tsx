@@ -9,6 +9,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView
 } from 'react-native';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -49,77 +50,79 @@ const Cadastrar = () => {
 
   return (
     <LinearGradient
-          colors={['#F27127', '#f6fafd']}
-          style={{ flex: 1 }}
+      colors={['#F27127', '#f6fafd']}
+      style={{ flex: 1 }}
     >
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      >
+      <SafeAreaView style={{ flex: 1 }}>
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        >
 
-        <Image
-        style={styles.logo}
-        source={require('../../assets/favicon.png')}
-        />
-
-        <Text style={styles.inputLabel}>Insira o seu usuário:</Text>
-        <View style={styles.inputContainer}>
-          <MaterialCommunityIcons name="account" size={20} color="#888" style={styles.icon} />
-          <TextInput
-            placeholder="Nome de usuário"
-            value={user}
-            onChangeText={setUser}
-            style={styles.input}
-            placeholderTextColor="#888"
+          <Image
+            style={styles.logo}
+            source={require('../../assets/favicon.png')}
           />
-        </View>
 
-        <Text style={styles.inputLabel}>Insira o e-mail:</Text>
-        <View style={styles.inputContainer}>
-          <MaterialCommunityIcons name="email" size={20} color="#888" style={styles.icon} />
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            style={styles.input}
-            placeholderTextColor="#888"
-          />
-        </View>
+          <Text style={styles.inputLabel}>Insira o seu usuário:</Text>
+          <View style={styles.inputContainer}>
+            <MaterialCommunityIcons name="account" size={20} color="#888" style={styles.icon} />
+            <TextInput
+              placeholder="Nome de usuário"
+              value={user}
+              onChangeText={setUser}
+              style={styles.input}
+              placeholderTextColor="#888"
+            />
+          </View>
 
-        <Text style={styles.inputLabel}>Insira a senha:</Text>
-        <View style={styles.inputContainer}>
-          <MaterialCommunityIcons name="lock" size={20} color="#888" style={styles.icon} />
-          <TextInput
-            placeholder="Senha"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            style={styles.input}
-            placeholderTextColor="#888"
-          />
-        </View>
+          <Text style={styles.inputLabel}>Insira o e-mail:</Text>
+          <View style={styles.inputContainer}>
+            <MaterialCommunityIcons name="email" size={20} color="#888" style={styles.icon} />
+            <TextInput
+              placeholder="Email"
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              style={styles.input}
+              placeholderTextColor="#888"
+            />
+          </View>
 
-        {loading ? (
-          <ActivityIndicator size="large" color="#2e64e5" style={{ marginTop: 30 }} />
-        ) : (
-          <TouchableOpacity style={styles.button} onPress={handleCadastro}>
-            <Text style={styles.buttonText}>Cadastrar</Text>
-          </TouchableOpacity>
-        )}
-            <TouchableOpacity
-              style={styles.loginButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Text style={styles.loginText}>Já possui uma conta? Faça login!</Text>
+          <Text style={styles.inputLabel}>Insira a senha:</Text>
+          <View style={styles.inputContainer}>
+            <MaterialCommunityIcons name="lock" size={20} color="#888" style={styles.icon} />
+            <TextInput
+              placeholder="Senha"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+              style={styles.input}
+              placeholderTextColor="#888"
+            />
+          </View>
+
+          {loading ? (
+            <ActivityIndicator size="large" color="#2e64e5" style={{ marginTop: 30 }} />
+          ) : (
+            <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+              <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
+          )}
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.loginText}>Já possui uma conta? Faça login!</Text>
+          </TouchableOpacity>
 
-        <Image
-        style={styles.bottomLogo}
-        source={require('../../assets/favicon.png')}
-        />
-      </KeyboardAvoidingView>
+          <Image
+            style={styles.bottomLogo}
+            source={require('../../assets/favicon.png')}
+          />
+        </KeyboardAvoidingView>
+      </SafeAreaView>
     </LinearGradient>
   );
 };
