@@ -18,6 +18,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAuth } from '../routes/authcontext';
 import styles from '../styles/styleLogin';
+import { doc, getDoc } from 'firebase/firestore';
+import { FIREBASE_DB } from '../../FireBaseConfig';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -30,11 +32,22 @@ const LoginScreen = ({ navigation }) => {
   const signIn = async () => {
     setLoading(true);
     try {
-      const response = await loginWithEmail(email, password);
+      await loginWithEmail(email, password);
+      const user = auth.currentUser;
+      if (user) {
+        const userDocRef = doc(FIREBASE_DB, 'usuarios', user.uid);
+        const userSnapshot = await getDoc(userDocRef);
+  
+        if (userSnapshot.exists()) {
+          const userData = userSnapshot.data();
+          console.log('Dados do usuário:', userData);
+        }
+      }
+  
       navigation.reset({
         index: 0,
         routes: [{ name: 'MainTabs' }],
-      })
+      });
     } catch (error: any) {
       Alert.alert('Erro ao fazer login', error.message);
     } finally {
