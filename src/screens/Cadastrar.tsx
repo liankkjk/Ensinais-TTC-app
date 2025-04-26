@@ -22,6 +22,7 @@ const Cadastrar = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [secureText, setSecureText] = useState(true); // <- Adicionado
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;
   const navigation = useNavigation();
@@ -97,10 +98,20 @@ const Cadastrar = () => {
               placeholder="Senha"
               value={password}
               onChangeText={setPassword}
-              secureTextEntry
+              secureTextEntry={secureText}
               style={styles.input}
               placeholderTextColor="#888"
             />
+            <TouchableOpacity
+              onPress={() => setSecureText(!secureText)}
+              style={styles.iconButton}
+            >
+              <MaterialCommunityIcons
+                name={secureText ? 'eye-off' : 'eye'}
+                size={20}
+                color="#888"
+              />
+            </TouchableOpacity>
           </View>
 
           {loading ? (
