@@ -17,12 +17,13 @@ import { useNavigation } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from '../styles/styleCadastro';
 import { LinearGradient } from 'expo-linear-gradient';
+import { getFirestore, doc, setDoc } from 'firebase/firestore'; // Importando Firestore
 
 const Cadastrar = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [secureText, setSecureText] = useState(true); // <- Adicionado
+  const [secureText, setSecureText] = useState(true);
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;
   const navigation = useNavigation();
@@ -36,6 +37,18 @@ const Cadastrar = () => {
     setLoading(true);
     try {
       const response = await createUserWithEmailAndPassword(auth, email, password);
+      const userId = response.user.uid; 
+
+      const db = getFirestore();
+      await setDoc(doc(db, 'usuarios', userId), {
+        avatarUrl: "",
+        nickname: user,
+        email: email,
+        nivel: 1,
+        exp: 0,
+        createdAt: new Date(),
+      });
+
       Alert.alert('Sucesso', 'Cadastro realizado com sucesso!');
       navigation.navigate('Login');
     } catch (error: unknown) {
@@ -59,12 +72,11 @@ const Cadastrar = () => {
           style={styles.container}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
-
           <Image
             style={styles.logo}
             source={require('../../assets/favicon.png')}
           />
-
+          
           <Text style={styles.inputLabel}>Insira o seu usuário:</Text>
           <View style={styles.inputContainer}>
             <MaterialCommunityIcons name="account" size={20} color="#888" style={styles.icon} />
@@ -121,6 +133,7 @@ const Cadastrar = () => {
               <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
           )}
+
           <TouchableOpacity
             style={styles.loginButton}
             onPress={() => navigation.goBack()}
