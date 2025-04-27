@@ -45,9 +45,10 @@ const style = StyleSheet.create({
   },
   sinais: {
     flex: 1,                
-    paddingTop: 20,         
+    paddingTop: 0,         
     paddingHorizontal: 20,  
-    gap: 16,                
+    gap: 16,
+    backgroundColor: '#fff',
   },
   imgSeta: {
     width: width * 0.15,     
@@ -68,6 +69,15 @@ const style = StyleSheet.create({
     fontFamily: 'Poppins-SemiBold',
     marginBottom: 0,        
   },
+  videoSinal: {
+    width: 200,
+    height: 300,       
+  },
+  searchBar: {
+    backgroundColor: '#F2F2F2',
+    marginTop: 60,
+    marginBottom: 30,
+  }
 });
 
 export default style;
