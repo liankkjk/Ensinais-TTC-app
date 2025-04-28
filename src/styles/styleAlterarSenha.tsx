@@ -7,7 +7,7 @@ const paddingBase = width * 0.06;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  
+    backgroundColor: '#fff'
   },
   innerContainer: {
     flex: 1,

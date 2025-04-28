@@ -4,7 +4,7 @@ import { getAuth, EmailAuthProvider, reauthenticateWithCredential, updatePasswor
 import styles from '../styles/styleAlterarSenha';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { LinearGradient } from 'expo-linear-gradient';
+
 const { width, height } = Dimensions.get('window');
 const fontSizeBase = width * 0.05;
 
@@ -34,13 +34,6 @@ const AlterarSenha = ({ navigation }) => {
   };
 
   return (
-
-     <LinearGradient
-          colors={['#f6fafd', '#F27127']}
-          style={{ flex: 1 }}
-        >
-
-      
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView 
         style={{ flex: 1 }} 
@@ -109,7 +102,6 @@ const AlterarSenha = ({ navigation }) => {
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
-    </LinearGradient>
   );
 };
 

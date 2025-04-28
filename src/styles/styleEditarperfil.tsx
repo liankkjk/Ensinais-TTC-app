@@ -6,6 +6,7 @@ const paddingBase = width * 0.03;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#fff",
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   },
   trocarFoto: {
     fontSize: fontSizeBase,
-    color: '#D94929',
+    color: '#F2921D',
     textAlign: 'center', 
     marginBottom: 20,
   },
