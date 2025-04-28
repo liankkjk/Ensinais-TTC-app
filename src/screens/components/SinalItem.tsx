@@ -14,8 +14,8 @@ const toggleAccordion = () => setAccordionOpen(!isAccordionOpen);
 
 return (
         <View>
-            <TouchableOpacity onPress={toggleAccordion}>
-                <Text>{String(title)}</Text>
+            <TouchableOpacity style={style.buttonSinal} onPress={toggleAccordion}>
+                <Text style={style.buttonText}>{String(title)}</Text><Image style={style.seta} source={require('../../../assets/icons/IconSeta.png')} />
             </TouchableOpacity>
             {isAccordionOpen && (
             <View style={style.accordion}>

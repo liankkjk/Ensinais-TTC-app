@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
 import * as Telas from '../screens';
+import * as TelasSinalario from '../screens/screensSinalario';
 import { useAuth } from './authcontext'; 
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { signOut } from 'firebase/auth';
@@ -19,8 +20,18 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 const PerfilStack = createStackNavigator();
+const SinalarioStack = createStackNavigator();
 
 const { width } = Dimensions.get('window');
+
+const SinalarioStackScreen = () => {
+  return(
+      <SinalarioStack.Navigator screenOptions={{ headerShown: false }}>
+        <SinalarioStack.Screen name="Sinalario" component={Telas.Sinalario} />
+        <SinalarioStack.Screen name="SinaisAlfabetizacao" component={TelasSinalario.SinaisAlfabetizacao} />
+      </SinalarioStack.Navigator>
+  );
+};
 
 const PerfilStackScreen = () => {
   return (
@@ -107,8 +118,8 @@ const MainTabs = () => {
       }}
     >
       <Tab.Screen 
-        name="Sinalário" 
-        component={Telas.Sinalario}
+        name="SinalarioTab" 
+        component={SinalarioStackScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Animated.View

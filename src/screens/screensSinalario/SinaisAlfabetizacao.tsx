@@ -1,11 +1,27 @@
 import * as React from 'react';
-import { ScrollView, SafeAreaView, Text } from 'react-native';
+import { ScrollView, SafeAreaView, Text, Pressable } from 'react-native';
 import { Searchbar } from 'react-native-paper';
+import { useFocusEffect } from '@react-navigation/native';
 import { sinaisAlfabeto } from '../components/Sinais';
 import SinalItem from '../components/SinalItem';
 import style from '../../styles/styleSinalario';
+import styles from '../../styles/styleNavigation';
 
-export default function SinaisAlfabetizacao({ navigation }) {
+export default function SinaisAlfabetizacao({ navigation }: any) {
+    
+    useFocusEffect(
+        React.useCallback(()=>{
+            navigation.getParent()?.setOptions({
+                tabBarStyle: { display: 'none' },
+            });
+
+            return () => {
+                navigation.getParent()?.setOptions({
+                    tabBarStyle: styles.tabBarStyle
+                });
+            };
+        }, [])
+    );
     
     const [searchQuery, setSearchQuery] = React.useState('');
     const normalizeSignal = (text:string) => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -28,6 +44,9 @@ export default function SinaisAlfabetizacao({ navigation }) {
                         Nenhum sinal foi encontrado...
                     </Text>
                 )}
+                <Pressable style={style.goBack} onPress={() => navigation.navigate('Sinalario')}>
+                    <Text style={style.textGoBack}>Voltar ao menu</Text>
+                </Pressable>
             </ScrollView>
         </SafeAreaView>
     );
