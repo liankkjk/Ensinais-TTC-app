@@ -4,10 +4,10 @@ const { width, height } = Dimensions.get('window');
 
 const style = StyleSheet.create({
   view: {
+    flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: width * 0.03,
     paddingVertical: 20,
-    flex: 1,
     paddingTop: 70,
   },
   pressable: {
@@ -38,15 +38,17 @@ const style = StyleSheet.create({
     borderColor: '#FFFFFF',
   },
   accordion: {
-    backgroundColor: '#C6C6C6',
+    backgroundColor: '#F2F2F2',
     borderRadius: 15,
     padding: width * 0.08,
     marginHorizontal: 15,
+    alignContent: 'center',
+    justifyContent: 'center',
   },
   sinais: {
     flex: 1,                
-    paddingTop: 0,         
-    paddingHorizontal: 20,  
+    paddingVertical: 20,         
+    paddingHorizontal: 20,
     gap: 16,
     backgroundColor: '#fff',
   },
@@ -77,7 +79,42 @@ const style = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     marginTop: 60,
     marginBottom: 30,
-  }
+  },
+  buttonSinal: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#F27127',
+    borderRadius: 10,
+    marginBottom: 20,
+    padding: 20,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#F27127',
+    fontFamily: 'Poppins-SemiBold',
+    fontWeight: '800',
+  },
+  seta: {
+    width: 20,
+    height: 20,
+  },
+  goBack: {
+    backgroundColor: '#F2921D',
+    padding: 15,
+    borderRadius: 30,
+    marginBottom: 30,
+    marginHorizontal: 30
+  },
+  textGoBack: {
+    fontSize: 15,
+    textAlign: 'center',
+    fontWeight: 700,
+    color: '#FFF',
+    fontFamily: 'Poppins-SemiBold',
+  },
+
 });
 
 export default style;
