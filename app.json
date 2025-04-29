@@ -2,6 +2,7 @@
   "expo": {
     "name": "Ensinais",
     "slug": "Ensinais",
+    "entryPoint": "./App.tsx",
     "owner": "liankkjk",
     "version": "1.0.0",
     "scheme": "ensinais",
@@ -9,6 +10,7 @@
     "icon": "./assets/adaptive-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "platforms": ["ios", "android"],
     "plugins": [
       [
         "expo-splash-screen",

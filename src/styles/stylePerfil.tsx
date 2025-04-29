@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
     fontSize: scale(24),
     color: "#002366",
     fontWeight: "bold",
-
   },
   editButtonText: {
     color: "white",
@@ -86,7 +85,31 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  // Removed duplicate properties
+
+  conq: {
+    marginTop: scale(20),
+    paddingHorizontal: scale(20),
+    backgroundColor: "#f2a900",
+    borderRadius: scale(15),
+    paddingVertical: scale(10),
+    flexDirection: "row",
+    alignItems: "center",
+    width: "90%",
+    justifyContent: "center",
+  },
+  conqText: {
+    color: "#fff",
+    fontSize: scale(18),
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  conqImage: {
+    marginTop: scale(20),
+    width: scale(100),
+    height: scale(100),
+    borderRadius: scale(10),
+    marginRight: scale(10),
+  },
 });
 
 export default styles;

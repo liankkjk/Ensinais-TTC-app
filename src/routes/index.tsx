@@ -1,9 +1,9 @@
-import LoginNav from './tabRoutes';
-import { AuthProvider } from './authcontext';
+import LoginNav from './tabRoutes'; 
+import { AuthProvider } from './authcontext'; 
 
 export default function Routes() {
   return (
-    <AuthProvider>
+    <AuthProvider> 
       <LoginNav />
     </AuthProvider>
   );

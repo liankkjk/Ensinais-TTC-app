@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   trofeuButton: {
-
+    backgroundColor: '#0a4',
     marginLeft: scale(10),
     paddingVertical: scale(6),
     paddingHorizontal: scale(12),
@@ -58,16 +58,8 @@ const styles = StyleSheet.create({
   trofeuText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: scale(15),
+    fontSize: scale(14),
   },
-
-  trofeuIcon: {
-    width: scale(65),
-    height: scale(65),
-    marginRight: scale(6),
-    resizeMode: 'contain',
-  },
-  
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -82,8 +74,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    width: scale(80),
-    height: scale(65),
+    width: scale(60),
+    height: scale(60),
     marginBottom: scale(10),
     tintColor: '#ffa500',
   },
@@ -161,6 +153,18 @@ const styles = StyleSheet.create({
     color: '#002366', 
     marginBottom: scale(10),  
     textAlign: 'center',  
+  },
+  voltarAoInicio: {
+    backgroundColor: '#ffa500',
+    paddingHorizontal: scale(15),
+    paddingVertical: scale(10),
+    borderRadius: scale(10),
+    marginTop: scale(25),
+    marginLeft: scale(95),
+    marginRight: scale(95),
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
   modalCloseButton: {
     backgroundColor: '#ffa500',
