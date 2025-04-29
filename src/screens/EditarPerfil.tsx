@@ -9,6 +9,8 @@ import { useAuth } from "../routes/authcontext";
 import { LinearGradient } from 'expo-linear-gradient';
 import * as FileSystem from 'expo-file-system';
 
+// testar commit
+
 const { width } = Dimensions.get('window');
 const fontSizeBase = width * 0.05;
 
