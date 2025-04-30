@@ -2,7 +2,6 @@
   "expo": {
     "name": "Ensinais",
     "slug": "Ensinais",
-    "entryPoint": "./App.tsx",
     "owner": "liankkjk",
     "version": "1.0.0",
     "scheme": "ensinais",
@@ -18,12 +17,6 @@
           "image": "./assets/icon.png",
           "resizeMode": "contain",
           "backgroundColor": "#F2F2F2"
-        }
-      ],
-      [
-        "@react-native-google-signin/google-signin",
-        {
-          "iosUrlScheme": "com.googleusercontent.apps.456086389243-gek0tsd8vk2ahnv3fdj7qb4v9529jc8c"
         }
       ],
       [
