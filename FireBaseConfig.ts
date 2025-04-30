@@ -6,12 +6,12 @@ import {
 } from "firebase/auth";
 import { getFirestore, collection, addDoc, doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyCOf6Fyk5yMsySbuFjznx26iajGfksNVg4",
   authDomain: "ensinais-tcc.firebaseapp.com",
   projectId: "ensinais-tcc",
-  storageBucket: "ensinais-tcc.appspot.com",
+  storageBucket: "ensinais-tcc.firebasestorage.app",
   messagingSenderId: "456086389243",
   appId: "1:456086389243:web:15f2c7a1f1cf89120c4b5e",
   measurementId: "G-VVNQRBKPKP"
@@ -29,6 +29,9 @@ try {
 }
 
 const FIREBASE_DB = getFirestore(FIREBASE_APP);
+
+const FIREBASE_STORAGE = getStorage(FIREBASE_APP);
+
 
 // addDoc(collection(FIREBASE_DB, "Usuários"), {  //ctr + k + ctrl + U (descomenta o código) ctr + k + ctrl + C(comenta o código)
 //   email: "admin@gmail.com",
@@ -57,4 +60,4 @@ const FIREBASE_DB = getFirestore(FIREBASE_APP);
 
 // deleteDoc(docRef);
 
-export { FIREBASE_APP, FIREBASE_AUTH, FIREBASE_DB }; 
+export { FIREBASE_APP, FIREBASE_AUTH, FIREBASE_DB, FIREBASE_STORAGE }; 

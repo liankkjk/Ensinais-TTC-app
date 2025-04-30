@@ -85,23 +85,37 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-
   conq: {
     marginTop: scale(20),
     paddingHorizontal: scale(20),
-    backgroundColor: "#f2a900",
-    borderRadius: scale(15),
-    paddingVertical: scale(10),
+    paddingVertical: scale(12),
+    borderRadius: scale(20),
     flexDirection: "row",
     alignItems: "center",
-    width: "90%",
     justifyContent: "center",
-  },
-  conqText: {
-    color: "#fff",
-    fontSize: scale(18),
+    width: "90%",
+    alignSelf: "center",
+  
+    // Gradiente dourado (use LinearGradient no componente real)
+    backgroundColor: "#FFD700",
+  
+    // Sombra para destacar
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+  
+    // Borda levemente mais escura
+    borderWidth: 1,
+    borderColor: "#e5b800",
+},
+
+conqText: {
+    fontSize: 18,
     fontWeight: "bold",
-    textAlign: "center",
+    color: "#fff",
+    marginBottom: 10,
   },
   conqImage: {
     marginTop: scale(20),
@@ -110,6 +124,19 @@ const styles = StyleSheet.create({
     borderRadius: scale(10),
     marginRight: scale(10),
   },
+  conqNome: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginTop: 8,
+    textAlign: "center",
+  },
+  conqDescription: {
+    fontSize: scale(13),
+    color: "#000",
+    marginTop: scale(4),
+  },
+  
+
 });
 
 export default styles;
