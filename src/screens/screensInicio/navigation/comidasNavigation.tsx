@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView, Modal, Animated, SafeAreaView } from 'react-native';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { View, Text, TouchableOpacity, Image, ScrollView, Modal, Animated, SafeAreaView, Alert } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { doc, getDoc, setDoc } from 'firebase/firestore'; 
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'; 
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import styles from '../../../styles/styleModulos';
 
@@ -24,20 +25,44 @@ export default function ComidasScreen({navigation}) {
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const userRef = doc(FIREBASE_DB, 'usuarios', FIREBASE_AUTH.currentUser?.uid || '');
-      const userSnap = await getDoc(userRef);
-      
-      if (userSnap.exists()) {
-        const userData = userSnap.data();
-        setExp(userData?.exp || 0);
-        setNivel(userData?.nivel || 0);
-      }
-    };
-
-    fetchUserData();
-  }, []);
+  useFocusEffect(
+            useCallback(() => {
+              const fetchUserData = async () => {
+                const uid = FIREBASE_AUTH.currentUser?.uid;
+                if (!uid) return;
+          
+                const userRef = doc(FIREBASE_DB, 'usuarios', uid);
+                const userSnap = await getDoc(userRef);
+          
+                if (userSnap.exists()) {
+                  const userData = userSnap.data();
+                  let expAtual = userData?.exp || 0;
+                  let nivelAtual = userData?.nivel || 0;
+                  let subiuNivel = false;
+          
+                  while (expAtual >= 200) {
+                    expAtual -= 200;
+                    nivelAtual += 1;
+                    subiuNivel = true;
+                  }
+          
+                  if (subiuNivel) {
+                    await updateDoc(userRef, {
+                      exp: expAtual,
+                      nivel: nivelAtual,
+                    });
+          
+                    Alert.alert("Parabéns!", `Você chegou ao level: ${nivelAtual}`);
+                  }
+          
+                  setExp(expAtual);
+                  setNivel(nivelAtual);
+                }
+              };
+          
+              fetchUserData();
+            }, [])
+          ); 
 
   const getInfoTrofeuPorNivel = (nivel) => {
     if (nivel >= 20) {

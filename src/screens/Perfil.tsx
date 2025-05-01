@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from "react";
-import { View, Text, Image, SafeAreaView, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Image, SafeAreaView, TouchableOpacity, ScrollView, Alert } from "react-native";
 import { DrawerActions, useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from "../styles/stylePerfil";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { useAuth } from "../routes/authcontext";
 
 const Profile = ({ navigation, route }: any) => {
@@ -20,25 +20,46 @@ const Profile = ({ navigation, route }: any) => {
     useCallback(() => {
       const fetchUserData = async () => {
         if (!user) return;
-
+  
         try {
-          const userDoc = await getDoc(doc(db, "usuarios", user.uid));
+          const userRef = doc(db, "usuarios", user.uid);
+          const userDoc = await getDoc(userRef);
+  
           if (userDoc.exists()) {
             const userData = userDoc.data();
-
+  
+            let expAtual = userData.exp || 0;
+            let nivelAtual = userData.nivel || 1;
+            let subiuNivel = false;
+  
+            while (expAtual >= 200) {
+              expAtual -= 200;
+              nivelAtual += 1;
+              subiuNivel = true;
+            }
+  
+            if (subiuNivel) {
+              await updateDoc(userRef, {
+                exp: expAtual,
+                nivel: nivelAtual,
+              });
+  
+              Alert.alert("Parabéns!", `Você chegou ao level: ${nivelAtual}`);
+            }
+  
             setNome(userData.nickname || "Sem Nome");
             setFotoPerfil(userData.avatarUrl || null);
-            setExp(userData.exp || 0);
-            setNivel(userData.nivel || 1);
+            setExp(expAtual);
+            setNivel(nivelAtual);
           }
         } catch (error) {
           console.error("Erro ao buscar dados do usuário:", error);
         }
       };
-
+  
       fetchUserData();
     }, [user])
-  );
+  );  
 
   useFocusEffect(
     useCallback(() => {
