@@ -40,7 +40,6 @@ const Profile = ({ navigation, route }: any) => {
     }, [user])
   );
 
-  // Se voltar da tela de edição com dados novos
   useFocusEffect(
     useCallback(() => {
       if (route.params) {
@@ -117,7 +116,7 @@ const Profile = ({ navigation, route }: any) => {
   style={styles.conq}
 >
   <Image
-    source={getInfoTrofeuPorNivel(nivel).imagem} // função que retorna a imagem do troféu
+    source={getInfoTrofeuPorNivel(nivel).imagem}
     resizeMode="contain"
     style={styles.conqImage}
   />

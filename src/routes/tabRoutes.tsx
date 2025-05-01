@@ -136,7 +136,11 @@ const MainTabs = () => {
                 ]}
               >
                 <Image
-                  source={require('../../assets/icons/Sinalário.png')}
+                  source={
+                    focused
+                      ? require('../../assets/icons/SinalárioBranco.png')
+                      : require('../../assets/icons/SinalárioLaranja.png')     
+                  }
                   style={styles.iconImage}
                 />
               </View>
@@ -166,7 +170,11 @@ const MainTabs = () => {
                 ]}
               >
                 <Image
-                  source={require('../../assets/icons/Início.png')}
+                  source={
+                    focused
+                      ? require('../../assets/icons/LiçõesBranco.png')
+                      : require('../../assets/icons/LiçõesLaranja.png')     
+                  }
                   style={styles.iconImage}
                 />
               </View>
@@ -196,7 +204,11 @@ const MainTabs = () => {
                 ]}
               >
                 <Image
-                  source={require('../../assets/icons/Perfil.png')}
+                  source={
+                    focused
+                      ? require('../../assets/icons/UsuárioBranco.png')
+                      : require('../../assets/icons/UsuárioLaranja.png')     
+                  }
                   style={styles.iconImage}
                 />
               </View>

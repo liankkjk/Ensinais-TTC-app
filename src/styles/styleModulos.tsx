@@ -48,17 +48,11 @@ const styles = StyleSheet.create({
     color: '#002366',
     fontWeight: 'bold',
   },
-  trofeuButton: {
-    backgroundColor: '#0a4',
+  trofeuIcon: {
     marginLeft: scale(10),
     paddingVertical: scale(6),
     paddingHorizontal: scale(12),
     borderRadius: scale(5),
-  },
-  trofeuText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: scale(14),
   },
   row: {
     flexDirection: 'row',

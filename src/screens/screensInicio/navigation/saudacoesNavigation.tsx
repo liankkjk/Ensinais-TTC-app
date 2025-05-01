@@ -39,6 +39,20 @@ export default function SaudaçõesScreen({navigation}) {
     fetchUserData();
   }, []);
 
+  const getInfoTrofeuPorNivel = (nivel) => {
+    if (nivel >= 20) {
+      return { imagem: require('../../../../assets/trofeu_diamante.png'), titulo: 'Troféu Diamante', descricao: 'Você alcançou a elite!' };
+    } else if (nivel >= 10) {
+      return { imagem: require('../../../../assets/trofeu_ouro.png'), titulo: 'Troféu de Ouro', descricao: 'Você é um verdadeiro guerreiro!' };
+    } else if (nivel >= 5) {
+      return { imagem: require('../../../../assets/trofeu_prata.png'), titulo: 'Troféu de Prata', descricao: 'Você está evoluindo bem!' };
+    } else {
+      return { imagem: require('../../../../assets/trofeu_bronze.png'), titulo: 'Troféu de Bronze', descricao: 'Você começou sua jornada!' };
+    }
+  };
+
+  const trofeu = getInfoTrofeuPorNivel(nivel);
+
   const cards = [
     ['Encontro', 'Horário'],
     ['Hierarquia', 'Gratidão']
@@ -178,9 +192,14 @@ const responder = (opcao: string, index: number) => {
             <View style={[styles.expBarFill, { width: `${(exp / 200) * 100}%` }]} />
             <Text style={styles.expText}>{exp} EXP / 200 EXP</Text>
           </View>
-          <TouchableOpacity style={styles.trofeuButton}>
-            <Text style={styles.trofeuText}>Troféu</Text>
-          </TouchableOpacity>
+          <View style={styles.trofeuIcon}>{trofeu && (
+            <Image
+              source={trofeu.imagem}
+              resizeMode="contain"
+              style={{ width: 60, height: 60, marginLeft: 4 }}
+            />
+          )}
+          </View>
         </View>
 
         <View style={styles.level}>
