@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { TouchableOpacity, Dimensions, Text, View, Image, Animated, Alert } from 'react-native';
+import { TouchableOpacity, Dimensions, Text, View, Image, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -15,7 +15,6 @@ import { signOut } from 'firebase/auth';
 import styles from '../styles/styleNavigation';
 import AlterarSenha from '../screens/AlterarSenha';
 
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,17 +25,17 @@ const { width } = Dimensions.get('window');
 
 const SinalarioStackScreen = () => {
   return(
-      <SinalarioStack.Navigator screenOptions={{ headerShown: false }}>
-        <SinalarioStack.Screen name="Sinalario" component={Telas.Sinalario} />
-        <SinalarioStack.Screen name="SinaisAlfabetizacao" component={TelasSinalario.SinaisAlfabetizacao} />
-      </SinalarioStack.Navigator>
+    <SinalarioStack.Navigator screenOptions={{ headerShown: false }}>
+      <SinalarioStack.Screen name="Sinalario" component={Telas.Sinalario} />
+      <SinalarioStack.Screen name="SinaisAlfabetizacao" component={TelasSinalario.SinaisAlfabetizacao} />
+    </SinalarioStack.Navigator>
   );
 };
 
 const PerfilStackScreen = () => {
   return (
     <PerfilStack.Navigator screenOptions={{ headerShown: false }}>
-      <PerfilStack.Screen name="Perfil" component={Telas.Perfil} />
+      <PerfilStack.Screen name="PerfilHome" component={Telas.Perfil} />
       <PerfilStack.Screen name="EditarPerfil" component={Telas.EditarPerfil} />
     </PerfilStack.Navigator>
   );
@@ -55,14 +54,12 @@ const DrawerContent = (props: any) => {
     }
   };
 
-   
-  
   return (
     <DrawerContentScrollView {...props}>
       <Text style={styles.drawerContentTitle}>Configurações</Text>
       <DrawerItem
         label="Editar Perfil"
-        onPress={() => props.navigation.navigate("Perfil", { screen: "EditarPerfil" })}
+        onPress={() => props.navigation.navigate("PerfilStack", { screen: "EditarPerfil" })}
       />
       <DrawerItem label="Alterar Senha" onPress={() => props.navigation.navigate("AlterarSenha")} />
       <DrawerItem label="Sair" onPress={handleLogout} />
@@ -73,11 +70,11 @@ const DrawerContent = (props: any) => {
 const ProfileScreenWithDrawer = () => {
   return (
     <Drawer.Navigator 
-      initialRouteName="Perfil" 
+      initialRouteName="PerfilStack" 
       drawerContent={(props) => <DrawerContent {...props} />}
       screenOptions={{ headerShown: false }} 
     >
-      <Drawer.Screen name="Perfil" component={PerfilStackScreen} />
+      <Drawer.Screen name="PerfilStack" component={PerfilStackScreen} />
     </Drawer.Navigator>
   );
 };
@@ -237,9 +234,9 @@ const LoginNav = () => {
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
         <Stack.Screen name="EditarPerfil" component={Telas.EditarPerfil} />
         <Stack.Screen name="AlterarSenha" component={AlterarSenha} options={{ headerShown: false }} />
-    </Stack.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
- 
+
 export default LoginNav;

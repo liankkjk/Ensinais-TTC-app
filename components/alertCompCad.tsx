@@ -62,6 +62,11 @@ const CadAlert = ({ visible, onClose, title, message, type }: AlertProps) => {
     }
   }, [visible]);
 
+  const imageSource =
+    type === 'success'
+      ? require('../assets/JonathanParabens.png')
+      : require('../assets/icon.png');
+
   if (!showModal) return null;
 
   return (
@@ -70,7 +75,7 @@ const CadAlert = ({ visible, onClose, title, message, type }: AlertProps) => {
         <Animated.View style={{ transform: [{ scale: scaleAnim }], opacity: opacityAnim }}>
           <LinearGradient colors={['#d94929', '#F27127']} style={styles.dialogContainer}>
             <Animatable.View animation="bounceIn" duration={3000} style={styles.iconContainer}>
-              <Image source={require('../assets/icon.png')} style={styles.iconImage} />
+              <Image source={imageSource} style={styles.iconImage} />
             </Animatable.View>
 
             <Text style={styles.title}>{title}</Text>
@@ -106,7 +111,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 24,
+    marginBottom: 12,
     textAlign: 'center',
   },
   message: {

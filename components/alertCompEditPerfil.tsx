@@ -3,6 +3,7 @@ import { Modal, StyleSheet, Text, TouchableOpacity, View, Animated, Image } from
 import { LinearGradient } from 'expo-linear-gradient';
 import { Audio } from 'expo-av';
 import * as Animatable from 'react-native-animatable';
+import { useNavigation } from '@react-navigation/native';
 
 interface AlertProps {
   visible: boolean;
@@ -13,6 +14,7 @@ const ProfileUpdatedAlert = ({ visible, onClose }: AlertProps) => {
   const [showModal, setShowModal] = useState(visible);
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
+  const navigation = useNavigation();
 
   const playSound = async () => {
     const { sound } = await Audio.Sound.createAsync(
@@ -62,13 +64,19 @@ const ProfileUpdatedAlert = ({ visible, onClose }: AlertProps) => {
         <Animated.View style={{ transform: [{ scale: scaleAnim }], opacity: opacityAnim }}>
           <LinearGradient colors={['#d94929', '#F27127']} style={styles.dialogContainer}>
             <Animatable.View animation="bounceIn" duration={3000} style={styles.iconContainer}>
-              <Image source={require('../assets/icon.png')} style={styles.iconImage} />
+              <Image source={require('../assets/JonathanParabens.png')} style={styles.iconImage} />
             </Animatable.View>
 
             <Text style={styles.title}>Perfil atualizado com sucesso</Text>
 
             <Animatable.View animation="pulse" iterationCount="infinite" duration={3000}>
-              <TouchableOpacity style={styles.button} onPress={onClose}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                  onClose();
+                  navigation.goBack();
+                }}
+              >
                 <Text style={styles.buttonText}>OK</Text>
               </TouchableOpacity>
             </Animatable.View>

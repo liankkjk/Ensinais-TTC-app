@@ -114,6 +114,7 @@ const Cadastrar = () => {
               }}
               message={alertMessage}
               title={alertTitle}
+              type={cadastroSucesso ? 'success' : 'error'}
             />
           )}
 
