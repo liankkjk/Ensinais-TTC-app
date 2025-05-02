@@ -102,7 +102,7 @@ const Profile = ({ navigation, route }: any) => {
 
         <View style={styles.headerImageContainer}>
           <Image
-            source={require("../../assets/fundo-perfil.jpg")}
+            source={require("../../assets/background.jpeg")}
             resizeMode="cover"
             style={styles.headerImage}
           />
