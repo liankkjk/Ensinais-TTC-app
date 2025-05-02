@@ -90,10 +90,10 @@ export default function SaudaçõesScreen({ navigation }) {
   ];
 
   const imagensPorTema = {
-    Encontro: require('../../../../assets/aperto-de-mao.png'),
-    Horário: require('../../../../assets/favicon.png'),
-    Hierarquia: require('../../../../assets/Logo branca.png'),
-    Gratidão: require('../../../../assets/adaptive-icon.png'),
+    Encontro: require('../../../../assets/Encontro.png'),
+    Horário: require('../../../../assets/Horário.png'),
+    Hierarquia: require('../../../../assets/Hierarquia.png'),
+    Gratidão: require('../../../../assets/Gratidão.png'),
   };
 
   const perguntasPorTema = {
