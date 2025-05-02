@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
 type RootStackParamList = {
   Menu: undefined;
-  SaudaçõesScreen: undefined;
+  RelacoesScreen: undefined;
   AnimaisScreen: undefined;
   ComidasScreen: undefined;
   ProfissoesScreen: undefined;
@@ -23,10 +23,10 @@ export default function Inicio() {
     <SafeAreaProvider>
       <Stack.Navigator initialRouteName="Menu">
         <Stack.Screen name="Menu" options={{ headerShown: false }} component={Telas.Menu} />
-        <Stack.Screen name="SaudaçõesScreen" options={{ headerShown: false }} component={Telas.SaudaçõesScreen} />
+        <Stack.Screen name="RelaçõesScreen" options={{ headerShown: false }} component={Telas.RelaçõesScreen} />
         <Stack.Screen name="AnimaisScreen" options={{ headerShown: false }} component={Telas.AnimaisScreen} />
         <Stack.Screen name="ComidasScreen" options={{ headerShown: false }} component={Telas.ComidasScreen} />
-        <Stack.Screen name="ProfissõesScreen" options={{ headerShown: false }} component={Telas.ProfissoesScreen} />
+        <Stack.Screen name="ProfissõesScreen" options={{ headerShown: false }} component={Telas.ProfissõesScreen} />
         <Stack.Screen name="EstudoScreen" options={{ headerShown: false }} component={Telas.EstudoScreen} />
         <Stack.Screen name="TransporteScreen" options={{ headerShown: false }} component={Telas.TransporteScreen} />
         <Stack.Screen name="JogoScreen" component={JogoScreen} options={{ headerShown: false }} />

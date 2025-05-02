@@ -4,50 +4,56 @@ import { useFocusEffect } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'; 
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
+import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleInicio';
 
 export default function Menu({ navigation }) {
   const [exp, setExp] = useState(0);
   const [nivel, setNivel] = useState(0);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertTitle, setAlertTitle] = useState("");
 
   useFocusEffect(
-    useCallback(() => {
-      const fetchUserData = async () => {
-        const uid = FIREBASE_AUTH.currentUser?.uid;
-        if (!uid) return;
+      useCallback(() => {
+        const fetchUserData = async () => {
+          const uid = FIREBASE_AUTH.currentUser?.uid;
+          if (!uid) return;
   
-        const userRef = doc(FIREBASE_DB, 'usuarios', uid);
-        const userSnap = await getDoc(userRef);
+          const userRef = doc(FIREBASE_DB, 'usuarios', uid);
+          const userSnap = await getDoc(userRef);
   
-        if (userSnap.exists()) {
-          const userData = userSnap.data();
-          let expAtual = userData?.exp || 0;
-          let nivelAtual = userData?.nivel || 0;
-          let subiuNivel = false;
+          if (userSnap.exists()) {
+            const userData = userSnap.data();
+            let expAtual = userData?.exp || 0;
+            let nivelAtual = userData?.nivel || 0;
+            let subiuNivel = false;
   
-          while (expAtual >= 200) {
-            expAtual -= 200;
-            nivelAtual += 1;
-            subiuNivel = true;
+            while (expAtual >= 200) {
+              expAtual -= 200;
+              nivelAtual += 1;
+              subiuNivel = true;
+            }
+  
+            if (subiuNivel) {
+              await updateDoc(userRef, {
+                exp: expAtual,
+                nivel: nivelAtual,
+              });
+  
+              setAlertTitle("Parabéns!");
+              setAlertMessage(`Você chegou ao level: ${nivelAtual}`);
+              setShowAlert(true);
+            }
+  
+            setExp(expAtual);
+            setNivel(nivelAtual);
           }
+        };
   
-          if (subiuNivel) {
-            await updateDoc(userRef, {
-              exp: expAtual,
-              nivel: nivelAtual,
-            });
-  
-            Alert.alert("Parabéns!", `Você chegou ao level: ${nivelAtual}`);
-          }
-  
-          setExp(expAtual);
-          setNivel(nivelAtual);
-        }
-      };
-  
-      fetchUserData();
-    }, [])
-  );  
+        fetchUserData();
+      }, [])
+    );
 
   const getInfoTrofeuPorNivel = (nivel) => {
     if (nivel >= 20) {
@@ -64,13 +70,13 @@ export default function Menu({ navigation }) {
   const trofeu = getInfoTrofeuPorNivel(nivel);
 
   const cards = [
-    ['Saudações', 'Animais'],
+    ['Relações', 'Animais'],
     ['Comidas', 'Profissões'],
     ['Estudo', 'Transporte']
   ];
 
   const imagensPorTema = {
-    Saudações: require('../../../../assets/aperto-de-mao.png'),
+    Relações: require('../../../../assets/aperto-de-mao.png'),
     Animais: require('../../../../assets/animais.png'),
     Comidas: require('../../../../assets/comidas.png'),
     Profissões: require('../../../../assets/profissoes.png'),
@@ -99,6 +105,15 @@ export default function Menu({ navigation }) {
         <View style={styles.level}>
           <Text style={styles.levelText}>Level {nivel}</Text>
         </View>
+
+        {showAlert && (
+          <MyAlertComponent
+            visible={showAlert}
+            title={alertTitle}
+            message={alertMessage}
+            onClose={() => setShowAlert(false)}
+          />
+        )}
 
         <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
           {cards.map((linha, index) => (

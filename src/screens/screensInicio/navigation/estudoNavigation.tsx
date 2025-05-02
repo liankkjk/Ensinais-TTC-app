@@ -85,15 +85,15 @@ export default function EstudoNavigation({ navigation }) {
   const trofeu = getInfoTrofeuPorNivel(nivel);
 
   const cards = [
-    ['Matemática', 'Filosofia'],
-    ['Artes', 'Geografia']
+    ['Matemática', 'Português'],
+    ['História', 'Geografia']
   ];
 
   const imagensPorTema = {
-    Matemática: require('../../../../assets/aperto-de-mao.png'),
-    Filosofia: require('../../../../assets/favicon.png'),
-    Artes: require('../../../../assets/Logo branca.png'),
-    Geografia: require('../../../../assets/adaptive-icon.png'),
+    Matemática: require('../../../../assets/Matemática.png'),
+    Português: require('../../../../assets/Português.png'),
+    História: require('../../../../assets/História.png'),
+    Geografia: require('../../../../assets/Geografia.png'),
   };
 
   const perguntasPorTema = {

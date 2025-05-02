@@ -7,7 +7,7 @@ import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
 
-export default function SaudaçõesScreen({ navigation }) {
+export default function RelaçõesScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalFinalVisible, setModalFinalVisible] = useState(false);
   const [cardSelecionado, setCardSelecionado] = useState('');
