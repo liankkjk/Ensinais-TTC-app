@@ -4,7 +4,6 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
-  Alert,
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
@@ -20,6 +19,7 @@ import { useAuth } from '../routes/authcontext';
 import styles from '../styles/styleLogin';
 import { doc, getDoc } from 'firebase/firestore';
 import { FIREBASE_DB } from '../../FireBaseConfig';
+import CadAlertSair from '../../components/alertCompSair';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -29,6 +29,10 @@ const LoginScreen = ({ navigation }) => {
   const { loginWithEmail } = useAuth();
   const auth = FIREBASE_AUTH;
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [erroModalVisible, setErroModalVisible] = useState(false);
+  const [erroMensagem, setErroMensagem] = useState('');
+
   const signIn = async () => {
     setLoading(true);
     try {
@@ -37,35 +41,29 @@ const LoginScreen = ({ navigation }) => {
       if (user) {
         const userDocRef = doc(FIREBASE_DB, 'usuarios', user.uid);
         const userSnapshot = await getDoc(userDocRef);
-  
+
         if (userSnapshot.exists()) {
           const userData = userSnapshot.data();
-          console.log('Dados do usuário:', userData);
         }
       }
-  
+
       navigation.reset({
         index: 0,
         routes: [{ name: 'MainTabs' }],
       });
     } catch (error: any) {
-      Alert.alert('Erro ao fazer login', error.message);
+      setErroMensagem(error.message);
+      setErroModalVisible(true);
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     const onBackPress = () => {
-      Alert.alert(
-        'Sair do app',
-        'Deseja realmente sair do aplicativo?',
-        [
-          { text: 'Cancelar', style: 'cancel' },
-          { text: 'Sim', onPress: () => BackHandler.exitApp() },
-        ]
-      );
-      return true; 
+      setErroMensagem('Deseja realmente sair do aplicativo?');
+      setErroModalVisible(true);
+      return true;
     };
 
     BackHandler.addEventListener('hardwareBackPress', onBackPress);
@@ -147,6 +145,21 @@ const LoginScreen = ({ navigation }) => {
           />
         </KeyboardAvoidingView>
       </SafeAreaView>
+
+      <CadAlertSair
+        visible={erroModalVisible}
+        message={erroMensagem}
+        onClose={() => setErroModalVisible(false)}
+        onConfirm={() => {
+          if (erroMensagem === 'Deseja realmente sair do aplicativo?') {
+            setErroModalVisible(false);
+            BackHandler.exitApp();
+          } else {
+            setErroModalVisible(false);
+          }
+        }}
+        singleButtonMode={erroMensagem !== 'Deseja realmente sair do aplicativo?'}
+      />
     </LinearGradient>
   );
 };

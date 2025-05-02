@@ -7,6 +7,7 @@ import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useAuth } from "../routes/authcontext";
 import { LinearGradient } from 'expo-linear-gradient';
+import CadAlertEdit from '../../components/alertCompEditPerfil';
 
 const { width } = Dimensions.get('window');
 const fontSizeBase = width * 0.05;
@@ -17,6 +18,7 @@ const EditarPerfil = ({ navigation }: any) => {
   const { user } = useAuth();
   const db = getFirestore();
   const storage = getStorage();
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -61,28 +63,22 @@ const EditarPerfil = ({ navigation }: any) => {
     try {
       let fotoUrl: string | null = foto;
 
-      // Verifica se existe foto e se a URI não é uma URL remota
       if (foto && !foto.startsWith('https://')) {
-        const response = await fetch(foto); // Pega a imagem da URI
-        const blob = await response.blob(); // Converte a imagem para blob
+        const response = await fetch(foto);
+        const blob = await response.blob();
 
-        const fotoRef = ref(storage, `usuarios/${user.uid}/fotoPerfil.jpg`); // Referência no Firebase Storage
-        const snapshot = await uploadBytes(fotoRef, blob); // Faz o upload do blob
-        fotoUrl = await getDownloadURL(snapshot.ref); // Obtém a URL da imagem
+        const fotoRef = ref(storage, `usuarios/${user.uid}/fotoPerfil.jpg`);
+        const snapshot = await uploadBytes(fotoRef, blob);
+        fotoUrl = await getDownloadURL(snapshot.ref);
       }
 
-      // Atualiza o Firestore com nome e URL da foto
       const userRef = doc(db, 'usuarios', user.uid);
       await updateDoc(userRef, {
         nickname: nome,
         avatarUrl: fotoUrl,
       });
 
-      Alert.alert('Sucesso', 'Perfil atualizado!');
-      navigation.navigate('Perfil', {
-        nomeAtualizado: nome,
-        fotoAtualizada: fotoUrl,
-      });
+      setModalVisible(true);
     } catch (error) {
       console.error('Erro ao salvar alterações:', error);
       Alert.alert('Erro', 'Não foi possível salvar as alterações.');
@@ -120,6 +116,17 @@ const EditarPerfil = ({ navigation }: any) => {
           </TouchableOpacity>
         </SafeAreaView>
       </KeyboardAvoidingView>
+
+      <CadAlertEdit
+        visible={modalVisible}
+        onClose={() => {
+          setModalVisible(false);
+          navigation.navigate('Perfil', {
+            nomeAtualizado: nome,
+            fotoAtualizada: foto,
+          });
+        }}
+      />
     </LinearGradient>
   );
 };

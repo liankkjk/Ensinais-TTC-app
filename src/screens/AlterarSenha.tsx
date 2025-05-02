@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { SafeAreaView, KeyboardAvoidingView, Platform, View, TextInput, Text, TouchableOpacity, Alert, Dimensions } from 'react-native';
+import { SafeAreaView, KeyboardAvoidingView, Platform, View, TextInput, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { getAuth, updatePassword } from 'firebase/auth';
 import styles from '../styles/styleAlterarSenha';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo-linear-gradient';
+import CadAlertSenha from '../../components/alertCompAltSenha';
 
 const { width } = Dimensions.get('window');
 
@@ -13,18 +14,23 @@ const AlterarSenha = ({ navigation }) => {
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [erroModalVisible, setErroModalVisible] = useState(false);
+  const [erroMensagem, setErroMensagem] = useState('');
 
   const alterarSenha = async () => {
     const auth = FIREBASE_AUTH;
     const user = auth.currentUser;
 
     if (!novaSenha || !confirmarSenha) {
-      Alert.alert('Erro', 'Preencha todos os campos.');
+      setErroMensagem('Preencha todos os campos.');
+      setErroModalVisible(true);
       return;
     }
 
     if (novaSenha !== confirmarSenha) {
-      Alert.alert('Erro', 'As senhas não coincidem.');
+      setErroMensagem('As senhas não coincidem.');
+      setErroModalVisible(true);
       return;
     }
 
@@ -32,12 +38,12 @@ const AlterarSenha = ({ navigation }) => {
 
     try {
       await updatePassword(user, novaSenha);
-      Alert.alert('Sucesso', 'Senha alterada com sucesso!');
+      setModalVisible(true);
       setNovaSenha('');
       setConfirmarSenha('');
-      navigation.goBack();
     } catch (error) {
-      Alert.alert('Erro', error.message);
+      setErroMensagem(error.message);
+      setErroModalVisible(true);
     }
   };
 
@@ -47,19 +53,19 @@ const AlterarSenha = ({ navigation }) => {
       style={{ flex: 1 }}
     >
       <SafeAreaView style={{ flex: 1 }}>
-        <KeyboardAvoidingView 
-          style={{ flex: 1 }} 
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           <View style={styles.innerContainer}>
-            <TouchableOpacity 
-              style={styles.backButton} 
+            <TouchableOpacity
+              style={styles.backButton}
               onPress={() => navigation.goBack()}
             >
-              <MaterialCommunityIcons 
-                name="arrow-left" 
-                size={24} 
-                color="#fff" 
+              <MaterialCommunityIcons
+                name="arrow-left"
+                size={24}
+                color="#fff"
               />
               <Text style={[styles.backText, { color: '#fff' }]}>Voltar</Text>
             </TouchableOpacity>
@@ -68,44 +74,44 @@ const AlterarSenha = ({ navigation }) => {
 
             <Text style={[styles.inputLabel, { color: '#fff' }]}>Nova Senha</Text>
             <View style={styles.inputContainer}>
-              <TextInput 
-                style={styles.input} 
+              <TextInput
+                style={styles.input}
                 placeholder="Digite sua nova senha"
                 secureTextEntry={!showPassword}
                 placeholderTextColor="#aaa"
                 value={novaSenha}
                 onChangeText={setNovaSenha}
               />
-              <TouchableOpacity 
-                onPress={() => setShowPassword(prevState => !prevState)} 
+              <TouchableOpacity
+                onPress={() => setShowPassword(prevState => !prevState)}
                 style={styles.iconButton}
               >
-                <MaterialCommunityIcons 
-                  name={showPassword ? 'eye-off' : 'eye'} 
-                  size={24} 
-                  color="#333" 
+                <MaterialCommunityIcons
+                  name={showPassword ? 'eye-off' : 'eye'}
+                  size={24}
+                  color="#333"
                 />
               </TouchableOpacity>
             </View>
 
             <Text style={[styles.inputLabel, { color: '#fff' }]}>Confirme sua Senha</Text>
             <View style={styles.inputContainer}>
-              <TextInput 
-                style={styles.input} 
+              <TextInput
+                style={styles.input}
                 placeholder="Confirme sua nova senha"
                 secureTextEntry={!showConfirmPassword}
                 placeholderTextColor="#aaa"
                 value={confirmarSenha}
                 onChangeText={setConfirmarSenha}
               />
-              <TouchableOpacity 
-                onPress={() => setShowConfirmPassword(prevState => !prevState)} 
+              <TouchableOpacity
+                onPress={() => setShowConfirmPassword(prevState => !prevState)}
                 style={styles.iconButton}
               >
-                <MaterialCommunityIcons 
-                  name={showConfirmPassword ? 'eye-off' : 'eye'} 
-                  size={24} 
-                  color="#333" 
+                <MaterialCommunityIcons
+                  name={showConfirmPassword ? 'eye-off' : 'eye'}
+                  size={24}
+                  color="#333"
                 />
               </TouchableOpacity>
             </View>
@@ -116,6 +122,29 @@ const AlterarSenha = ({ navigation }) => {
           </View>
         </KeyboardAvoidingView>
       </SafeAreaView>
+
+      {/* Modal de sucesso */}
+      <CadAlertSenha
+        visible={modalVisible}
+        onClose={() => {
+          setModalVisible(false);
+          navigation.goBack();
+        }}
+        title="Sucesso!"
+        message="Senha alterada com sucesso!"
+        type="sucesso"
+      />
+
+      {/* Modal de erro */}
+      <CadAlertSenha
+        visible={erroModalVisible}
+        onClose={() => {
+          setErroModalVisible(false);
+        }}
+        title="Erro!"
+        message={erroMensagem}
+        type="erro"
+      />
     </LinearGradient>
   );
 };

@@ -6,12 +6,16 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from "../styles/stylePerfil";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { useAuth } from "../routes/authcontext";
+import MyAlertComponent from "../../components/alertCompLvl";
 
 const Profile = ({ navigation, route }: any) => {
   const [nome, setNome] = useState("Jonathan");
   const [fotoPerfil, setFotoPerfil] = useState<string | null>(null);
   const [exp, setExp] = useState(0);
   const [nivel, setNivel] = useState(1);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertTitle, setAlertTitle] = useState("");
 
   const { user } = useAuth();
   const db = getFirestore();
@@ -20,33 +24,35 @@ const Profile = ({ navigation, route }: any) => {
     useCallback(() => {
       const fetchUserData = async () => {
         if (!user) return;
-  
+
         try {
           const userRef = doc(db, "usuarios", user.uid);
           const userDoc = await getDoc(userRef);
-  
+
           if (userDoc.exists()) {
             const userData = userDoc.data();
-  
+
             let expAtual = userData.exp || 0;
             let nivelAtual = userData.nivel || 1;
             let subiuNivel = false;
-  
+
             while (expAtual >= 200) {
               expAtual -= 200;
               nivelAtual += 1;
               subiuNivel = true;
             }
-  
+
             if (subiuNivel) {
               await updateDoc(userRef, {
                 exp: expAtual,
                 nivel: nivelAtual,
               });
-  
-              Alert.alert("Parabéns!", `Você chegou ao level: ${nivelAtual}`);
+
+              setAlertTitle("Parabéns!");
+              setAlertMessage(`Você chegou ao level: ${nivelAtual}`);
+              setShowAlert(true);
             }
-  
+
             setNome(userData.nickname || "Sem Nome");
             setFotoPerfil(userData.avatarUrl || null);
             setExp(expAtual);
@@ -56,10 +62,10 @@ const Profile = ({ navigation, route }: any) => {
           console.error("Erro ao buscar dados do usuário:", error);
         }
       };
-  
+
       fetchUserData();
     }, [user])
-  );  
+  );
 
   useFocusEffect(
     useCallback(() => {
@@ -101,6 +107,14 @@ const Profile = ({ navigation, route }: any) => {
             style={styles.headerImage}
           />
         </View>
+        {showAlert && (
+          <MyAlertComponent
+            visible={showAlert}
+            title={alertTitle}
+            message={alertMessage}
+            onClose={() => setShowAlert(false)}
+          />
+        )}
 
         <View style={styles.profileContainer}>
           <Image
@@ -133,28 +147,28 @@ const Profile = ({ navigation, route }: any) => {
           </View>
 
           <LinearGradient
-  colors={['#FFD700', '#FFA500']}
-  style={styles.conq}
->
-  <Image
-    source={getInfoTrofeuPorNivel(nivel).imagem}
-    resizeMode="contain"
-    style={styles.conqImage}
-  />
-  <View style={styles.conqText}>
-    <Text style={styles.conqNome}>
-      {nivel < 5 ? 'Troféu de Bronze' :
-       nivel < 10 ? 'Troféu de Prata' :
-       nivel < 20 ? 'Troféu de Ouro' : 'Troféu de Diamante'}
-    </Text>
-    <Text style={styles.conqDescription}>
-      {nivel < 5 ? 'Você começou sua jornada!' :
-       nivel < 10 ? 'Você está evoluindo bem!' :
-       nivel < 20 ? 'Você é um verdadeiro guerreiro!' :
-       'Você alcançou a elite!'}
-    </Text>
-  </View>
-</LinearGradient>
+            colors={['#FFD700', '#FFA500']}
+            style={styles.conq}
+          >
+            <Image
+              source={getInfoTrofeuPorNivel(nivel).imagem}
+              resizeMode="contain"
+              style={styles.conqImage}
+            />
+            <View style={styles.conqText}>
+              <Text style={styles.conqNome}>
+                {nivel < 5 ? 'Troféu de Bronze' :
+                  nivel < 10 ? 'Troféu de Prata' :
+                    nivel < 20 ? 'Troféu de Ouro' : 'Troféu de Diamante'}
+              </Text>
+              <Text style={styles.conqDescription}>
+                {nivel < 5 ? 'Você começou sua jornada!' :
+                  nivel < 10 ? 'Você está evoluindo bem!' :
+                    nivel < 20 ? 'Você é um verdadeiro guerreiro!' :
+                      'Você alcançou a elite!'}
+              </Text>
+            </View>
+          </LinearGradient>
         </View>
       </ScrollView>
     </SafeAreaView>

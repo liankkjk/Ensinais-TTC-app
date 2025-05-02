@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, Modal, Animated, SafeAreaView, Alert } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'; 
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
+import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
 
-export default function EstudoNavigation({navigation}) {
+export default function EstudoNavigation({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalFinalVisible, setModalFinalVisible] = useState(false);
   const [cardSelecionado, setCardSelecionado] = useState('');
@@ -19,6 +20,9 @@ export default function EstudoNavigation({navigation}) {
   const [timerAtivo, setTimerAtivo] = useState(true);
   const [acertos, setAcertos] = useState(0);
   const [erros, setErros] = useState(0);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertTitle, setAlertTitle] = useState("");
 
   const [exp, setExp] = useState(0);
   const [nivel, setNivel] = useState(0);
@@ -26,43 +30,45 @@ export default function EstudoNavigation({navigation}) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useFocusEffect(
-              useCallback(() => {
-                const fetchUserData = async () => {
-                  const uid = FIREBASE_AUTH.currentUser?.uid;
-                  if (!uid) return;
-            
-                  const userRef = doc(FIREBASE_DB, 'usuarios', uid);
-                  const userSnap = await getDoc(userRef);
-            
-                  if (userSnap.exists()) {
-                    const userData = userSnap.data();
-                    let expAtual = userData?.exp || 0;
-                    let nivelAtual = userData?.nivel || 0;
-                    let subiuNivel = false;
-            
-                    while (expAtual >= 200) {
-                      expAtual -= 200;
-                      nivelAtual += 1;
-                      subiuNivel = true;
-                    }
-            
-                    if (subiuNivel) {
-                      await updateDoc(userRef, {
-                        exp: expAtual,
-                        nivel: nivelAtual,
-                      });
-            
-                      Alert.alert("Parabéns!", `Você chegou ao level: ${nivelAtual}`);
-                    }
-            
-                    setExp(expAtual);
-                    setNivel(nivelAtual);
-                  }
-                };
-            
-                fetchUserData();
-              }, [])
-            ); 
+    useCallback(() => {
+      const fetchUserData = async () => {
+        const uid = FIREBASE_AUTH.currentUser?.uid;
+        if (!uid) return;
+
+        const userRef = doc(FIREBASE_DB, 'usuarios', uid);
+        const userSnap = await getDoc(userRef);
+
+        if (userSnap.exists()) {
+          const userData = userSnap.data();
+          let expAtual = userData?.exp || 0;
+          let nivelAtual = userData?.nivel || 0;
+          let subiuNivel = false;
+
+          while (expAtual >= 200) {
+            expAtual -= 200;
+            nivelAtual += 1;
+            subiuNivel = true;
+          }
+
+          if (subiuNivel) {
+            await updateDoc(userRef, {
+              exp: expAtual,
+              nivel: nivelAtual,
+            });
+
+            setAlertTitle("Parabéns!");
+            setAlertMessage(`Você chegou ao level: ${nivelAtual}`);
+            setShowAlert(true);
+          }
+
+          setExp(expAtual);
+          setNivel(nivelAtual);
+        }
+      };
+
+      fetchUserData();
+    }, [])
+  );
 
   const getInfoTrofeuPorNivel = (nivel) => {
     if (nivel >= 20) {
@@ -148,26 +154,26 @@ export default function EstudoNavigation({navigation}) {
     return () => clearInterval(timer);
   }, [tempoRestante, timerAtivo]);
 
-const responder = (opcao: string, index: number) => {
-  if (!cardSelecionado) return;
-  const pergunta = perguntasPorTema[cardSelecionado][perguntaAtual];
-  const correta = pergunta.correta;
-  if (botaoSelecionado !== null) return;
-  setBotaoSelecionado(index);
-  if (opcao === correta) {
-    setBotaoCorreto(true);
-    setMensagemAcerto('Parabéns você acertou!! ganhou 5 de XP <3');
-    setXpGanho((prev) => prev + 5);
-    setAcertos((prev) => prev + 1);
-  } else {
-    setBotaoCorreto(false);
-    setMensagemAcerto('Poxa você errou, tente outra vez');
-    setErros((prev) => prev + 1);
-  }
-  setTimeout(() => {
-    proximaPergunta();
-  }, 2000);
-};
+  const responder = (opcao: string, index: number) => {
+    if (!cardSelecionado) return;
+    const pergunta = perguntasPorTema[cardSelecionado][perguntaAtual];
+    const correta = pergunta.correta;
+    if (botaoSelecionado !== null) return;
+    setBotaoSelecionado(index);
+    if (opcao === correta) {
+      setBotaoCorreto(true);
+      setMensagemAcerto('Parabéns você acertou!! ganhou 5 de XP <3');
+      setXpGanho((prev) => prev + 5);
+      setAcertos((prev) => prev + 1);
+    } else {
+      setBotaoCorreto(false);
+      setMensagemAcerto('Poxa você errou, tente outra vez');
+      setErros((prev) => prev + 1);
+    }
+    setTimeout(() => {
+      proximaPergunta();
+    }, 2000);
+  };
 
   const proximaPergunta = () => {
     if (!cardSelecionado) return;
@@ -187,17 +193,17 @@ const responder = (opcao: string, index: number) => {
     try {
       const userRef = doc(FIREBASE_DB, 'usuarios', FIREBASE_AUTH.currentUser?.uid || '');
       const userSnap = await getDoc(userRef);
-      
+
       if (userSnap.exists()) {
         const userData = userSnap.data();
         const currentExp = userData?.exp || 0;
-    
+
         await setDoc(userRef, {
           exp: currentExp + xpGanho,
         }, { merge: true });
-    
+
         setXpGanho(0);
-        
+
         setModalFinalVisible(false);
         setCardSelecionado('');
         setPerguntaAtual(0);
@@ -206,7 +212,7 @@ const responder = (opcao: string, index: number) => {
       console.error("Erro ao atualizar XP no Firestore:", error);
     }
   };
-  
+
   const perguntas = perguntasPorTema[cardSelecionado] || [];
 
   return (
@@ -231,6 +237,15 @@ const responder = (opcao: string, index: number) => {
           <Text style={styles.levelText}>Level {nivel}</Text>
         </View>
 
+        {showAlert && (
+          <MyAlertComponent
+            visible={showAlert}
+            title={alertTitle}
+            message={alertMessage}
+            onClose={() => setShowAlert(false)}
+          />
+        )}
+
         <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
           {cards.map((linha, index) => (
             <View style={styles.row} key={index}>
@@ -243,9 +258,9 @@ const responder = (opcao: string, index: number) => {
             </View>
           ))}
 
-        <TouchableOpacity onPress={() => navigation.navigate('Menu')} style={styles.voltarAoInicio}>
-                <Text style={styles.modalCloseText}>Voltar ao Menu</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Menu')} style={styles.voltarAoInicio}>
+            <Text style={styles.modalCloseText}>Voltar ao Menu</Text>
+          </TouchableOpacity>
         </ScrollView>
 
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
