@@ -118,7 +118,7 @@ const Profile = ({ navigation, route }: any) => {
 
         <View style={styles.profileContainer}>
           <Image
-            source={fotoPerfil ? { uri: fotoPerfil } : require("../../assets/user.jpg")}
+            source={fotoPerfil ? { uri: fotoPerfil } : require("../../assets/JonathanPerfil.png")}
             resizeMode="contain"
             style={styles.profileImage}
           />

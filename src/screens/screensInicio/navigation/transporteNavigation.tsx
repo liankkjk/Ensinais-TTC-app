@@ -90,10 +90,10 @@ export default function TransporteNavigation({ navigation }) {
   ];
 
   const imagensPorTema = {
-    Trânsito: require('../../../../assets/aperto-de-mao.png'),
-    Veículos: require('../../../../assets/favicon.png'),
-    Ônibus: require('../../../../assets/Logo branca.png'),
-    Metro: require('../../../../assets/adaptive-icon.png'),
+    Trânsito: require('../../../../assets/Trânsito.png'),
+    Veículos: require('../../../../assets/Veículos.png'),
+    Ônibus: require('../../../../assets/Ônibus.png'),
+    Metro: require('../../../../assets/Metro.png'),
   };
 
   const perguntasPorTema = {

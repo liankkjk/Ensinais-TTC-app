@@ -65,7 +65,7 @@ const CadAlert = ({ visible, onClose, title, message, type }: AlertProps) => {
   const imageSource =
     type === 'success'
       ? require('../assets/JonathanParabens.png')
-      : require('../assets/icon.png');
+      : require('../assets/JonathanErro.png');
 
   if (!showModal) return null;
 

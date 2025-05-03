@@ -19,6 +19,7 @@ const EditarPerfil = ({ navigation }: any) => {
   const db = getFirestore();
   const storage = getStorage();
   const [modalVisible, setModalVisible] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -98,7 +99,7 @@ const EditarPerfil = ({ navigation }: any) => {
 
           <TouchableOpacity onPress={escolherFoto}>
             <Image
-              source={foto ? { uri: foto } : require('../../assets/user.jpg')}
+              source={foto ? { uri: foto } : require('../../assets/JonathanPerfil.png')}
               style={styles.imagemPerfil}
             />
             <Text style={styles.trocarFoto}>Editar Foto</Text>
@@ -106,12 +107,26 @@ const EditarPerfil = ({ navigation }: any) => {
 
           <TextInput
             style={styles.input}
-            placeholder="Digite seu nome"
+            placeholder="Digite seu nickname"
             value={nome}
-            onChangeText={setNome}
+            onChangeText={(text) => {
+              if (text.length <= 20) setNome(text);
+            }}
           />
 
-          <TouchableOpacity style={styles.botao} onPress={salvar}>
+          {error && <Text style={{ color: 'red', fontSize: fontSizeBase * 0.9 }}>{error}</Text>}
+
+          <TouchableOpacity
+            style={styles.botao}
+            onPress={() => {
+              if (nome.trim() === '') {
+                setError('O nickname não pode estar vazio!');
+                return;
+              }
+              setError('');
+              salvar();
+            }}
+          >
             <Text style={styles.botaoTexto}>Salvar</Text>
           </TouchableOpacity>
         </SafeAreaView>

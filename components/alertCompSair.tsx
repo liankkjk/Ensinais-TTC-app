@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View, Animated, Image, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Animatable from 'react-native-animatable';
-import { Audio } from 'expo-av'; // Importando o pacote de áudio
+import { Audio } from 'expo-av';
 
 const { width } = Dimensions.get('window');
 
@@ -78,7 +78,7 @@ const ExitConfirmationAlert = ({
           <LinearGradient colors={['#d94929', '#F27127']} style={styles.dialogContainer}>
             <Animatable.View animation="bounceIn" duration={1000} style={styles.iconContainer}>
               <Image
-                source={require('../assets/icon.png')}
+                source={require('../assets/JonathanTriste.png')}
                 style={styles.iconImage}
               />
             </Animatable.View>

@@ -69,7 +69,7 @@ const MyCustomAlert = ({ visible, title, message, onClose }: AlertProps) => {
             style={styles.dialogContainer}
           >
             <Animatable.View animation="bounceIn" duration={3000} style={styles.iconContainer}>
-              <Image source={require('../assets/icon.png')} style={styles.iconImage} />
+              <Image source={require('../assets/JonathanParabens.png')} style={styles.iconImage} />
             </Animatable.View>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.message}>{message}</Text>

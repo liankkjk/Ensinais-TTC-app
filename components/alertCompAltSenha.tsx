@@ -76,7 +76,7 @@ const PasswordChangedAlert = ({
               <Image
                 source={
                   type === 'erro'
-                    ? require('../assets/icon.png') 
+                    ? require('../assets/JonathanErro.png') 
                     : require('../assets/JonathanParabens.png') 
                 }
                 style={styles.iconImage}

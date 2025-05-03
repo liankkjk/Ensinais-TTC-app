@@ -44,7 +44,7 @@ const Cadastrar = () => {
       setAlertTitle('Erro');
       setAlertMessage('Por favor, preencha todos os campos.');
       setShowAlert(true);
-      playSound('error'); // Tocar som de erro
+      playSound('error');
       return;
     }
 
@@ -63,12 +63,11 @@ const Cadastrar = () => {
         createdAt: new Date(),
       });
 
-      // Cadastro realizado com sucesso
       setAlertTitle('Sucesso');
       setAlertMessage('Cadastro realizado com sucesso!');
       setCadastroSucesso(true);
       setShowAlert(true);
-      playSound('success'); // Tocar som de sucesso
+      playSound('success');
 
     } catch (error: unknown) {
       let errorMessage = 'Erro ao cadastrar. Tente novamente.';
@@ -78,7 +77,7 @@ const Cadastrar = () => {
       setAlertTitle('Erro');
       setAlertMessage(errorMessage);
       setShowAlert(true);
-      playSound('error'); // Tocar som de erro
+      playSound('error'); 
     } finally {
       setLoading(false);
     }
