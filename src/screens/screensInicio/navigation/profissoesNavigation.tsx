@@ -85,15 +85,15 @@ export default function ProfissoesScreen({ navigation }) {
   const trofeu = getInfoTrofeuPorNivel(nivel);
 
   const cards = [
-    ['Tecnologia', 'Saude'],
-    ['Serviços Gerais', 'Engenharia ']
+    ['Tecnologia', 'Saúde'],
+    ['Atendimentos', 'Engenharia']
   ];
 
   const imagensPorTema = {
-    Tecnologia: require('../../../../assets/aperto-de-mao.png'),
-    Saude: require('../../../../assets/favicon.png'),
-    ServiçosGerais: require('../../../../assets/Logo branca.png'),
-    Engenharia: require('../../../../assets/adaptive-icon.png'),
+    Tecnologia: require('../../../../assets/Tecnologia.png'),
+    Saúde: require('../../../../assets/Saúde.png'),
+    Atendimentos: require('../../../../assets/ServiçosGerais.png'),
+    Engenharia: require('../../../../assets/Engenharia.png'),
   };
 
   const perguntasPorTema = {
@@ -103,11 +103,19 @@ export default function ProfissoesScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
     ],
-    Saude: [
+    Saúde: [
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+    ],
+    Atendimentos: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sinal 1', 'Sinal 2', 'Sinal 3'], correta: 'Sinal 1' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sinal A', 'Sinal B', 'Sinal C'], correta: 'Sinal B' },
+    ],
+    Engenharia: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Engenharia 1', 'Engenharia 2', 'Engenharia 3'], correta: 'Engenharia 1' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Engenharia A', 'Engenharia B', 'Engenharia C'], correta: 'Engenharia B' },
     ],
   };
 
