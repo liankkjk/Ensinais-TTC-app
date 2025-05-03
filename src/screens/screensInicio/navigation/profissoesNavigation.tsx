@@ -86,13 +86,13 @@ export default function ProfissoesScreen({ navigation }) {
 
   const cards = [
     ['Tecnologia', 'Saúde'],
-    ['Atendimentos', 'Engenharia']
+    ['Serviços', 'Engenharia']
   ];
 
   const imagensPorTema = {
     Tecnologia: require('../../../../assets/Tecnologia.png'),
     Saúde: require('../../../../assets/Saúde.png'),
-    Atendimentos: require('../../../../assets/ServiçosGerais.png'),
+    Serviços: require('../../../../assets/ServiçosGerais.png'),
     Engenharia: require('../../../../assets/Engenharia.png'),
   };
 
@@ -109,7 +109,7 @@ export default function ProfissoesScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
     ],
-    Atendimentos: [
+    Serviços: [
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sinal 1', 'Sinal 2', 'Sinal 3'], correta: 'Sinal 1' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sinal A', 'Sinal B', 'Sinal C'], correta: 'Sinal B' },
     ],
