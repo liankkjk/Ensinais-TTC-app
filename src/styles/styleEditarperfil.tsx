@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   backText: {
     marginLeft: width * 0.015,
     fontSize: fontSizeBase,
-    color: '#333',
+    color: '#fff',
   },
   titulo: {
     fontSize: fontSizeBase * 1.5,

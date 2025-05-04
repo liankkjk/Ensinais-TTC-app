@@ -56,7 +56,7 @@ const Cadastrar = () => {
 
       const db = getFirestore();
       await setDoc(doc(db, 'usuarios', userId), {
-        avatarUrl: "",
+        avatarUrl: "https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/usuarios%2FOrTfjxBuetTCOiXjViF7Dr6Ll412%2FfotoPerfil.jpg?alt=media&token=06f673a1-90ee-4da9-9b58-b06e670a9a7a",
         nickname: user,
         email: email,
         nivel: 1,

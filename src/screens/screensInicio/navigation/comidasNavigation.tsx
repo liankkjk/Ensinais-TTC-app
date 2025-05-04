@@ -86,14 +86,14 @@ export default function ComidasScreen({ navigation }) {
 
   const cards = [
     ['Doces', 'Salgados'],
-    ['Agridoce', 'Frutas']
+    ['Pratos', 'Legumes']
   ];
 
   const imagensPorTema = {
-    Doces: require('../../../../assets/aperto-de-mao.png'),
-    Salgados: require('../../../../assets/favicon.png'),
-    Agridoce: require('../../../../assets/Logo branca.png'),
-    Frutas: require('../../../../assets/adaptive-icon.png'),
+    Doces: require('../../../../assets/Doces.png'),
+    Salgados: require('../../../../assets/Salgados.png'),
+    Pratos: require('../../../../assets/Pratos.png'),
+    Legumes: require('../../../../assets/Legumes.png'),
   };
 
   const perguntasPorTema = {
@@ -108,6 +108,18 @@ export default function ComidasScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+    ],
+    Pratos: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Sim' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Claro', 'Com certeza', 'Talvez'], correta: 'Claro' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não sei', 'Acho que sim', 'Com certeza'], correta: 'Com certeza' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Não' },
+    ],
+    Legumes: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Sim' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Claro', 'Com certeza', 'Talvez'], correta: 'Claro' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não sei', 'Acho que sim', 'Com certeza'], correta: 'Com certeza' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Não' },
     ],
   };
 

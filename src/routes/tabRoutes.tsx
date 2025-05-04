@@ -14,6 +14,7 @@ import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { signOut } from 'firebase/auth';
 import styles from '../styles/styleNavigation';
 import AlterarSenha from '../screens/AlterarSenha';
+import RankingGlobal from '../screens/RankingGlobal';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,10 +22,8 @@ const Drawer = createDrawerNavigator();
 const PerfilStack = createStackNavigator();
 const SinalarioStack = createStackNavigator();
 
-const { width } = Dimensions.get('window');
-
 const SinalarioStackScreen = () => {
-  return(
+  return (
     <SinalarioStack.Navigator screenOptions={{ headerShown: false }}>
       <SinalarioStack.Screen name="Sinalario" component={Telas.Sinalario} />
       <SinalarioStack.Screen name="SinaisAlfabetizacao" component={TelasSinalario.SinaisAlfabetizacao} />
@@ -57,11 +56,9 @@ const DrawerContent = (props: any) => {
   return (
     <DrawerContentScrollView {...props}>
       <Text style={styles.drawerContentTitle}>Configurações</Text>
-      <DrawerItem
-        label="Editar Perfil"
-        onPress={() => props.navigation.navigate("PerfilStack", { screen: "EditarPerfil" })}
-      />
+      <DrawerItem label="Editar Perfil" onPress={() => props.navigation.navigate("PerfilStack", { screen: "EditarPerfil" })} />
       <DrawerItem label="Alterar Senha" onPress={() => props.navigation.navigate("AlterarSenha")} />
+      <DrawerItem label="Ranking Global" onPress={() => props.navigation.navigate("RankingGlobal")} />
       <DrawerItem label="Sair" onPress={handleLogout} />
     </DrawerContentScrollView>
   );
@@ -69,12 +66,13 @@ const DrawerContent = (props: any) => {
 
 const ProfileScreenWithDrawer = () => {
   return (
-    <Drawer.Navigator 
-      initialRouteName="PerfilStack" 
+    <Drawer.Navigator
+      initialRouteName="PerfilStack"
       drawerContent={(props) => <DrawerContent {...props} />}
-      screenOptions={{ headerShown: false }} 
+      screenOptions={{ headerShown: false }}
     >
       <Drawer.Screen name="PerfilStack" component={PerfilStackScreen} />
+      <Drawer.Screen name="RankingGlobal" component={RankingGlobal} />
     </Drawer.Navigator>
   );
 };
@@ -119,19 +117,8 @@ const MainTabs = () => {
         component={SinalarioStackScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Animated.View
-              style={[
-                styles.iconContainer,
-                { transform: [{ scale: scaleAnim }] },
-                { opacity: fadeAnim }, 
-              ]}
-            >
-              <View
-                style={[
-                  styles.iconInnerContainer,
-                  { backgroundColor: focused ? '#f2921d' : '#FFF' },
-                ]}
-              >
+            <Animated.View style={[styles.iconContainer, { transform: [{ scale: scaleAnim }], opacity: fadeAnim }]}>
+              <View style={[styles.iconInnerContainer, { backgroundColor: focused ? '#f2921d' : '#FFF' }]}>
                 <Image
                   source={
                     focused
@@ -153,19 +140,8 @@ const MainTabs = () => {
         component={Telas.Inicio}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Animated.View
-              style={[
-                styles.iconContainer,
-                { transform: [{ scale: scaleAnim }] },
-                { opacity: fadeAnim },
-              ]}
-            >
-              <View
-                style={[
-                  styles.iconInnerContainer,
-                  { backgroundColor: focused ? '#f2921d' : '#FFF' },
-                ]}
-              >
+            <Animated.View style={[styles.iconContainer, { transform: [{ scale: scaleAnim }], opacity: fadeAnim }]}>
+              <View style={[styles.iconInnerContainer, { backgroundColor: focused ? '#f2921d' : '#FFF' }]}>
                 <Image
                   source={
                     focused
@@ -187,19 +163,8 @@ const MainTabs = () => {
         component={ProfileScreenWithDrawer}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Animated.View
-              style={[
-                styles.iconContainer,
-                { transform: [{ scale: scaleAnim }] },
-                { opacity: fadeAnim },
-              ]}
-            >
-              <View
-                style={[
-                  styles.iconInnerContainer,
-                  { backgroundColor: focused ? '#f2921d' : '#FFF' },
-                ]}
-              >
+            <Animated.View style={[styles.iconContainer, { transform: [{ scale: scaleAnim }], opacity: fadeAnim }]}>
+              <View style={[styles.iconInnerContainer, { backgroundColor: focused ? '#f2921d' : '#FFF' }]}>
                 <Image
                   source={
                     focused
@@ -222,9 +187,7 @@ const MainTabs = () => {
 const LoginNav = () => {
   const { user, loading } = useAuth();
 
-  if (loading) {
-    return null;
-  }
+  if (loading) return null;
 
   return (
     <NavigationContainer>

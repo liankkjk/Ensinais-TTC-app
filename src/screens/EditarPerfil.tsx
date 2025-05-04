@@ -91,7 +91,7 @@ const EditarPerfil = ({ navigation }: any) => {
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <SafeAreaView style={styles.container}>
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <MaterialCommunityIcons name="arrow-left" size={24} color="#333" />
+            <MaterialCommunityIcons name="arrow-left" size={24} color="#fff" />
             <Text style={styles.backText}>Voltar</Text>
           </TouchableOpacity>
 

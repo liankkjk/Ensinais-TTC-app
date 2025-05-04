@@ -85,29 +85,39 @@ export default function AnimaisNavigation({ navigation }) {
   const trofeu = getInfoTrofeuPorNivel(nivel);
 
   const cards = [
-    ['Silvestres', 'Marinhos'],
+    ['Rurais', 'Aquáticos'],
     ['Domésticos', 'Selvagens']
   ];
 
   const imagensPorTema = {
-    Silvestres: require('../../../../assets/aperto-de-mao.png'),
-    Marinhos: require('../../../../assets/favicon.png'),
-    Domésticos: require('../../../../assets/Logo branca.png'),
-    Selvagens: require('../../../../assets/adaptive-icon.png'),
+    Rurais: require('../../../../assets/Fazenda.png'),
+    Aquáticos: require('../../../../assets/Aquáticos.png'),
+    Domésticos: require('../../../../assets/Domésticos.png'),
+    Selvagens: require('../../../../assets/Selvagens.png'),
   };
 
   const perguntasPorTema = {
-    Silvestres: [
+    Rurais: [
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boa noite', 'Bom dia', 'Boa tarde'], correta: 'Bom dia' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Obrigado', 'Oi', 'Tchau'], correta: 'Oi' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
     ],
-    Marinhos: [
+    Aquáticos: [
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
       { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+    ],
+    Domésticos: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Sim' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Claro', 'Talvez', 'Com certeza'], correta: 'Claro' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não sei', 'Sim', 'Talvez'], correta: 'Não sei' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Com certeza', 'Talvez', 'Sim'], correta: 'Com certeza' },
+    ],
+    Selvagens: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Perigo', 'Cuidado', 'Atenção'], correta: 'Cuidado' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não entre', 'Entre', 'Saia'], correta: 'Não entre' },
     ],
   };
 
