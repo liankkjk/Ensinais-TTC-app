@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginTop: scale(15),
   },
   level: {
-    marginTop: scale(10),
+    marginTop: scale(4),
     marginBottom: scale(25),
   },
   expBarBackground: {
