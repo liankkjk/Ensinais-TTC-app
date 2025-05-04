@@ -118,9 +118,9 @@ conqText: {
     marginBottom: 10,
   },
   conqImage: {
-    marginTop: scale(20),
-    width: scale(100),
-    height: scale(100),
+    marginTop: scale(15),
+    width: scale(130),
+    height: scale(125),
     borderRadius: scale(10),
     marginRight: scale(10),
   },
