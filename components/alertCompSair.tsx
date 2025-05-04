@@ -25,6 +25,23 @@ const ExitConfirmationAlert = ({
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
 
+  const isSuccessMessage = message.includes('Um e-mail de recuperação foi enviado.');
+  const isErrorMessage = message.includes('Preencha') || message.toLowerCase().includes('erro');
+  const isExitMessage = message.includes('sair') || message.toLowerCase().includes('deseja realmente sair');
+
+  const getImageSource = () => {
+    if (isSuccessMessage) {
+      return require('../assets/JonathanParabens.png');
+    }
+    if (isErrorMessage) {
+      return require('../assets/JonathanErro.png');
+    }
+    if (isExitMessage) {
+      return require('../assets/JonathanTriste.png');
+    }
+    return require('../assets/JonathanTriste.png');
+  };
+
   useEffect(() => {
     const playErrorSound = async () => {
       const { sound } = await Audio.Sound.createAsync(
@@ -33,11 +50,22 @@ const ExitConfirmationAlert = ({
       await sound.playAsync();
     };
 
+    const playSuccessSound = async () => {
+      const { sound } = await Audio.Sound.createAsync(
+        require('../assets/sounds/success.mp3')
+      );
+      await sound.playAsync();
+    };
+
     if (visible) {
       setShowModal(true);
 
-      if (singleButtonMode) {
+      if (singleButtonMode && isErrorMessage && !isSuccessMessage) {
         playErrorSound();
+      }
+
+      if (isSuccessMessage) {
+        playSuccessSound();
       }
 
       Animated.parallel([
@@ -77,10 +105,7 @@ const ExitConfirmationAlert = ({
         <Animated.View style={{ transform: [{ scale: scaleAnim }], opacity: opacityAnim }}>
           <LinearGradient colors={['#d94929', '#F27127']} style={styles.dialogContainer}>
             <Animatable.View animation="bounceIn" duration={1000} style={styles.iconContainer}>
-              <Image
-                source={require('../assets/JonathanTriste.png')}
-                style={styles.iconImage}
-              />
+              <Image source={getImageSource()} style={styles.iconImage} />
             </Animatable.View>
 
             <Text style={styles.messageText}>{message}</Text>

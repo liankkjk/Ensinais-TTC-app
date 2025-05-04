@@ -22,6 +22,17 @@ const styles = StyleSheet.create({
     fontSize: fontSizeBase,
     color: '#333',
   },
+  forgotPasswordContainer: {
+    alignSelf: 'flex-end',
+    marginRight: 20,
+    marginTop: 8,
+  },
+  forgotPasswordText: {
+    color: '#ffF',
+    fontSize: fontSizeBase,
+    fontWeight: '600',
+    textDecorationLine: 'none',
+  },
   logo: {
     width: width * 0.6,
     height: width * 0.5,

@@ -9,9 +9,10 @@ import {
   Platform,
   Image,
   BackHandler,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from 'react-native';
-import { signInWithEmailAndPassword, signInWithCredential } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithCredential, sendPasswordResetEmail } from 'firebase/auth';
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -58,6 +59,23 @@ const LoginScreen = ({ navigation }) => {
       setLoading(false);
     }
   };
+
+  const handlePasswordReset = async () => {
+  if (!email) {
+    setErroMensagem('Preencha o campo email acima para enviar o e-mail de recuperação.');
+    setErroModalVisible(true);
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    setErroMensagem('Um e-mail de recuperação foi enviado.');
+    setErroModalVisible(true);
+  } catch (error) {
+    setErroMensagem('Não foi possível enviar o e-mail de recuperação.');
+    setErroModalVisible(true);
+  }
+};
 
   useEffect(() => {
     const onBackPress = () => {
@@ -123,6 +141,12 @@ const LoginScreen = ({ navigation }) => {
               />
             </TouchableOpacity>
           </View>
+
+          <TouchableOpacity onPress={handlePasswordReset} style={styles.forgotPasswordContainer}>
+            <Text style={styles.forgotPasswordText}>
+              Esqueceu a senha?
+            </Text>
+          </TouchableOpacity>
 
           {loading ? (
             <ActivityIndicator size="large" color="#fff" style={{ marginTop: 30 }} />

@@ -24,6 +24,7 @@ const Cadastrar = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [secureText, setSecureText] = useState(true);
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -40,9 +41,9 @@ const Cadastrar = () => {
   };
 
   const handleCadastro = async () => {
-    if (!email || !password || !user) {
+    if (!email || !password || !user || password !== confirmPassword) { 
       setAlertTitle('Erro');
-      setAlertMessage('Por favor, preencha todos os campos.');
+      setAlertMessage(password !== confirmPassword ? 'As senhas não coincidem.' : 'Por favor, preencha todos os campos.');
       setShowAlert(true);
       playSound('error');
       return;
@@ -98,6 +99,7 @@ const Cadastrar = () => {
               onChangeText={setUser}
               style={styles.input}
               placeholderTextColor="#888"
+              maxLength={20}
             />
           </View>
 
@@ -138,6 +140,22 @@ const Cadastrar = () => {
               placeholder="Senha"
               value={password}
               onChangeText={setPassword}
+              secureTextEntry={secureText}
+              style={styles.input}
+              placeholderTextColor="#888"
+            />
+            <TouchableOpacity onPress={() => setSecureText(!secureText)} style={styles.iconButton}>
+              <MaterialCommunityIcons name={secureText ? 'eye-off' : 'eye'} size={20} color="#888" />
+            </TouchableOpacity>
+          </View>
+
+          <Text style={styles.inputLabel}>Confirme a senha:</Text>
+          <View style={styles.inputContainer}>
+            <MaterialCommunityIcons name="lock" size={20} color="#888" style={styles.icon} />
+            <TextInput
+              placeholder="Confirmar senha"
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
               secureTextEntry={secureText}
               style={styles.input}
               placeholderTextColor="#888"
