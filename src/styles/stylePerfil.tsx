@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   profileName: {
+    fontFamily: "Poppins-Bold",
     fontSize: scale(26),
     fontWeight: "bold",
     marginTop: scale(10),
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
     borderRadius: scale(10),
   },
   expText: {
+    fontFamily: "Poppins-Medium",
     textAlign: "center",
     color: "#fff",
     fontWeight: "bold",
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
     fontSize: scale(20),
   },
   levelText: {
+    fontFamily: "Poppins-SemiBold",
     marginLeft: scale(10),
     fontSize: scale(24),
     color: "#002366",
@@ -95,23 +98,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "90%",
     alignSelf: "center",
-  
-    // Gradiente dourado (use LinearGradient no componente real)
     backgroundColor: "#FFD700",
-  
-    // Sombra para destacar
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
     elevation: 5,
-  
-    // Borda levemente mais escura
     borderWidth: 1,
     borderColor: "#e5b800",
 },
 
 conqText: {
+  fontFamily: "Poppins-SemiBold",
     fontSize: 18,
     fontWeight: "bold",
     color: "#fff",
@@ -125,6 +123,7 @@ conqText: {
     marginRight: scale(10),
   },
   conqNome: {
+    fontFamily: "Poppins-Bold",
     fontSize: 16,
     fontWeight: "600",
     marginTop: 8,

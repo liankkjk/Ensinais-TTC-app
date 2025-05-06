@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: scale(10),
   },
   expText: {
+    fontFamily: 'Poppins-Medium',
     textAlign: 'center',
     color: '#fff',
     fontWeight: 'bold',
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
     fontSize: scale(21),
   },
   levelText: {
+    fontFamily: 'Poppins-Bold',
     marginLeft: scale(10),
     fontSize: scale(22),
     color: '#002366',
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
     tintColor: '#ffa500',
   },
   cardText: {
+    fontFamily: 'Poppins-SemiBold',
     fontSize: scale(18),
     color: '#ffa500',
     fontWeight: 'bold',

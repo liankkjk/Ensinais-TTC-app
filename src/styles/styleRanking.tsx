@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
+const paddingBase = 5; // Define a base padding value
+
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -12,23 +14,27 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: height * 0.11, 
-    left: 10, 
+    top: height * 0.06, 
+    left: paddingBase, 
+    zIndex: 1, 
     flexDirection: 'row',
     alignItems: 'center',
-    zIndex: 1, 
+    paddingVertical: 10,
+    paddingHorizontal: 15,
   },
   backText: {
-    fontSize: 16,
-    marginLeft: 5,
-    fontWeight: 'bold',
+    marginLeft: width * 0.015,
+    fontSize: 16, // Replace 16 with your desired base font size
+    color: '#fff',
   },
   title: {
     fontSize: 26,
+    color: '#002366',
     fontWeight: 'bold',
     marginTop: 60,
     marginBottom: 30,
     textAlign: 'center',
+    left: 20,
   },
   listContent: {
     width: '100%',

@@ -5,10 +5,16 @@ import { FIREBASE_DB } from '../../FireBaseConfig';
 import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { LinearGradient } from 'expo-linear-gradient'; // Correção do import
+import * as Font from 'expo-font';
 import styles from '../styles/styleRanking';
 
 const RankingGlobal = ({ navigation }: any) => {
-  const [players, setPlayers] = useState<any[]>([]);  
+  const [players, setPlayers] = useState<any[]>([]);
+  const [fontsLoaded] = Font.useFonts({
+    'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+  });
   const shineAnim = useRef(new Animated.Value(1)).current;
 
   useFocusEffect(
@@ -76,32 +82,41 @@ const RankingGlobal = ({ navigation }: any) => {
     return <Text style={styles.rank}>#{index + 1}</Text>;
   };
 
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-        <MaterialCommunityIcons name="arrow-left" size={24} color="#000" />
-        <Text style={styles.backText}>Voltar</Text>
-      </TouchableOpacity>
+  if (!fontsLoaded) {
+    return <Text>Carregando fontes...</Text>; // Aguarde o carregamento das fontes
+  }
 
-      <Text style={styles.title}>Ranking Global</Text>
-      <FlatList
-        data={players}
-        keyExtractor={(_, index) => index.toString()}
-        contentContainerStyle={styles.listContent}
-        renderItem={({ item, index }) => {
-          return (
-            <View style={styles.playerRow}>
-              {getMedalIcon(index)}
-              <Image source={{ uri: item.avatarUrl }} style={styles.profilePic} />
-              <View style={styles.playerInfo}>
-                <Text style={styles.nickname}>{item.nickname}</Text>
-                <Text style={styles.level}>Level {item.nivel}</Text>
+  return (
+    <LinearGradient
+      colors={['#F27127', '#f6fafd']} // Gradiente Linear de laranja até azul
+      style={{ flex: 1 }} // Garantir que o gradiente cubra a tela inteira
+    >
+      <View style={{ flex: 1 }}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+          <MaterialCommunityIcons name="arrow-left" size={24} color="#fff" />
+          <Text style={[styles.backText, { fontFamily: 'Poppins-Medium' }]}>Voltar</Text>
+        </TouchableOpacity>
+
+        <Text style={[styles.title, { fontFamily: 'Poppins-Bold' }]}>Ranking Global</Text>
+        <FlatList
+          data={players}
+          keyExtractor={(_, index) => index.toString()}
+          contentContainerStyle={styles.listContent}
+          renderItem={({ item, index }) => {
+            return (
+              <View style={styles.playerRow}>
+                {getMedalIcon(index)}
+                <Image source={{ uri: item.avatarUrl }} style={styles.profilePic} />
+                <View style={styles.playerInfo}>
+                  <Text style={[styles.nickname, { fontFamily: 'Poppins-Medium' }]}>{item.nickname}</Text>
+                  <Text style={[styles.level, { fontFamily: 'Poppins-Medium' }]}>Level {item.nivel}</Text>
+                </View>
               </View>
-            </View>
-          );
-        }}
-      />
-    </View>
+            );
+          }}
+        />
+      </View>
+    </LinearGradient>
   );
 };
 

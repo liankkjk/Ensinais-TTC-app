@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, ScrollView, Text, Pressable, Image, Animated, Dimensions } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import style from '../styles/styleSinalario';
+import { useFonts } from 'expo-font';
 
 const { height } = Dimensions.get('window');
 
@@ -31,21 +32,31 @@ const AnimatedButton = ({ icon, label, onPress }) => {
         onPress={onPress}
       >
         <MaterialCommunityIcons name={icon} size={40} style={style.pressableIcon} />
-        <Text style={style.pressableText}>{label}</Text>
+        <Text style={[style.pressableText, { fontFamily: 'Poppins-Medium' }]}>{label}</Text>
       </Pressable>
     </Animated.View>
   );
 };
 
 export default function SinalarioMenu({ navigation }) {
+  const [fontsLoaded] = useFonts({
+    'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Carregando fontes...</Text>;
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView 
-      style={style.view}
-      contentContainerStyle={{ paddingBottom: height * 0.30}}
+      <ScrollView
+        style={style.view}
+        contentContainerStyle={{ paddingBottom: height * 0.30 }}
       >
-        <Text style={style.tituloSina}>Com dúvidas?</Text>
-        <Text style={style.tituloSinaSub}>Consulte no sinalário!</Text>
+        <Text style={[style.tituloSina, { fontFamily: 'Poppins-Bold' }]}>Com dúvidas?</Text>
+        <Text style={[style.tituloSinaSub, { fontFamily: 'Poppins-Medium' }]}>Consulte no sinalário!</Text>
+
         <Image
           source={require('../../assets/icons/IconSetaInicial.png')}
           style={style.imgSeta}
@@ -54,19 +65,19 @@ export default function SinalarioMenu({ navigation }) {
         <AnimatedButton
           icon="alphabetical-variant"
           label="Alfabetização"
-          onPress={() => navigation.navigate('SinalarioTab', {screen:'SinaisAlfabetizacao',})}
+          onPress={() => navigation.navigate('SinalarioTab', { screen: 'SinaisAlfabetizacao' })}
         />
-        
+
         <AnimatedButton
           icon="account-group"
           label="Relações"
-          onPress={() => navigation.navigate('SinalarioTab', {screen: 'SinaisRelacoes',})}
+          onPress={() => navigation.navigate('SinalarioTab', { screen: 'SinaisRelacoes' })}
         />
 
         <AnimatedButton
           icon="leaf"
           label="Natureza"
-          onPress={() => navigation.navigate('SinalarioTab', {screen: 'SinaisNatureza'})}
+          onPress={() => navigation.navigate('SinalarioTab', { screen: 'SinaisNatureza' })}
         />
 
         <AnimatedButton
@@ -74,13 +85,13 @@ export default function SinalarioMenu({ navigation }) {
           label="Anatomia"
           onPress={() => navigation.navigate('SinaisAnatomia')}
         />
-        
+
         <AnimatedButton
           icon="briefcase-variant"
           label="Profissões"
           onPress={() => navigation.navigate('SinaisProfissoes')}
         />
-        
+
         <AnimatedButton
           icon="train-car"
           label="Transporte"
@@ -89,4 +100,4 @@ export default function SinalarioMenu({ navigation }) {
       </ScrollView>
     </SafeAreaView>
   );
-} 
+}
