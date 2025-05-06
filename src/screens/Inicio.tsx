@@ -2,8 +2,14 @@ import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Telas from './screensInicio';
-import { SafeAreaView, View, Text, TouchableOpacity, Modal, Animated, ScrollView, Image } from 'react-native';
+import { SafeAreaView, View, ScrollView, Modal } from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
+
+// Fontes personalizadas
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync(); // mantém a splash até fontes carregarem
 
 type RootStackParamList = {
   Menu: undefined;
@@ -19,6 +25,16 @@ type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function Inicio() {
+  const [fontsLoaded] = useFonts({
+    'Poppins-SemiBold': require('../../assets/fonts/Poppins-SemiBold.ttf'),
+    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+    'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+
+  });
+
+  if (!fontsLoaded) return null;
+  SplashScreen.hideAsync(); // esconde splash quando fontes carregam
+
   return (
     <SafeAreaProvider>
       <Stack.Navigator initialRouteName="Menu">
@@ -41,7 +57,6 @@ function JogoScreen() {
       <View style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
         </ScrollView>
-
         <Modal animationType="none" transparent={true}>
         </Modal>
       </View>
