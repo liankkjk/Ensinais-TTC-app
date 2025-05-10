@@ -27,6 +27,7 @@ const SinalarioStackScreen = () => {
     <SinalarioStack.Navigator screenOptions={{ headerShown: false }}>
       <SinalarioStack.Screen name="Sinalario" component={Telas.Sinalario} />
       <SinalarioStack.Screen name="SinaisAlfabetizacao" component={TelasSinalario.SinaisAlfabetizacao} />
+      <SinalarioStack.Screen name="SinaisRelacoes" component={TelasSinalario.SinaisRelacoes} />
     </SinalarioStack.Navigator>
   );
 };

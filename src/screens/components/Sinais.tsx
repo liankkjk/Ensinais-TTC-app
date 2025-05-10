@@ -164,4 +164,104 @@ const sinaisAlfabeto: Sinal[] = [
     },
 ];
 
-export { sinaisAlfabeto };
+const sinaisRelacoes: Sinal[] = [
+    {
+        id: 1,
+        title: "Oi",
+        subtitle: "Sinal de olá",
+        url: '',
+    },
+    {
+        id: 1,
+        title: "Bom dia",
+        subtitle: "Sinal de bom dia",
+        url: '',
+    },
+    {
+        id: 2,
+        title: "Boa tarde",
+        subtitle: "Sinal de boa tarde",
+        url: '',
+    },
+    {
+        id: 3,
+        title: "Boa noite",
+        subtitle: "Sinal de boa noite",
+        url: '',
+    },
+    {
+        id: 4,
+        title: "Por favor",
+        subtitle: "Sinal de por favor",
+        url: '',
+    },
+    {
+        id: 5,
+        title: "Obrigado/a",
+        subtitle: "Sinal de obrigado/a",
+        url: '',
+    },
+    {
+        id: 6,
+        title: "Desculpe",
+        subtitle: "Sinal de por favor",
+        url: '',
+    },
+    {
+        id: 7,
+        title: "Tudo Bem",
+        subtitle: "Sinal de afirmação",
+        url: '',
+    },
+    {
+        id: 8,
+        title: "Família",
+        subtitle: "Sinal de família",
+        url: '',
+    },
+    {
+        id: 9,
+        title: "Mãe",
+        subtitle: "Sinal de mãe",
+        url: '',
+    },
+    {
+        id: 10,
+        title: "Pai",
+        subtitle: "Sinal de pai",
+        url: '',
+    },
+    {
+        id: 11,
+        title: "Irmão",
+        subtitle: "Sinal de irmão",
+        url: '',
+    },
+    {
+        id: 12,
+        title: "Filho",
+        subtitle: "Sinal de filho",
+        url: '',
+    },
+    {
+        id: 13,
+        title: "Amigo",
+        subtitle: "Sinal de amigo",
+        url: '',
+    },
+    {
+        id: 14,
+        title: "Colega",
+        subtitle: "Sinal de colega",
+        url: '',
+    },
+    {
+        id: 15,
+        title: "Chefe",
+        subtitle: "Sinal de chefe",
+        url: '',
+    },
+
+]
+
+export { sinaisAlfabeto, sinaisRelacoes };
