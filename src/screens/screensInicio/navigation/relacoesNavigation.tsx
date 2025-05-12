@@ -98,16 +98,28 @@ export default function RelaçõesScreen({ navigation }) {
 
   const perguntasPorTema = {
     Encontro: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boa noite', 'Bom dia', 'Boa tarde'], correta: 'Bom dia' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Obrigado', 'Oi', 'Tchau'], correta: 'Oi' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
+      { pergunta: 'O que a pessoa falou?', opcoes: ['Boa tarde', 'Oi', 'Boa noite'], correta: 'Oi' },
+      { pergunta: 'O que a pessoa perguntou?', opcoes: ['Obrigado', 'Boa noite', 'Tudo bem?'], correta: 'Tudo bem?' },
+      { pergunta: 'O que a pessoa falou?', opcoes: ['Bom dia', 'Até logo', 'Olá'], correta: 'Bom dia' },
+      { pergunta: 'Aonde a pessoa está indo? ', opcoes: ['Chácara', 'Restaurante', 'Festa'], correta: 'Restaurante' },
     ],
     Horário: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+      { pergunta: 'Qual sinal é esse?', opcoes: ['Manhã', 'Noite', 'Tarde'], correta: 'Tarde' },
+      { pergunta: 'Qual sinal é esse?', opcoes: ['12h30', 'Noite', '22h45'], correta: 'Noite' },
+      { pergunta: 'Qual sinal é esse?', opcoes: ['Dia', 'Tarde', 'Noite'], correta: 'Dia' },
+      { pergunta: 'Que horas a pessoa falou?', opcoes: ['10h00', '12h00', '14h00'], correta: '14h00' },
+    ],
+    Hierarquia: [
+      { pergunta: 'O que a pessoa é?', opcoes: ['Patrão', 'Líder', 'Funcionário'], correta: 'Patrão' },
+      { pergunta: 'O que a pessoa vai fazer?', opcoes: ['Pedir a conta', 'Líderar', 'Analisar'], correta: 'Líderar' },
+      { pergunta: 'A pessoa foi promovida a qual cargo?', opcoes: ['Chefe', 'Supervisor', 'Líder'], correta: 'Supervisor' },
+      { pergunta: 'O que a pessoa é da empresa?', opcoes: ['Cliente', 'Líder', 'Funcionário'], correta: 'Funcionário' },
+    ],
+    Gratidão: [
+      { pergunta: 'Qual sinal de agradecimento está sendo representado?', opcoes: ['Obrigado', 'Grato', 'Valeu'], correta: 'Grato' },
+      { pergunta: 'Qual sinal a pessoa falou? ', opcoes: ['Não precisava', 'De nada', 'Obrigado'], correta: 'Obrigado' },
+      { pergunta: 'Que sinal é esse? ', opcoes: ['Doação', 'Gentileza', 'Ajuda'], correta: 'Gentileza' },
+      { pergunta: 'O que a pessoa falou ouvir um obrigado?', opcoes: ['De nada', 'Satisfação', 'Tchau'], correta: 'De nada' },
     ],
   };
 

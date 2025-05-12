@@ -98,17 +98,29 @@ export default function TransporteNavigation({ navigation }) {
 
   const perguntasPorTema = {
     Trânsito: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boa noite', 'Bom dia', 'Boa tarde'], correta: 'Bom dia' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Obrigado', 'Oi', 'Tchau'], correta: 'Oi' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
+      { pergunta: 'Qual sinal é esse? ', opcoes: ['Carros', 'Sinalização', 'Pessoas'], correta: 'Sinalização' },
+      { pergunta: 'A rua está?', opcoes: ['Bloqueada', 'Estreita', 'Vazia'], correta: 'Bloqueada' },
+      { pergunta: 'O que está sendo representado na imagem?', opcoes: ['Calçada', 'Semáforo', 'Avenida'], correta: 'Semáforo' },
+      { pergunta: 'A placa sinaliza para?', opcoes: ['Seguir', 'Reduzir', 'Parar'], correta: 'Parar' },
     ],
     Veículos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Carro', 'Ônibus', 'Moto'], correta: 'Carro' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Caminhão', 'Pedestre', 'Moto'], correta: 'Moto' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Bicicleta', 'Navio', 'Metro'], correta: 'Metro' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Carro', 'Ônibus', 'Farol'], correta: 'Ônibus' },
     ],
+    Ônibus: [
+      { pergunta: 'O que a pessoa está dizendo?', opcoes: ['Bom dia', 'Roda', 'Ponto de Ônibus'], correta: 'Ponto de Ônibus' },
+      { pergunta: 'O que a pessoa está dizendo?', opcoes: ['Parada Solicitada', 'Oi', 'Tchau'], correta: 'Parada Solicitada' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Terminal', 'Olá'], correta: 'Terminal' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sentar', 'Descer', 'Passe de ônibus'], correta: 'Passe de ônibus' },
+    ],
+    Metro: [
+      { pergunta: 'Que lugar é esse?', opcoes: ['Estação', 'Trem', 'Trilhos'], correta: 'Estação' },
+      { pergunta: 'Qual linha a pessoa quer ir?', opcoes: ['Linha Vermelha', 'Linha Azul', 'Linha Amarela'], correta: 'Linha Amarela' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', 'Plataforma', 'Busão'], correta: 'Plataforma' },
+      { pergunta: 'O que a pessoa esta pedindo?', opcoes: ['Passe', 'Comida', 'Informação'], correta: 'Informação' },
+    ]
   };
 
   const abrirModal = (tema: string) => {

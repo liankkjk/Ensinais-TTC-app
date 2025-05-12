@@ -98,28 +98,28 @@ export default function ComidasScreen({ navigation }) {
 
   const perguntasPorTema = {
     Doces: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boa noite', 'Bom dia', 'Boa tarde'], correta: 'Bom dia' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Obrigado', 'Oi', 'Tchau'], correta: 'Oi' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Bolo', 'Pudim', 'Brigadeiro'], correta: 'Pudim' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Bala', 'Doce de Leite', 'Chocolate'], correta: 'Chocolate' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Pirulito', 'Bolo', 'Chiclete'], correta: 'Bolo' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Paçoca', 'Sorvete', 'Algodão Doce'], correta: 'Sorvete' },
     ],
     Salgados: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Esfiha', 'Pastel', 'Coxinha'], correta: 'Pastel' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Coxinha', 'Batata Frita', 'Pizza'], correta: 'Coxinha' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Hambúrguer', 'Rissoles', 'Torta'], correta: 'Torta' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Pizza', 'Lanche', 'Coxinha'], correta: 'Pizza' },
     ],
     Pratos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Sim' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Claro', 'Com certeza', 'Talvez'], correta: 'Claro' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não sei', 'Acho que sim', 'Com certeza'], correta: 'Com certeza' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Não' },
+      { pergunta: 'Qual alimento é esse?', opcoes: ['Farofa', 'Macarrão', 'Arroz'], correta: 'Arroz' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Feijoada', 'Strogonoff', 'Farofa'], correta: 'Feijoada' },
+      { pergunta: 'Qual alimento é esse?', opcoes: ['Arroz', 'Feijão', 'Macarrão'], correta: 'Feijão' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Frango', 'Sopa', 'Macarrão'], correta: 'Feijão' },
     ],
     Legumes: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Sim' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Claro', 'Com certeza', 'Talvez'], correta: 'Claro' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não sei', 'Acho que sim', 'Com certeza'], correta: 'Com certeza' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Não' },
+      { pergunta: 'Qual alimento é esse?', opcoes: ['Alface', 'Repolho', 'Beterraba'], correta: 'Alface' },
+      { pergunta: 'Qual alimento é esse?', opcoes: ['Pepino', 'Alface', 'Cenoura'], correta: 'Cenoura' },
+      { pergunta: 'Qual alimento é esse?', opcoes: ['Couve', 'Brócolis', 'Chuchu'], correta: 'Chuchu' },
+      { pergunta: 'Qual alimento é esse?', opcoes: ['Pepino', 'Couve', 'Alface'], correta: 'Couve' },
     ],
   };
 
