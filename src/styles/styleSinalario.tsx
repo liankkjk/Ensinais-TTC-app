@@ -41,7 +41,7 @@ const style = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     borderRadius: 15,
     padding: width * 0.08,
-    marginHorizontal: 15,
+    marginHorizontal: 20,
     alignContent: 'center',
     justifyContent: 'center',
   },
@@ -53,8 +53,8 @@ const style = StyleSheet.create({
     backgroundColor: '#fff',
   },
   imgSeta: {
-    width: width * 0.15,     
-    height: height * 0.06,  
+    width: width * 0.08,     
+    height: height * 0.03,  
     alignSelf: 'center',
   },
   tituloSina: {
@@ -73,11 +73,19 @@ const style = StyleSheet.create({
   },
   videoSinal: {
     width: 200,
-    height: 300,       
+    height: 300,   
+    alignSelf: 'center',    
+  },
+  subtitle: {
+    fontSize: width * 0.05,  
+    textAlign: 'center',
+    color: '#D94929',
+    fontFamily: 'Poppins-Bold',
+    marginBottom: 20,
   },
   searchBar: {
     backgroundColor: '#F2F2F2',
-    marginTop: 60,
+    marginTop: 30,
     marginBottom: 30,
   },
   buttonSinal: {
@@ -101,20 +109,8 @@ const style = StyleSheet.create({
     height: 20,
   },
   goBack: {
-    backgroundColor: '#F2921D',
-    padding: 15,
-    borderRadius: 30,
-    marginBottom: 30,
-    marginHorizontal: 30
-  },
-  textGoBack: {
-    fontSize: 15,
-    textAlign: 'center',
-    fontWeight: 700,
-    color: '#FFF',
-    fontFamily: 'Poppins-SemiBold',
-  },
-
+    marginTop: 40,
+  }
 });
 
 export default style;

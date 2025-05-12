@@ -81,21 +81,21 @@ export default function SinalarioMenu({ navigation }) {
         />
 
         <AnimatedButton
-          icon="brain"
-          label="Anatomia"
-          onPress={() => navigation.navigate('SinaisAnatomia')}
+          icon="food-apple"
+          label="Comidas"
+          onPress={() => navigation.navigate('SinalarioTab', { screen: 'SinaisComidas' })}
         />
 
         <AnimatedButton
           icon="briefcase-variant"
           label="Profissões"
-          onPress={() => navigation.navigate('SinaisProfissoes')}
+          onPress={() => navigation.navigate('SinalarioTab', { screen: 'SinaisProfissoes' })}
         />
 
         <AnimatedButton
           icon="train-car"
           label="Transporte"
-          onPress={() => navigation.navigate('SinaisTransporte')}
+          onPress={() => navigation.navigate('SinalarioTab', { screen: 'SinaisTransporte' })}
         />
       </ScrollView>
     </SafeAreaView>
