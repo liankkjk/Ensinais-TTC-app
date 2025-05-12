@@ -28,6 +28,10 @@ const SinalarioStackScreen = () => {
       <SinalarioStack.Screen name="Sinalario" component={Telas.Sinalario} />
       <SinalarioStack.Screen name="SinaisAlfabetizacao" component={TelasSinalario.SinaisAlfabetizacao} />
       <SinalarioStack.Screen name="SinaisRelacoes" component={TelasSinalario.SinaisRelacoes} />
+      <SinalarioStack.Screen name="SinaisNatureza" component={TelasSinalario.SinaisNatureza} />
+      <SinalarioStack.Screen name="SinaisComidas" component={TelasSinalario.SinaisComidas} />
+      <SinalarioStack.Screen name="SinaisProfissoes" component={TelasSinalario.SinaisProfissoes} />
+      <SinalarioStack.Screen name="SinaisTransporte" component={TelasSinalario.SinaisTransporte} />
     </SinalarioStack.Navigator>
   );
 };
