@@ -98,26 +98,28 @@ export default function AnimaisNavigation({ navigation }) {
 
   const perguntasPorTema = {
     Rurais: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boa noite', 'Bom dia', 'Boa tarde'], correta: 'Bom dia' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Obrigado', 'Oi', 'Tchau'], correta: 'Oi' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Porco', 'Galinha', 'Vaca'], correta: 'Vaca' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Vaca', 'Cavalo', 'Bode'], correta: 'Cavalo' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boi', 'Galinha', 'Porco'], correta: 'Galinha' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Porco', 'Galo', 'Pato'], correta: 'Porco' },
     ],
     Aquáticos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tubarão', 'Baleia', 'Golfinho'], correta: 'Baleia' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Polvo', 'Peixe', 'Golfinho'], correta: 'Peixe' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Baleia', 'Tubarão', 'Polvo'], correta: 'Polvo' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Golfinho', 'Tubarão', 'Lula'], correta: 'Golfinho' },
     ],
     Domésticos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sim', 'Não', 'Talvez'], correta: 'Sim' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Claro', 'Talvez', 'Com certeza'], correta: 'Claro' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não sei', 'Sim', 'Talvez'], correta: 'Não sei' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Com certeza', 'Talvez', 'Sim'], correta: 'Com certeza' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Cachorro', 'Gato', 'Hamster'], correta: 'Gato' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Coelho', 'Gato', 'Cachorro'], correta: 'Cachorro' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Papagaio', 'Pássaro', 'Calopsita '], correta: 'Pássaro' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Coelho', 'Gato', 'Tartaruga'], correta: 'Coelho' },
     ],
     Selvagens: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Perigo', 'Cuidado', 'Atenção'], correta: 'Cuidado' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Não entre', 'Entre', 'Saia'], correta: 'Não entre' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Girafa', 'Elefante', 'Leão'], correta: 'Elefante' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Leão', 'Tigre', 'Lobo'], correta: 'Leão' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Onça', 'Cabra', 'Macaco'], correta: 'Macaco' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Jacaré', 'Cobra', 'Lontra '], correta: 'Jacaré' },
     ],
   };
 

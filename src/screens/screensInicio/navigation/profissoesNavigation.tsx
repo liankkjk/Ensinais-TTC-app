@@ -86,36 +86,40 @@ export default function ProfissoesScreen({ navigation }) {
 
   const cards = [
     ['Tecnologia', 'Saúde'],
-    ['Serviços', 'Engenharia']
+    ['Serviços', 'Atendimento']
   ];
 
   const imagensPorTema = {
     Tecnologia: require('../../../../assets/Tecnologia.png'),
     Saúde: require('../../../../assets/Saúde.png'),
     Serviços: require('../../../../assets/ServiçosGerais.png'),
-    Engenharia: require('../../../../assets/Engenharia.png'),
+    Atendimento: require('../../../../assets/Engenharia.png'),
   };
 
   const perguntasPorTema = {
     Tecnologia: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boa noite', 'Bom dia', 'Boa tarde'], correta: 'Bom dia' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Obrigado', 'Oi', 'Tchau'], correta: 'Oi' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Até logo', 'Olá'], correta: 'Até logo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tudo bem?', 'Oi', 'Bom dia'], correta: 'Tudo bem?' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Desenvolvedor', 'Engenheiro', 'Analista de Sistemas'], correta: 'Desenvolvedor' },
+      { pergunta: 'Qual conceito de T.I a pessoa falou?', opcoes: ['Inteligência Artificial', 'Backend', 'Framework'], correta: 'Inteligência Artificial' },
+      { pergunta: 'O que a pessoa disse?', opcoes: ['Hardware', 'Mouse', 'Tecnologia'], correta: 'Tecnologia' },
+      { pergunta: 'Qual o curso que a pessoa pretende fazer?', opcoes: ['Ciência da computação', 'Design Digital', 'ADS'], correta: 'Design Digital' },
     ],
     Saúde: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['10 horas', 'Meio Dia', 'Meia Noite'], correta: 'Meia Noite' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['14h30', '12h45', '19h25'], correta: '19h25' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', '15h50', '20h'], correta: '20h' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['13h15', '23h35', '21h'], correta: '23h35' },
+      { pergunta: 'Qual é a profissão representada?', opcoes: ['Nutricionista', 'Enfermeiro', 'Socorrista'], correta: 'Nutricionista' },
+      { pergunta: 'O que a pessoa falou?', opcoes: ['Exame', 'Encontro', 'Consulta'], correta: 'Consulta' },
+      { pergunta: 'Qual é a profissão representada?', opcoes: ['Médico', 'Dentista', 'Psicólogo'], correta: 'Médico' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Médico', 'Enfermeiro', 'Fisioterapeuta'], correta: 'Enfermeiro' },
     ],
     Serviços: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sinal 1', 'Sinal 2', 'Sinal 3'], correta: 'Sinal 1' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sinal A', 'Sinal B', 'Sinal C'], correta: 'Sinal B' },
+      { pergunta: 'Qual profissão está sendo referenciada na imagem?', opcoes: ['Jardineiro', 'Cozinheiro', 'Segurança'], correta: 'Segurança' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Pintor', 'Uber', 'Motorista'], correta: 'Uber' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Garçom', 'Manobrista', 'Cientista'], correta: 'Garçom' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Diretor', 'Professor', 'Zelador'], correta: 'Professor' },
     ],
-    Engenharia: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Engenharia 1', 'Engenharia 2', 'Engenharia 3'], correta: 'Engenharia 1' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Engenharia A', 'Engenharia B', 'Engenharia C'], correta: 'Engenharia B' },
+    Atendimento: [
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Atendimento', 'Pagamento', 'Cliente'], correta: 'Pagamento' },
+      { pergunta: 'O que a pessoa esta dizendo?', opcoes: ['Vendedor', 'Engenharia', 'Preço'], correta: 'Preço' },
+      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Produtos', 'Funcionário', 'Vendedor'], correta: 'Vendedor' },
+      { pergunta: 'O que a pessoa esta dizendo?', opcoes: ['Ajuda', 'Promoções', 'Pagamento'], correta: 'Ajuda' },
     ],
   };
 
