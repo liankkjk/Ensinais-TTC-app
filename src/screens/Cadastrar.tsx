@@ -25,7 +25,8 @@ const Cadastrar = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [secureText, setSecureText] = useState(true);
+  const [securePassword, setSecurePassword] = useState(true); // Visibilidade da senha
+  const [secureConfirmPassword, setSecureConfirmPassword] = useState(true); // Visibilidade da confirmação da senha
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -56,7 +57,7 @@ const Cadastrar = () => {
 
       const db = getFirestore();
       await setDoc(doc(db, 'usuarios', userId), {
-        avatarUrl: "https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/usuarios%2FOrTfjxBuetTCOiXjViF7Dr6Ll412%2FfotoPerfil.jpg?alt=media&token=06f673a1-90ee-4da9-9b58-b06e670a9a7a",
+        avatarUrl: "https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/avatarDefault%2FJonathanPerfil.png?alt=media&token=941df97f-d6d0-4345-afe5-b1b230150bbf",
         nickname: user,
         email: email,
         nivel: 1,
@@ -140,12 +141,12 @@ const Cadastrar = () => {
               placeholder="Senha"
               value={password}
               onChangeText={setPassword}
-              secureTextEntry={secureText}
+              secureTextEntry={securePassword}
               style={styles.input}
               placeholderTextColor="#888"
             />
-            <TouchableOpacity onPress={() => setSecureText(!secureText)} style={styles.iconButton}>
-              <MaterialCommunityIcons name={secureText ? 'eye-off' : 'eye'} size={20} color="#888" />
+            <TouchableOpacity onPress={() => setSecurePassword(!securePassword)} style={styles.iconButton}>
+              <MaterialCommunityIcons name={securePassword ? 'eye-off' : 'eye'} size={20} color="#888" />
             </TouchableOpacity>
           </View>
 
@@ -156,12 +157,12 @@ const Cadastrar = () => {
               placeholder="Confirmar senha"
               value={confirmPassword}
               onChangeText={setConfirmPassword}
-              secureTextEntry={secureText}
+              secureTextEntry={secureConfirmPassword} // Agora usa o estado separado
               style={styles.input}
               placeholderTextColor="#888"
             />
-            <TouchableOpacity onPress={() => setSecureText(!secureText)} style={styles.iconButton}>
-              <MaterialCommunityIcons name={secureText ? 'eye-off' : 'eye'} size={20} color="#888" />
+            <TouchableOpacity onPress={() => setSecureConfirmPassword(!secureConfirmPassword)} style={styles.iconButton}>
+              <MaterialCommunityIcons name={secureConfirmPassword ? 'eye-off' : 'eye'} size={20} color="#888" />
             </TouchableOpacity>
           </View>
 
