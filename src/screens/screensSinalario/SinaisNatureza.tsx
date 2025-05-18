@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ScrollView, SafeAreaView, Text, Pressable } from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, Icon } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
 import { sinaisNatureza } from '../components/Sinais';
 import SinalItem from '../components/SinalItem';
@@ -34,6 +34,9 @@ export default function SinaisNatureza({ navigation }: any) {
     return (
         <SafeAreaView style={{ flex: 1, minHeight: '100%' }}>   
             <ScrollView style={style.sinais}>
+                <Pressable style={style.goBack} onPress={() => navigation.navigate('Sinalario')}>
+                    <Icon source="arrow-left-thick" size={40} color="#092A95" />
+                </Pressable>
                 <Searchbar style={style.searchBar} searchAccessibilityLabel={searchQuery} rippleColor={'#C6C6C6'} placeholder="Pesquise o sinal que deseja!" value={searchQuery} onChangeText={setSearchQuery} />
                 {sinaisFiltrados.length > 0 ? (
                     sinaisFiltrados.map((sinal) => (
@@ -44,9 +47,6 @@ export default function SinaisNatureza({ navigation }: any) {
                         Nenhum sinal foi encontrado...
                     </Text>
                 )}
-                <Pressable style={style.goBack} onPress={() => navigation.navigate('Sinalario')}>
-                    <Text style={style.textGoBack}>Voltar ao menu</Text>
-                </Pressable>
             </ScrollView>
         </SafeAreaView>
     );
