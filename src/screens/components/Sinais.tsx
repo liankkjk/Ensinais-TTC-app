@@ -400,48 +400,48 @@ const sinaisComidas: Sinal[] = [
 const sinaisProfissoes: Sinal[] = [
     {
         id: 1,
-        title: "Oi",
-        subtitle: "Sinal de olá",
-        url: '',
+        title: "Ajuda",
+        subtitle: "Sinal de Ajuda",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FAjuda%20com%20legenda.mp4?alt=media&token=9eb9a455-8472-4367-b5eb-af765ad2c2d1',
     },
     {
         id: 1,
-        title: "Bom dia",
-        subtitle: "Sinal de bom dia",
-        url: '',
+        title: "Consulta",
+        subtitle: "Sinal de Consulta",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FConsulta%20com%20legenda.mp4?alt=media&token=1c68e504-d856-43ae-a44a-6eb4c56027b4',
     },
     {
         id: 2,
-        title: "Boa tarde",
-        subtitle: "Sinal de boa tarde",
-        url: '',
+        title: "Desenvolvedor",
+        subtitle: "Sinal de desenvolvedor",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FDesenvolvedor%20com%20legenda.mp4?alt=media&token=e9818a40-1ade-4daf-b4af-681bc6fc5d83',
     },
     {
         id: 3,
-        title: "Boa noite",
-        subtitle: "Sinal de boa noite",
-        url: '',
+        title: "Design Digital",
+        subtitle: "Sinal de design digital",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FDesign%20Digital%20com%20legenda.mp4?alt=media&token=f5e5fbf6-1ed0-47a2-ba3c-c1d8d3ffed0e',
     },
     {
         id: 4,
-        title: "Por favor",
-        subtitle: "Sinal de por favor",
-        url: '',
+        title: "Enfermeira",
+        subtitle: "Sinal de enfermeira",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FEnfermeira%20com%20legenda.mp4?alt=media&token=722c4f07-4518-4bc3-96f8-9a2a37a1772b',
     },
     {
         id: 5,
-        title: "Obrigado/a",
-        subtitle: "Sinal de obrigado/a",
-        url: '',
+        title: "Preço",
+        subtitle: "Sinal de preço",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FPre%C3%A7o%20com%20legenda.mp4?alt=media&token=79e502c1-9bb8-44d0-8548-0a74cdf87aad',
     },
     {
         id: 6,
-        title: "Desculpe",
-        subtitle: "Sinal de por favor",
-        url: '',
+        title: "Uber",
+        subtitle: "Sinal de Uber",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FUber%20com%20legenda.mp4?alt=media&token=6d6383ec-bf45-4806-81b0-efcd1148cafe',
     },
-    {
-        id: 7,
+    
+        /*id: 7,
         title: "Tudo Bem",
         subtitle: "Sinal de afirmação",
         url: '',
@@ -493,7 +493,7 @@ const sinaisProfissoes: Sinal[] = [
         title: "Chefe",
         subtitle: "Sinal de chefe",
         url: '',
-    },
+    },*/
 
 ];
 
