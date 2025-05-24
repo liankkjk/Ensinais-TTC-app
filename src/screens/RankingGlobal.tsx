@@ -5,7 +5,7 @@ import { FIREBASE_DB } from '../../FireBaseConfig';
 import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { LinearGradient } from 'expo-linear-gradient'; // Correção do import
+import { LinearGradient } from 'expo-linear-gradient';
 import * as Font from 'expo-font';
 import styles from '../styles/styleRanking';
 
@@ -83,13 +83,13 @@ const RankingGlobal = ({ navigation }: any) => {
   };
 
   if (!fontsLoaded) {
-    return <Text>Carregando fontes...</Text>; // Aguarde o carregamento das fontes
+    return <Text>Carregando fontes...</Text>; 
   }
 
   return (
     <LinearGradient
-      colors={['#F27127', '#f6fafd']} // Gradiente Linear de laranja até azul
-      style={{ flex: 1 }} // Garantir que o gradiente cubra a tela inteira
+      colors={['#F27127', '#f6fafd']} 
+      style={{ flex: 1 }}
     >
       <View style={{ flex: 1 }}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>

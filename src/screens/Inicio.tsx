@@ -64,7 +64,7 @@ function JogoScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        <ScrollView contentContainerStyle={{ paddingBottom: 110 }} showsVerticalScrollIndicator={false}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 100 }} showsVerticalScrollIndicator={false}>
           <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 16 }}>Conteúdo do jogo aqui</Text>
         </ScrollView>
         <Modal animationType="none" transparent={true}>

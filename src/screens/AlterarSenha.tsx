@@ -88,7 +88,7 @@ const AlterarSenha = ({ navigation }) => {
               >
                 <MaterialCommunityIcons
                   name={showPassword ? 'eye-off' : 'eye'}
-                  size={24}
+                  size={36}
                   color="#333"
                 />
               </TouchableOpacity>
@@ -110,7 +110,7 @@ const AlterarSenha = ({ navigation }) => {
               >
                 <MaterialCommunityIcons
                   name={showConfirmPassword ? 'eye-off' : 'eye'}
-                  size={24}
+                  size={36}
                   color="#333"
                 />
               </TouchableOpacity>

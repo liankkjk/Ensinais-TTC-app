@@ -240,7 +240,7 @@ export default function EstudoNavigation({ navigation }) {
             <Image
               source={trofeu.imagem}
               resizeMode="contain"
-              style={{ width: 60, height: 60, marginLeft: 4 }}
+              style={{ width: 100, height: 100, marginLeft: 4 }}
             />
           )}
           </View>
@@ -320,8 +320,11 @@ export default function EstudoNavigation({ navigation }) {
         <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
           <View style={styles.modalOverlay}>
             <View style={styles.quizContainer}>
-              <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
-                <Text style={styles.videoText}>Imagem aqui</Text>
+              <View style={[styles.videoBox]}>
+                <Image
+                  source={require('../../../../assets/JonathanParabens.png')}
+                  style={styles.imageStyle}
+                />
               </View>
               <Text style={styles.quizQuestion}>
                 Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:

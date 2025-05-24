@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const paddingBase = 5; // Define a base padding value
+const paddingBase = 5; 
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,17 +21,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     paddingHorizontal: 15,
+    marginTop: 10,
   },
   backText: {
+    marginTop: 8,
     marginLeft: width * 0.015,
-    fontSize: 16, // Replace 16 with your desired base font size
+    fontSize: 16,
     color: '#fff',
   },
   title: {
-    fontSize: 26,
+    fontSize: 32,
     color: '#002366',
-    fontWeight: 'bold',
-    marginTop: 60,
+    marginTop: 70,
     marginBottom: 30,
     textAlign: 'center',
     left: 20,
@@ -60,7 +61,6 @@ const styles = StyleSheet.create({
   },
   rank: {
     fontSize: 18,
-    fontWeight: 'bold',
     width: 30,
     textAlign: 'center',
     marginRight: 10,
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   },
   nickname: {
     fontSize: 16,
-    fontWeight: 'bold',
   },
   level: {
     fontSize: 14,

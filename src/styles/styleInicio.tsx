@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
     textAlign: 'center',
     color: '#fff',
-    fontWeight: 'bold',
     zIndex: 1,
     fontSize: scale(21),
   },
@@ -48,7 +47,6 @@ const styles = StyleSheet.create({
     marginLeft: scale(10),
     fontSize: scale(22),
     color: '#002366',
-    fontWeight: 'bold',
   },
 
   trofeuIcon: {
@@ -78,10 +76,9 @@ const styles = StyleSheet.create({
     tintColor: '#ffa500',
   },
   cardText: {
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: 'Poppins-Medium',
     fontSize: scale(18),
     color: '#ffa500',
-    fontWeight: 'bold',
   },
   modalOverlay: {
     flex: 1,
@@ -121,14 +118,14 @@ const styles = StyleSheet.create({
   },
   timerText: {
     fontSize: scale(18),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     color: '#FF0000',
     marginBottom: scale(10),
     textAlign: 'right',
   },
   quizQuestion: {
     fontSize: scale(18),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     color: '#ff8c00',
     marginBottom: scale(20),
     textAlign: 'center',
@@ -144,11 +141,11 @@ const styles = StyleSheet.create({
   quizOptionText: {
     color: '#fff',
     fontSize: scale(16),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
   },
   resultText: {
     fontSize: scale(18),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     color: '#002366', 
     marginBottom: scale(10),  
     textAlign: 'center',  
@@ -162,7 +159,7 @@ const styles = StyleSheet.create({
   },
   modalCloseText: {
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     fontSize: scale(14),
   },
   modalImage: {

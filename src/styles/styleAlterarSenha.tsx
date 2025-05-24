@@ -26,18 +26,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   backText: {
+    fontFamily: "Poppins-Bold",
     fontSize: fontSizeBase,
     color: '#333',
     marginLeft: 10, 
   },
   title: {
+    fontFamily: "Poppins-Bold",
     fontSize: fontSizeBase * 1.5,
-    fontWeight: 'bold',
     color: '#002366',
     textAlign: 'center',
     marginBottom: height * 0.05,
   },
   inputLabel: {
+    fontFamily: "Poppins-Bold",
     fontSize: fontSizeBase,
     fontWeight: '500',
     color: '#333',
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   input: {
+    fontFamily: "Poppins-Medium",
     flex: 1,
     fontSize: fontSizeBase,
     color: '#333',
@@ -79,14 +82,13 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontFamily: 'Poppins-Bold',
     fontSize: fontSizeBase,
-    fontWeight: 'bold',
     alignSelf: 'center',
   },
   iconButton: {
     position: 'absolute',
     right: width * 0.03, 
     top: '100%',  
-    transform: [{ translateY: -12 }], 
+    transform: [{ translateY: -26 }], 
   },
 });
 
