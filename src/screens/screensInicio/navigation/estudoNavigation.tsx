@@ -98,31 +98,112 @@ export default function EstudoNavigation({ navigation }) {
   };
 
   const perguntasPorTema = {
-    Matemática: [
-      { pergunta: 'Qual o resultado da conta acima?', opcoes: ['50', '55', '45'], correta: '45' },
-      { pergunta: 'Qual sinal a pessoa fez?', opcoes: ['Calculadora', 'Batata', 'Tênis'], correta: 'Calculadora' },
-      { pergunta: 'Qual sinal está sendo representado na imagem? ', opcoes: ['10', '25', '150'], correta: '25' },
-      { pergunta: 'O sinal representa qual operação aritmética?', opcoes: ['Divisão', 'Soma', 'Multiplicação'], correta: 'Divisão' },
-    ],
-    Português: [
-      { pergunta: 'Qual sinal está sendo representado na imagem?', opcoes: ['Escrever', 'Ler', 'Aprender'], correta: 'Ler' },
-      { pergunta: 'A pessoa gosta de?', opcoes: ['Falar', 'Dormir', 'Aprender'], correta: 'Aprender' },
-      { pergunta: 'Qual classe gramatical está sendo representada no vídeo?', opcoes: ['Verbo', 'Substantivo', 'Pronome'], correta: 'Verbo' },
-      { pergunta: 'Qual a dificuldade da pessoa no português?', opcoes: ['Ler', 'Aprender', 'Pontuação'], correta: 'Pontuação' },
-    ],
-    História: [
-      { pergunta: 'Qual evento está sendo representado?', opcoes: ['Colonização', 'Guerra', 'Revolução'], correta: 'Colonização' },
-      { pergunta: 'Qual estrutura antiga está sendo representada?', opcoes: ['Pirâmide', 'Castelo', 'Igreja'], correta: 'Pirâmide' },
-      { pergunta: 'Qual o sinal é esse?', opcoes: ['Capitalismo', 'Revolução', 'Independência do Brasil'], correta: 'Independência do Brasil' },
-      { pergunta: 'O que a pessoa falou?', opcoes: ['Cultura', 'Festa', 'Política '], correta: 'Cultura' },
-    ],
-    Geografia: [
-      { pergunta: 'Qual sinal a pessoa fez?', opcoes: ['Cidade', 'Pais', 'Estado'], correta: 'Pais' },
-      { pergunta: 'Qual país a pessoa tem vontade de conhecer?', opcoes: ['Chile', 'Brasil', 'Argentina'], correta: 'Brasil' },
-      { pergunta: 'A região onde a pessoa vive é: ', opcoes: ['Plana', 'Montanhosa', 'Arenosa'], correta: 'Plana' },
-      { pergunta: 'Qual continente a pessoa falou?', opcoes: ['Africano', 'Europeu', 'Americano'], correta: 'Americano' },
-    ],
-  };
+  Matemática: [
+    {
+      pergunta: 'Qual o resultado da conta acima? (25+20)',
+      opcoes: ['50', '55', '45'],
+      correta: '45',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2F45.mp4?alt=media&token=8cd62ed3-1554-42d2-823c-d8eb738be2c5'
+    },
+    {
+      pergunta: 'Qual sinal a pessoa fez?',
+      opcoes: ['Calculadora', 'Batata', 'Tênis'],
+      correta: 'Calculadora',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FCalculadora.mp4?alt=media&token=9161d8c2-8917-4b12-bf69-247313e00828'
+    },
+    {
+      pergunta: 'Qual sinal está sendo representado na imagem? ',
+      opcoes: ['10', '25', '150'],
+      correta: '25',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FN%C3%BAmero%2025.mp4?alt=media&token=b03d240a-56df-43f9-83fc-9d39efae127f'
+    },
+    {
+      pergunta: 'O sinal representa qual operação aritmética?',
+      opcoes: ['Divisão', 'Soma', 'Multiplicação'],
+      correta: 'Divisão',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FDivis%C3%A3o.mp4?alt=media&token=7942ec7e-5bbc-4de3-90f4-2a7b27d8668b'
+    }
+  ],
+  Português: [
+    {
+      pergunta: 'Qual sinal está sendo representado na imagem?',
+      opcoes: ['Escrever', 'Ler', 'Aprender'],
+      correta: 'Ler',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FLer.mp4?alt=media&token=be10ef7b-76d7-4ca3-8442-7741cf7088eb'
+    },
+    {
+      pergunta: 'A pessoa gosta de?',
+      opcoes: ['Falar', 'Dormir', 'Aprender'],
+      correta: 'Aprender',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FAprender.mp4?alt=media&token=d11f5afc-59ff-403b-94ae-49d718370f0a'
+    },
+    {
+      pergunta: 'Qual classe gramatical está sendo representada no vídeo?',
+      opcoes: ['Verbo', 'Substantivo', 'Pronome'],
+      correta: 'Verbo',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FVerbo.mp4?alt=media&token=a0f6ac38-2e45-4af9-bb1d-d25dab1ede76'
+    },
+    {
+      pergunta: 'Qual a dificuldade da pessoa no português?',
+      opcoes: ['Ler', 'Aprender', 'Pontuação'],
+      correta: 'Pontuação',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FPontua%C3%A7%C3%A3o.mp4?alt=media&token=f3a74756-ddd8-4ed8-9337-05e2c8513947'
+    }
+  ],
+  História: [
+    {
+      pergunta: 'Qual evento está sendo representado?',
+      opcoes: ['Colonização', 'Guerra', 'Revolução'],
+      correta: 'Colonização',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FColoniza%C3%A7%C3%A3o.mp4?alt=media&token=a20a57a9-9e3d-4c1e-8393-ca06c3f366c0'
+    },
+    {
+      pergunta: 'O que a pessoa falou?',
+      opcoes: ['Cultura', 'Festa', 'Política'],
+      correta: 'Cultura',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FCultura.mp4?alt=media&token=662aefab-7c07-485c-9a86-0b30d35c76b0'
+    },
+    {
+      pergunta: 'Qual estrutura antiga está sendo representada?',
+      opcoes: ['Castelo', 'Pirâmide', 'Igreja'],
+      correta: 'Castelo',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FCastelo.mp4?alt=media&token=decea706-764a-4476-9648-3fa6118b0dd7'
+    },
+    {
+      pergunta: 'Qual o sinal é esse?',
+      opcoes: ['Capitalismo', 'Independência do Brasil', 'Revolução'],
+      correta: 'Independência do Brasil',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FIndepend%C3%AAncia%20do%20Brasil.mp4?alt=media&token=4954bc73-7c5c-4e2d-9154-6a87ab20c507'
+    }
+  ],
+  Geografia: [
+    {
+      pergunta: 'Qual sinal a pessoa fez?',
+      opcoes: ['Cidade', 'Pais', 'Estado'],
+      correta: 'Pais',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FPa%C3%ADs.mp4?alt=media&token=113cb39c-171e-49d6-811b-5cfce9df249a'
+    },
+    {
+      pergunta: 'Qual país a pessoa tem vontade de conhecer?',
+      opcoes: ['Chile', 'Brasil', 'Argentina'],
+      correta: 'Brasil',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FBrasil.mp4?alt=media&token=a6f651d3-d7a9-47b8-831e-85e6ff8f6296'
+    },
+    {
+      pergunta: 'A região onde a pessoa vive é: ',
+      opcoes: ['Plana', 'Montanhosa', 'Arenosa'],
+      correta: 'Plana',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FPlano.mp4?alt=media&token=5f220d86-e82d-40c1-b899-5a8ae829063c'
+    },
+    {
+      pergunta: 'Qual continente a pessoa falou?',
+      opcoes: ['Africano', 'Europeu', 'Americano'],
+      correta: 'Americano',
+      url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FAmericano.mp4?alt=media&token=c01bf720-cb74-4a10-865c-8128d4c811d4'
+    }
+  ]
+};
+
 
   const abrirModal = (tema: string) => {
     setCardSelecionado(tema);
