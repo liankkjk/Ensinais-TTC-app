@@ -77,7 +77,7 @@ const DrawerContent = (props: any) => {
           onPress={() => props.navigation.navigate("AlterarSenha")}
         />
         <DrawerItem
-          label={() => <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 26, color:'#FFA500', marginTop: 20}}>Ranking Global</Text>}
+          label={() => <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 26, color:'#FFA500', marginTop: 20}}>Ranking</Text>}
           onPress={() => props.navigation.navigate("RankingGlobal")}
         />
         <DrawerItem

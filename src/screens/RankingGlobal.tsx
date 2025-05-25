@@ -9,7 +9,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import * as Font from 'expo-font';
 import styles from '../styles/styleRanking';
 
-const RankingGlobal = ({ navigation }: any) => {
+const Ranking = ({ navigation }: any) => {
   const [players, setPlayers] = useState<any[]>([]);
   const [fontsLoaded] = Font.useFonts({
     'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
@@ -24,7 +24,7 @@ const RankingGlobal = ({ navigation }: any) => {
           const q = query(
             collection(FIREBASE_DB, 'usuarios'),
             orderBy('nivel', 'desc'),
-            limit(10)
+            limit(6)
           );
 
           const snapshot = await getDocs(q);
@@ -34,7 +34,6 @@ const RankingGlobal = ({ navigation }: any) => {
           });
           setPlayers(playersList);
         } catch (error) {
-          console.error('Erro ao buscar usuários:', error);
         }
       };
 
@@ -97,7 +96,7 @@ const RankingGlobal = ({ navigation }: any) => {
           <Text style={[styles.backText, { fontFamily: 'Poppins-Medium' }]}>Voltar</Text>
         </TouchableOpacity>
 
-        <Text style={[styles.title, { fontFamily: 'Poppins-Bold' }]}>Ranking Global</Text>
+        <Text style={[styles.title, { fontFamily: 'Poppins-Bold' }]}>Top 6</Text>
         <FlatList
           data={players}
           keyExtractor={(_, index) => index.toString()}
@@ -120,4 +119,4 @@ const RankingGlobal = ({ navigation }: any) => {
   );
 };
 
-export default RankingGlobal;
+export default Ranking;
