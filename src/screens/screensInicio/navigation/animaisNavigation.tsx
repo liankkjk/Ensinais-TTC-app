@@ -6,6 +6,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function AnimaisNavigation({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -98,28 +99,94 @@ export default function AnimaisNavigation({ navigation }) {
 
   const perguntasPorTema = {
     Rurais: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Porco', 'Galinha', 'Vaca'], correta: 'Vaca' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Vaca', 'Cavalo', 'Bode'], correta: 'Cavalo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Boi', 'Galinha', 'Porco'], correta: 'Galinha' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Porco', 'Galo', 'Pato'], correta: 'Porco' },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Porco', 'Galinha', 'Vaca'],
+        correta: 'Vaca',
+        videoUrl:''
+      },
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Vaca', 'Cavalo', 'Bode'],
+        correta: 'Cavalo',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FCavalo.mp4?alt=media&token=1ba3dae6-2d8c-4ecc-9c4d-c2dd18cd8cda'
+     },
+      { pergunta: 'Qual o significado do sinal acima?', 
+        opcoes: ['Boi', 'Galinha', 'Porco'],
+        correta: 'Galinha',
+        videoUrl:''
+      },
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Porco', 'Galo', 'Pato'],
+        correta: 'Porco',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FPorco.mp4?alt=media&token=73995b1b-a381-424c-883f-9291867516f0'
+      },
     ],
     Aquáticos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tubarão', 'Baleia', 'Golfinho'], correta: 'Baleia' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Polvo', 'Peixe', 'Golfinho'], correta: 'Peixe' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Baleia', 'Tubarão', 'Polvo'], correta: 'Polvo' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Golfinho', 'Tubarão', 'Lula'], correta: 'Golfinho' },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Tubarão', 'Baleia', 'Golfinho'],
+        correta: 'Baleia',
+        videoUrl:''
+      },
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Polvo', 'Peixe', 'Golfinho'],
+        correta: 'Peixe',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FPeixe.mp4?alt=media&token=fef58279-9b0c-4a9c-bb37-cd48219d2a54'
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Baleia', 'Tubarão', 'Polvo'],
+        correta: 'Polvo',
+        videoUrl:''
+        },
+         
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Golfinho', 'Tubarão', 'Lula'],
+        correta: 'Golfinho',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FGolfinho.mp4?alt=media&token=dc04414e-98d9-4d6b-adc9-2442e2d2ca0a'
+      },
     ],
     Domésticos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Cachorro', 'Gato', 'Hamster'], correta: 'Gato' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Coelho', 'Gato', 'Cachorro'], correta: 'Cachorro' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Papagaio', 'Pássaro', 'Calopsita '], correta: 'Pássaro' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Coelho', 'Gato', 'Tartaruga'], correta: 'Coelho' },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Cachorro', 'Gato', 'Hamster'],
+        correta: 'Gato',
+         videoUrl:''
+      },
+
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Coelho', 'Gato', 'Cachorro'],
+       correta: 'Cachorro',
+        videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Papagaio', 'Pássaro', 'Calopsita '],
+        correta: 'Pássaro',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FPassarinho.mp4?alt=media&token=a9ddeb1b-5d00-4965-a05e-8985ad6b6e79'
+      },
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Coelho', 'Gato', 'Tartaruga'],
+        correta: 'Coelho',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FCoelho.mp4?alt=media&token=147b3aef-b93a-4b67-b60d-875171440916' 
+      },
     ],
     Selvagens: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Girafa', 'Elefante', 'Leão'], correta: 'Elefante' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Leão', 'Tigre', 'Lobo'], correta: 'Leão' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Onça', 'Cabra', 'Macaco'], correta: 'Macaco' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Jacaré', 'Cobra', 'Lontra '], correta: 'Jacaré' },
+      { pergunta: 'Qual o significado do sinal acima?',
+       opcoes: ['Girafa', 'Elefante', 'Leão'],
+        correta: 'Elefante',
+        videoUrl:''
+      },
+
+      { pergunta: 'O que a pessoa disse?',
+         opcoes: ['Leão', 'Tigre', 'Lobo'],
+          correta: 'Leão' },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Onça', 'Cabra', 'Macaco'],
+          correta: 'Macaco',
+          videoUrl:''   
+      },
+
+      { pergunta: 'O que a pessoa disse?',
+         opcoes: ['Jacaré', 'Cobra', 'Lontra '],
+          correta: 'Jacaré',
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FJacar%C3%A9.mp4?alt=media&token=44d7ef1b-c21c-44b2-8e36-023d666c4cd3'
+      },
     ],
   };
 
@@ -238,7 +305,7 @@ export default function AnimaisNavigation({ navigation }) {
           <View style={styles.trofeuIcon}>{trofeu && (
             <Image
               source={trofeu.imagem}
-              resizeMode="contain"
+              resizeMode={ResizeMode.CONTAIN}
               style={{ width: 100, height: 100, marginLeft: 4 }}
             />
           )}
@@ -278,9 +345,18 @@ export default function AnimaisNavigation({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
+              {perguntas[perguntaAtual]?.videoUrl && (
+  <Video
+    source={{ uri: perguntas[perguntaAtual].videoUrl }}
+    rate={1.0}
+    volume={1.0}
+    isMuted={false}
+    resizeMode={ResizeMode.CONTAIN}
+    shouldPlay
+    useNativeControls
+    style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+  />
+)}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 

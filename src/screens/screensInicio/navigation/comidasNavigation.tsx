@@ -6,6 +6,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function ComidasScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -278,9 +279,18 @@ export default function ComidasScreen({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
+               {perguntas[perguntaAtual]?.videoUrl && (
+                <Video
+                  source={{ uri: perguntas[perguntaAtual].videoUrl }}
+                  rate={1.0}
+                  volume={1.0}
+                  isMuted={false}
+                  resizeMode={ResizeMode.CONTAIN}
+                  shouldPlay
+                  useNativeControls
+                  style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                />
+              )}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 

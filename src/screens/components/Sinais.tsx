@@ -208,7 +208,7 @@ const sinaisNatureza: Sinal[] = [
         id: 2,
         title: "Peixe",
         subtitle: "Sinal de peixe",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FPeixe%20com%20legenda.mp4?alt=media&token=e3183271-0f34-4e9c-9877-f63c12ba3c34',
     },
     {
         id: 3,
@@ -220,7 +220,7 @@ const sinaisNatureza: Sinal[] = [
         id: 3,
         title: "Golfinho",
         subtitle: "Sinal de golfinho",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FGolfinho%20com%20legenda.mp4?alt=media&token=0fb043ea-b324-4cec-9e8b-13aeaddd1eb1',
     },
     {
         id: 4,
@@ -232,7 +232,7 @@ const sinaisNatureza: Sinal[] = [
         id: 5,
         title: "Pássaro",
         subtitle: "Sinal de pássaro",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FPassarinho%20com%20legenda.mp4?alt=media&token=91636cda-36bf-41d3-bc40-2fa3c8e6f2fc',
     },
     {
         id: 6,
@@ -244,7 +244,7 @@ const sinaisNatureza: Sinal[] = [
         id: 7,
         title: "Coelho",
         subtitle: "Sinal de coelho",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FCoelho%20com%20legenda.mp4?alt=media&token=2991b312-9876-4c5b-8215-304f295c739a',
     },
     {
         id: 8,
@@ -256,7 +256,7 @@ const sinaisNatureza: Sinal[] = [
         id: 9,
         title: "Cavalo",
         subtitle: "Sinal de cavalo",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FCavalo%20com%20legenda.mp4?alt=media&token=5c8b6e2b-83ba-4c8f-990f-5e415bb0bda6',
     },
     {
         id: 10,
@@ -268,7 +268,7 @@ const sinaisNatureza: Sinal[] = [
         id: 11,
         title: "Porco",
         subtitle: "Sinal de porco",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FPorco%20com%20legenda.mp4?alt=media&token=7ed493de-ff12-4dc4-a87c-7c18c0abe18d',
     },
     {
         id: 12,
@@ -280,7 +280,7 @@ const sinaisNatureza: Sinal[] = [
         id: 13,
         title: "Leão",
         subtitle: "Sinal de leão",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FLe%C3%A3o%20com%20legenda.mp4?alt=media&token=41ca85d0-2b4b-4d7e-97eb-bb1f08a40069',
     },
     {
         id: 14,
@@ -292,7 +292,7 @@ const sinaisNatureza: Sinal[] = [
         id: 15,
         title: "Jacaré",
         subtitle: "Sinal de jacaré",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FJacar%C3%A9%20com%20legenda.mp4?alt=media&token=68cb187f-6c6a-4e32-9f7f-2d96b5d7de6f',
     },
 
 ];
@@ -441,59 +441,6 @@ const sinaisProfissoes: Sinal[] = [
         url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FUber%20com%20legenda.mp4?alt=media&token=6d6383ec-bf45-4806-81b0-efcd1148cafe',
     },
     
-        /*id: 7,
-        title: "Tudo Bem",
-        subtitle: "Sinal de afirmação",
-        url: '',
-    },
-    {
-        id: 8,
-        title: "Família",
-        subtitle: "Sinal de família",
-        url: '',
-    },
-    {
-        id: 9,
-        title: "Mãe",
-        subtitle: "Sinal de mãe",
-        url: '',
-    },
-    {
-        id: 10,
-        title: "Pai",
-        subtitle: "Sinal de pai",
-        url: '',
-    },
-    {
-        id: 11,
-        title: "Irmão",
-        subtitle: "Sinal de irmão",
-        url: '',
-    },
-    {
-        id: 12,
-        title: "Filho",
-        subtitle: "Sinal de filho",
-        url: '',
-    },
-    {
-        id: 13,
-        title: "Amigo",
-        subtitle: "Sinal de amigo",
-        url: '',
-    },
-    {
-        id: 14,
-        title: "Colega",
-        subtitle: "Sinal de colega",
-        url: '',
-    },
-    {
-        id: 15,
-        title: "Chefe",
-        subtitle: "Sinal de chefe",
-        url: '',
-    },*/
 
 ];
 
