@@ -28,7 +28,7 @@ export default function SinaisAlfabetizacao({ navigation }: any) {
 
     const sinaisFiltrados = sinaisAlfabeto.filter(({ title, subtitle }) => {
         const query = normalizeSignal(searchQuery);
-        return ( normalizeSignal(title).includes(query) || normalizeSignal(subtitle).includes(query) );
+        return ( normalizeSignal(title).includes(query) || normalizeSignal(subtitle).includes(query) );                      
       });
 
     return (

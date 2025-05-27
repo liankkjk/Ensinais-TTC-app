@@ -6,6 +6,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function ProfissoesScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -98,7 +99,11 @@ export default function ProfissoesScreen({ navigation }) {
 
   const perguntasPorTema = {
     Tecnologia: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Desenvolvedor', 'Engenheiro', 'Analista de Sistemas'], correta: 'Desenvolvedor' },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Desenvolvedor', 'Engenheiro', 'Analista de Sistemas'],
+        correta: 'Desenvolvedor',
+        videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FDesenvolvedor.mp4?alt=media&token=44fde827-ef58-4cff-b536-f58f18a2199a'
+       },
       { pergunta: 'Qual conceito de T.I a pessoa falou?', opcoes: ['Inteligência Artificial', 'Backend', 'Framework'], correta: 'Inteligência Artificial' },
       { pergunta: 'O que a pessoa disse?', opcoes: ['Hardware', 'Mouse', 'Tecnologia'], correta: 'Tecnologia' },
       { pergunta: 'Qual o curso que a pessoa pretende fazer?', opcoes: ['Ciência da computação', 'Design Digital', 'ADS'], correta: 'Design Digital' },
@@ -278,10 +283,18 @@ export default function ProfissoesScreen({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
-
+               {perguntas[perguntaAtual]?.videoUrl && (
+                <Video
+                  source={{ uri: perguntas[perguntaAtual].videoUrl }}
+                  rate={1.0}
+                  volume={1.0}
+                  isMuted={false}
+                  resizeMode={ResizeMode.CONTAIN}
+                  shouldPlay
+                  useNativeControls
+                  style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                />
+              )}
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
               <View style={styles.timerContainer}>
