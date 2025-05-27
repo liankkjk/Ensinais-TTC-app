@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
 import * as Telas from '../screens';
+import * as Font from 'expo-font';
 import * as TelasSinalario from '../screens/screensSinalario';
 import { useAuth } from './authcontext'; 
 import { FIREBASE_AUTH } from '../../FireBaseConfig';
@@ -58,14 +59,32 @@ const DrawerContent = (props: any) => {
     }
   };
 
+   const [fontsLoaded] = Font.useFonts({
+      'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+      'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+      'Poppins-ExtraBold': require('../../assets/fonts/Poppins-ExtraBold.ttf'),
+    });
+
   return (
-    <DrawerContentScrollView {...props}>
-      <Text style={styles.drawerContentTitle}>Configurações</Text>
-      <DrawerItem label="Editar Perfil" onPress={() => props.navigation.navigate("PerfilStack", { screen: "EditarPerfil" })} />
-      <DrawerItem label="Alterar Senha" onPress={() => props.navigation.navigate("AlterarSenha")} />
-      <DrawerItem label="Ranking Global" onPress={() => props.navigation.navigate("RankingGlobal")} />
-      <DrawerItem label="Sair" onPress={handleLogout} />
-    </DrawerContentScrollView>
+      <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1, paddingTop: 80 }}>
+        <Text style={[styles.drawerContentTitle, { fontFamily: 'Poppins-ExtraBold' }]}>Configurações</Text>
+        <DrawerItem
+          label={() => <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 26, color:'#FFA500', marginTop: 26}}>Editar Perfil</Text>}
+          onPress={() => props.navigation.navigate("PerfilStack", { screen: "EditarPerfil" })}
+        />
+        <DrawerItem
+          label={() => <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 26, color:'#FFA500', marginTop: 20}}>Alterar Senha</Text>}
+          onPress={() => props.navigation.navigate("AlterarSenha")}
+        />
+        <DrawerItem
+          label={() => <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 26, color:'#FFA500', marginTop: 20}}>Ranking</Text>}
+          onPress={() => props.navigation.navigate("RankingGlobal")}
+        />
+        <DrawerItem
+          label={() => <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 26, color:'#FFA500', marginTop: 20}}>Sair</Text>}
+          onPress={handleLogout}
+        />
+      </DrawerContentScrollView>
   );
 };
 

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     color: '#ffF',
     fontSize: fontSizeBase,
-    fontWeight: '600',
+    fontFamily: "Poppins-Medium",
     textDecorationLine: 'none',
   },
   logo: {
@@ -38,17 +38,17 @@ const styles = StyleSheet.create({
     height: width * 0.5,
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginBottom: width * 0.05,
+    marginBottom: width * 0.001 ,
   },
   bottomLogo: {
-    width: width * 0.6,
-    height: width * 0.5,
+    width: width * 0.5,
+    height: width * 0.4,
     resizeMode: 'contain',
     alignSelf: 'center',
   },
   inputLabel: {
     fontSize: fontSizeBase,
-    fontWeight: '500',
+    fontFamily: "Poppins-Medium",
     color: '#FFF',
     marginBottom: width * 0.02,
     marginLeft: width * 0.025,
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     marginRight: width * 0.02,
   },
   input: {
+    fontFamily: "Poppins-Medium",
     flex: 1,
     fontSize: fontSizeBase,
     color: '#333',
@@ -94,7 +95,6 @@ const styles = StyleSheet.create({
     color: '#F2921D',
     fontFamily: 'Poppins-Bold',
     fontSize: fontSizeBase,
-    fontWeight: 'bold',
     alignSelf: 'center',
   },
   registerButton: {
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   registerText: {
+    fontFamily: "Poppins-Bold",
     color: '#FFF',
     fontSize: fontSizeBase,
     fontWeight: '600',

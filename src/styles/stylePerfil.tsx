@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   profileName: {
     fontFamily: "Poppins-Bold",
     fontSize: scale(26),
-    fontWeight: "bold",
     marginTop: scale(10),
     color: "#f2921d",
   },
@@ -71,21 +70,18 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
     textAlign: "center",
     color: "#fff",
-    fontWeight: "bold",
     zIndex: 1,
     fontSize: scale(20),
   },
   levelText: {
-    fontFamily: "Poppins-SemiBold",
+    fontFamily: "Poppins-Medium",
     marginLeft: scale(10),
     fontSize: scale(24),
     color: "#002366",
-    fontWeight: "bold",
   },
   editButtonText: {
     color: "white",
     fontSize: 16,
-    fontWeight: "bold",
     textAlign: "center",
   },
   conq: {
@@ -111,7 +107,6 @@ const styles = StyleSheet.create({
 conqText: {
   fontFamily: "Poppins-SemiBold",
     fontSize: 18,
-    fontWeight: "bold",
     color: "#fff",
     marginBottom: 10,
   },
@@ -130,6 +125,7 @@ conqText: {
     textAlign: "center",
   },
   conqDescription: {
+    fontFamily: "Poppins-Medium",
     fontSize: scale(13),
     color: "#000",
     marginTop: scale(4),

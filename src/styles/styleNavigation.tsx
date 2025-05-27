@@ -1,15 +1,13 @@
-// styleNavigation.js
-
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   drawerContentTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    color: '#f2921d',
+    fontSize: 36,
     marginLeft: 15,
-    marginBottom: 10,
+    marginBottom: 12,
   },
   tabBarStyle: {
     position: 'absolute',

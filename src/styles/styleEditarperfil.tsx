@@ -21,13 +21,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   backText: {
+    fontFamily: "Poppins-Bold",
     marginLeft: width * 0.015,
     fontSize: fontSizeBase,
     color: '#fff',
   },
   titulo: {
+    fontFamily: "Poppins-Bold",
     fontSize: fontSizeBase * 1.5,
-    fontWeight: 'bold',
     color: '#002366',
     textAlign: 'center',
     marginBottom: height * 0.05,
@@ -39,12 +40,14 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   trocarFoto: {
+    fontFamily: "Poppins-Medium",
     fontSize: fontSizeBase,
     color: '#D94929',
     textAlign: 'center', 
     marginBottom: 20,
   },
   input: {
+    fontFamily: "Poppins-Medium",
     width: '90%',
     height: 50,
     borderColor: '#ccc',
@@ -75,9 +78,9 @@ const styles = StyleSheet.create({
     elevation: 5, 
   },
   botaoTexto: {
+    fontFamily: "Poppins-Bold",
     color: '#FFF',
     fontSize: fontSizeBase,
-    fontWeight: 'bold',
     alignSelf: 'center', 
   },
 });

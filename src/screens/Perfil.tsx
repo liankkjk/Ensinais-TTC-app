@@ -124,17 +124,6 @@ const Profile = ({ navigation, route }: any) => {
           />
           <Text style={styles.profileName}>{nome}</Text>
 
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("EditarPerfil", {
-                nome,
-                fotoPerfil,
-              })
-            }
-          >
-            <Text style={styles.editButtonText}>Editar Perfil</Text>
-          </TouchableOpacity>
-
           <View style={styles.expContainer}>
             <View style={styles.expBarBackground}>
               <View style={[styles.expBarFill, { width: `${(exp / 200) * 100}%` }]} />

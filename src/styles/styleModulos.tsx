@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   expText: {
     textAlign: 'center',
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     zIndex: 1,
     fontSize: scale(21),
   },
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginLeft: scale(10),
     fontSize: scale(22),
     color: '#002366',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
   },
   trofeuIcon: {
     marginLeft: scale(10),
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: scale(18),
     color: '#ffa500',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
   },
   modalOverlay: {
     flex: 1,
@@ -93,17 +93,17 @@ const styles = StyleSheet.create({
   },
   videoBox: {
     backgroundColor: '#4CAF50',
-    width: '100%',
+    width: '100%', 
     height: scale(180),
     borderRadius: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: scale(20),
   },
-  videoText: {
-    color: '#fff',
-    fontSize: scale(18),
-    fontWeight: 'bold',
+  imageStyle: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
   timerContainer: {
     flexDirection: 'row',
@@ -116,14 +116,14 @@ const styles = StyleSheet.create({
   },
   timerText: {
     fontSize: scale(18),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     color: '#FF0000',
     marginBottom: scale(10),
     textAlign: 'right',
   },
   quizQuestion: {
     fontSize: scale(18),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     color: '#ff8c00',
     marginBottom: scale(20),
     textAlign: 'center',
@@ -139,11 +139,11 @@ const styles = StyleSheet.create({
   quizOptionText: {
     color: '#fff',
     fontSize: scale(16),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
   },
   resultText: {
     fontSize: scale(18),
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     color: '#002366', 
     marginBottom: scale(10),  
     textAlign: 'center',  
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   },
   modalCloseText: {
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Medium',
     fontSize: scale(14),
   },
   modalImage: {
