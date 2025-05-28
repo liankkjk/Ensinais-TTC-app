@@ -102,7 +102,7 @@ export default function ComidasScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Bolo', 'Pudim', 'Brigadeiro'],
         correta: 'Pudim',
-        videoUrl: ''
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2Fpudim.jpg?alt=media&token=9e3768a6-76f8-4d87-a5b6-d07c1df6b84a'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Bala', 'Doce de Leite', 'Chocolate'],
