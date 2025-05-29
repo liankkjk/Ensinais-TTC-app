@@ -32,7 +32,7 @@ const CadAlert = ({ visible, onClose, title, message, type }: AlertProps) => {
   useEffect(() => {
     if (visible) {
       setShowModal(true);
-      playSound(); 
+      playSound();
       Animated.parallel([
         Animated.spring(scaleAnim, {
           toValue: 1,
@@ -79,7 +79,7 @@ const CadAlert = ({ visible, onClose, title, message, type }: AlertProps) => {
             </Animatable.View>
 
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.message}>{message}</Text>
+            <Text style={styles.message}>{type === 'error' ? 'Problema encontrado, por favor revise!' : message}</Text>
 
             <Animatable.View animation="pulse" iterationCount="infinite" duration={3000}>
               <TouchableOpacity style={styles.button} onPress={onClose}>

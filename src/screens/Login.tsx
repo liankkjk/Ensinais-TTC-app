@@ -102,7 +102,7 @@ const LoginScreen = ({ navigation }) => {
         >
           <Image
             style={styles.logo}
-            source={require('../../assets/favicon.png')}
+            source={require('../../assets/JonathanLogin.png')}
           />
 
           <Text style={styles.inputLabel}>Insira o e-mail:</Text>

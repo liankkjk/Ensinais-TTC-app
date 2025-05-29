@@ -96,7 +96,7 @@ export default function Menu({ navigation }) {
             <Image
               source={trofeu.imagem}
               resizeMode="contain"
-              style={{ width: 75, height: 75, marginLeft: 1 }}
+              style={{ width: 100, height: 100, marginLeft: 1 }}
             />
           )}
           </View>

@@ -25,8 +25,8 @@ const Cadastrar = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [securePassword, setSecurePassword] = useState(true); // Visibilidade da senha
-  const [secureConfirmPassword, setSecureConfirmPassword] = useState(true); // Visibilidade da confirmação da senha
+  const [securePassword, setSecurePassword] = useState(true);
+  const [secureConfirmPassword, setSecureConfirmPassword] = useState(true);
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -103,6 +103,7 @@ const Cadastrar = () => {
               maxLength={20}
             />
           </View>
+          <Text style={styles.smallText}>Informe um nome único</Text>
 
           {showAlert && (
             <AlertCompCad
@@ -133,6 +134,7 @@ const Cadastrar = () => {
               placeholderTextColor="#888"
             />
           </View>
+          <Text style={styles.smallText}>Use um e-mail válido</Text>
 
           <Text style={styles.inputLabel}>Insira a senha:</Text>
           <View style={styles.inputContainer}>
@@ -149,6 +151,7 @@ const Cadastrar = () => {
               <MaterialCommunityIcons name={securePassword ? 'eye-off' : 'eye'} size={20} color="#888" />
             </TouchableOpacity>
           </View>
+          <Text style={styles.smallText}>Senha com no mínimo 6 caracteres.</Text>
 
           <Text style={styles.inputLabel}>Confirme a senha:</Text>
           <View style={styles.inputContainer}>
@@ -157,7 +160,7 @@ const Cadastrar = () => {
               placeholder="Confirmar senha"
               value={confirmPassword}
               onChangeText={setConfirmPassword}
-              secureTextEntry={secureConfirmPassword} // Agora usa o estado separado
+              secureTextEntry={secureConfirmPassword}
               style={styles.input}
               placeholderTextColor="#888"
             />
@@ -165,6 +168,7 @@ const Cadastrar = () => {
               <MaterialCommunityIcons name={secureConfirmPassword ? 'eye-off' : 'eye'} size={20} color="#888" />
             </TouchableOpacity>
           </View>
+          <Text style={styles.smallText}>Repita a senha para confirmar.</Text>
 
           {loading ? (
             <ActivityIndicator size="large" color="#fff" style={{ marginTop: 30 }} />
@@ -178,7 +182,7 @@ const Cadastrar = () => {
             <Text style={styles.loginText}>Já possui uma conta? Faça login!</Text>
           </TouchableOpacity>
 
-          <Image style={styles.bottomLogo} source={require('../../assets/favicon.png')} />
+          <Image style={styles.bottomLogo} source={require('../../assets/JonathanCadastro.png')} />
         </KeyboardAvoidingView>
       </SafeAreaView>
     </LinearGradient>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, Modal, Animated, SafeAreaView, Alert } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Video, ResizeMode } from 'expo-av';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
@@ -98,28 +99,93 @@ export default function TransporteNavigation({ navigation }) {
 
   const perguntasPorTema = {
     Trânsito: [
-      { pergunta: 'Qual sinal é esse? ', opcoes: ['Carros', 'Sinalização', 'Pessoas'], correta: 'Sinalização' },
-      { pergunta: 'A rua está?', opcoes: ['Bloqueada', 'Estreita', 'Vazia'], correta: 'Bloqueada' },
-      { pergunta: 'O que está sendo representado na imagem?', opcoes: ['Calçada', 'Semáforo', 'Avenida'], correta: 'Semáforo' },
-      { pergunta: 'A placa sinaliza para?', opcoes: ['Seguir', 'Reduzir', 'Parar'], correta: 'Parar' },
+      { pergunta: 'Qual sinal é esse? ',
+         opcoes: ['Carros', 'Sinalização', 'Pessoas'],
+          correta: 'Sinalização',
+         videoUrl:''
+
+      },
+      { pergunta: 'A rua está?',
+         opcoes: ['Bloqueada', 'Estreita', 'Vazia'],
+          correta: 'Bloqueada',
+          videoUrl:''
+      },
+      { pergunta: 'O que está sendo representado na imagem?',
+         opcoes: ['Calçada', 'Semáforo', 'Avenida'],
+          correta: 'Semáforo',
+          videoUrl:''
+      },
+      { pergunta: 'A placa sinaliza para?',
+         opcoes: ['Seguir', 'Reduzir', 'Parar'],
+          correta: 'Parar',
+          videoUrl:''
+        },
     ],
     Veículos: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Carro', 'Ônibus', 'Moto'], correta: 'Carro' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Caminhão', 'Pedestre', 'Moto'], correta: 'Moto' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Bicicleta', 'Navio', 'Metro'], correta: 'Metro' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Carro', 'Ônibus', 'Farol'], correta: 'Ônibus' },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Carro', 'Ônibus', 'Moto'],
+          correta: 'Carro',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Caminhão', 'Pedestre', 'Moto'],
+          correta: 'Moto',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Bicicleta', 'Navio', 'Metro'],
+          correta: 'Metro',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Carro', 'Ônibus', 'Farol'],
+          correta: 'Ônibus',
+          videoUrl:''
+      },
     ],
     Ônibus: [
-      { pergunta: 'O que a pessoa está dizendo?', opcoes: ['Bom dia', 'Roda', 'Ponto de Ônibus'], correta: 'Ponto de Ônibus' },
-      { pergunta: 'O que a pessoa está dizendo?', opcoes: ['Parada Solicitada', 'Oi', 'Tchau'], correta: 'Parada Solicitada' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Tchau', 'Terminal', 'Olá'], correta: 'Terminal' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Sentar', 'Descer', 'Passe de ônibus'], correta: 'Passe de ônibus' },
+      { pergunta: 'O que a pessoa está dizendo?',
+         opcoes: ['Bom dia', 'Roda', 'Ponto de Ônibus'],
+          correta: 'Ponto de Ônibus',
+          videoUrl:''
+      },
+      { pergunta: 'O que a pessoa está dizendo?',
+         opcoes: ['Parada Solicitada', 'Oi', 'Tchau'],
+          correta: 'Parada Solicitada',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Tchau', 'Terminal', 'Olá'],
+          correta: 'Terminal',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Sentar', 'Descer', 'Passe de ônibus'],
+          correta: 'Passe de ônibus',
+          videoUrl:''
+      },
     ],
     Metro: [
-      { pergunta: 'Que lugar é esse?', opcoes: ['Estação', 'Trem', 'Trilhos'], correta: 'Estação' },
-      { pergunta: 'Qual linha a pessoa quer ir?', opcoes: ['Linha Vermelha', 'Linha Azul', 'Linha Amarela'], correta: 'Linha Amarela' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['11h', 'Plataforma', 'Busão'], correta: 'Plataforma' },
-      { pergunta: 'O que a pessoa esta pedindo?', opcoes: ['Passe', 'Comida', 'Informação'], correta: 'Informação' },
+      { pergunta: 'Que lugar é esse?',
+         opcoes: ['Estação', 'Trem', 'Trilhos'],
+          correta: 'Estação',
+          videoUrl:''
+      },
+      { pergunta: 'Qual linha a pessoa quer ir?',
+         opcoes: ['Linha Vermelha', 'Linha Azul', 'Linha Amarela'],
+          correta: 'Linha Amarela',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['11h', 'Plataforma', 'Busão'],
+          correta: 'Plataforma',
+          videoUrl:''
+      },
+      { pergunta: 'O que a pessoa esta pedindo?',
+         opcoes: ['Passe', 'Comida', 'Informação'],
+          correta: 'Informação',
+          videoUrl:''
+       },
     ]
   };
 
@@ -239,7 +305,7 @@ export default function TransporteNavigation({ navigation }) {
             <Image
               source={trofeu.imagem}
               resizeMode="contain"
-              style={{ width: 60, height: 60, marginLeft: 4 }}
+              style={{ width: 100, height: 100, marginLeft: 4 }}
             />
           )}
           </View>
@@ -278,9 +344,18 @@ export default function TransporteNavigation({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
+               {perguntas[perguntaAtual]?.videoUrl && (
+  <Video
+    source={{ uri: perguntas[perguntaAtual].videoUrl }}
+    rate={1.0}
+    volume={1.0}
+    isMuted={false}
+    resizeMode={ResizeMode.CONTAIN}
+    shouldPlay
+    useNativeControls
+    style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+  />
+)}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
@@ -319,8 +394,11 @@ export default function TransporteNavigation({ navigation }) {
         <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
           <View style={styles.modalOverlay}>
             <View style={styles.quizContainer}>
-              <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
-                <Text style={styles.videoText}>Imagem aqui</Text>
+              <View style={[styles.videoBox]}>
+                <Image
+                  source={require('../../../../assets/JonathanParabens.png')}
+                  style={styles.imageStyle}
+                />
               </View>
               <Text style={styles.quizQuestion}>
                 Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:

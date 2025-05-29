@@ -6,6 +6,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function ProfissoesScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -98,28 +99,93 @@ export default function ProfissoesScreen({ navigation }) {
 
   const perguntasPorTema = {
     Tecnologia: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Desenvolvedor', 'Engenheiro', 'Analista de Sistemas'], correta: 'Desenvolvedor' },
-      { pergunta: 'Qual conceito de T.I a pessoa falou?', opcoes: ['Inteligência Artificial', 'Backend', 'Framework'], correta: 'Inteligência Artificial' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Hardware', 'Mouse', 'Tecnologia'], correta: 'Tecnologia' },
-      { pergunta: 'Qual o curso que a pessoa pretende fazer?', opcoes: ['Ciência da computação', 'Design Digital', 'ADS'], correta: 'Design Digital' },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Desenvolvedor', 'Engenheiro', 'Analista de Sistemas'],
+        correta: 'Desenvolvedor',
+        videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FDesenvolvedor.mp4?alt=media&token=44fde827-ef58-4cff-b536-f58f18a2199a'
+       },
+      { pergunta: 'Qual conceito de T.I a pessoa falou?',
+        opcoes: ['Inteligência Artificial', 'Backend', 'Framework'],
+        correta: 'Inteligência Artificial',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FIntelig%C3%AAncia%20Artificial.mp4?alt=media&token=c59ce732-cdde-45c4-b5c8-c9f05a8e625e'
+      },
+      { pergunta: 'O que a pessoa disse?',
+         opcoes: ['Hardware', 'Mouse', 'Tecnologia'],
+          correta: 'Tecnologia',
+          videoUrl:''
+      },
+      { pergunta: 'Qual o curso que a pessoa pretende fazer?',
+         opcoes: ['Ciência da computação', 'Design Digital', 'ADS'],
+          correta: 'Design Digital',
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FDesign%20Digital.mp4?alt=media&token=b6390e21-b7b0-48f6-8a46-247dbaa4a66e'
+      },
     ],
     Saúde: [
-      { pergunta: 'Qual é a profissão representada?', opcoes: ['Nutricionista', 'Enfermeiro', 'Socorrista'], correta: 'Nutricionista' },
-      { pergunta: 'O que a pessoa falou?', opcoes: ['Exame', 'Encontro', 'Consulta'], correta: 'Consulta' },
-      { pergunta: 'Qual é a profissão representada?', opcoes: ['Médico', 'Dentista', 'Psicólogo'], correta: 'Médico' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Médico', 'Enfermeiro', 'Fisioterapeuta'], correta: 'Enfermeiro' },
+      { pergunta: 'Qual é a profissão representada?',
+         opcoes: ['Nutricionista', 'Enfermeiro', 'Socorrista'],
+          correta: 'Nutricionista',
+          videoUrl:''
+      },
+      { pergunta: 'O que a pessoa falou?',
+         opcoes: ['Exame', 'Encontro', 'Consulta'],
+          correta: 'Consulta',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FConsulta.mp4?alt=media&token=be5d1c87-ffe7-468c-82ff-f653d45fb2e9'
+      },
+      { pergunta: 'Qual é a profissão representada?',
+         opcoes: ['Médico', 'Dentista', 'Psicólogo'],
+          correta: 'Médico',
+        videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Médico', 'Enfermeiro', 'Fisioterapeuta'],
+          correta: 'Enfermeiro',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FEnfermeira.mp4?alt=media&token=0d678a66-116b-4644-95d8-626cbfb6ea99'
+      },
     ],
     Serviços: [
-      { pergunta: 'Qual profissão está sendo referenciada na imagem?', opcoes: ['Jardineiro', 'Cozinheiro', 'Segurança'], correta: 'Segurança' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Pintor', 'Uber', 'Motorista'], correta: 'Uber' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Garçom', 'Manobrista', 'Cientista'], correta: 'Garçom' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Diretor', 'Professor', 'Zelador'], correta: 'Professor' },
+      { pergunta: 'Qual profissão está sendo referenciada na imagem?',
+         opcoes: ['Jardineiro', 'Cozinheiro', 'Segurança'],
+          correta: 'Segurança',
+        videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Pintor', 'Uber', 'Motorista'],
+          correta: 'Uber',
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FUber.mp4?alt=media&token=b3b253f6-4987-4880-96c0-77bb152addc3'
+        
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Garçom', 'Manobrista', 'Cientista'],
+          correta: 'Garçom',
+        videoUrl:''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Diretor', 'Professor', 'Zelador'],
+          correta: 'Professor',
+          videoUrl:''
+      },
     ],
     Atendimento: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Atendimento', 'Pagamento', 'Cliente'], correta: 'Pagamento' },
-      { pergunta: 'O que a pessoa esta dizendo?', opcoes: ['Vendedor', 'Engenharia', 'Preço'], correta: 'Preço' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Produtos', 'Funcionário', 'Vendedor'], correta: 'Vendedor' },
-      { pergunta: 'O que a pessoa esta dizendo?', opcoes: ['Ajuda', 'Promoções', 'Pagamento'], correta: 'Ajuda' },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Atendimento', 'Pagamento', 'Cliente'],
+          correta: 'Pagamento',
+        videoUrl:''
+      },
+      { pergunta: 'O que a pessoa esta dizendo?',
+         opcoes: ['Vendedor', 'Engenharia', 'Preço'],
+          correta: 'Preço',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FPre%C3%A7o.mp4?alt=media&token=828e7b72-f080-46bb-9f2f-8d5259a9a28f'
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Produtos', 'Funcionário', 'Vendedor'],
+          correta: 'Vendedor',
+        videoUrl:''
+      },
+      { pergunta: 'O que a pessoa esta dizendo?',
+        opcoes: ['Ajuda', 'Promoções', 'Pagamento'],
+        correta: 'Ajuda',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FAjuda.mp4?alt=media&token=398b628b-c3d8-4d61-8924-f8b80c1e129f'
+      },
     ],
   };
 
@@ -239,7 +305,7 @@ export default function ProfissoesScreen({ navigation }) {
             <Image
               source={trofeu.imagem}
               resizeMode="contain"
-              style={{ width: 60, height: 60, marginLeft: 4 }}
+              style={{ width: 100, height: 100, marginLeft: 4 }}
             />
           )}
           </View>
@@ -278,10 +344,18 @@ export default function ProfissoesScreen({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
-
+               {perguntas[perguntaAtual]?.videoUrl && (
+                <Video
+                  source={{ uri: perguntas[perguntaAtual].videoUrl }}
+                  rate={1.0}
+                  volume={1.0}
+                  isMuted={false}
+                  resizeMode={ResizeMode.CONTAIN}
+                  shouldPlay
+                  useNativeControls
+                  style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                />
+              )}
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
               <View style={styles.timerContainer}>
@@ -319,8 +393,11 @@ export default function ProfissoesScreen({ navigation }) {
         <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
           <View style={styles.modalOverlay}>
             <View style={styles.quizContainer}>
-              <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
-                <Text style={styles.videoText}>Imagem aqui</Text>
+              <View style={[styles.videoBox]}>
+                <Image
+                  source={require('../../../../assets/JonathanParabens.png')}
+                  style={styles.imageStyle}
+                />
               </View>
               <Text style={styles.quizQuestion}>
                 Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:

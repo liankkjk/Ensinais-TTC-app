@@ -6,7 +6,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
-
+import { Video, ResizeMode } from 'expo-av';
 export default function RelaçõesScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalFinalVisible, setModalFinalVisible] = useState(false);
@@ -98,28 +98,93 @@ export default function RelaçõesScreen({ navigation }) {
 
   const perguntasPorTema = {
     Encontro: [
-      { pergunta: 'O que a pessoa falou?', opcoes: ['Boa tarde', 'Oi', 'Boa noite'], correta: 'Oi' },
-      { pergunta: 'O que a pessoa perguntou?', opcoes: ['Obrigado', 'Boa noite', 'Tudo bem?'], correta: 'Tudo bem?' },
-      { pergunta: 'O que a pessoa falou?', opcoes: ['Bom dia', 'Até logo', 'Olá'], correta: 'Bom dia' },
-      { pergunta: 'Aonde a pessoa está indo? ', opcoes: ['Chácara', 'Restaurante', 'Festa'], correta: 'Restaurante' },
+      { pergunta: 'O que a pessoa falou?',
+         opcoes: ['Boa tarde', 'Oi', 'Boa noite'],
+          correta: 'Oi',
+          videoUrl:''
+      },
+      { pergunta: 'O que a pessoa perguntou?',
+         opcoes: ['Obrigado', 'Boa noite', 'Tudo bem?'],
+          correta: 'Tudo bem?',
+         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FTudo%20bem.mp4?alt=media&token=db504979-a842-4232-a0f0-eee9556f362f'
+      },
+      { pergunta: 'O que a pessoa falou?',
+         opcoes: ['Bom dia', 'Até logo', 'Olá'],
+          correta: 'Bom dia',
+         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBom%20dia.mp4?alt=media&token=d8642e4c-1ea6-4dc3-b3cd-339c7e58b030'
+      },
+      { pergunta: 'Aonde a pessoa está indo? ',
+         opcoes: ['Chácara', 'Restaurante', 'Festa'],
+          correta: 'Restaurante',
+          videoUrl:''
+      },
     ],
     Horário: [
-      { pergunta: 'Qual sinal é esse?', opcoes: ['Manhã', 'Noite', 'Tarde'], correta: 'Tarde' },
-      { pergunta: 'Qual sinal é esse?', opcoes: ['12h30', 'Noite', '22h45'], correta: 'Noite' },
-      { pergunta: 'Qual sinal é esse?', opcoes: ['Dia', 'Tarde', 'Noite'], correta: 'Dia' },
-      { pergunta: 'Que horas a pessoa falou?', opcoes: ['10h00', '12h00', '14h00'], correta: '14h00' },
+      { pergunta: 'Qual sinal é esse?',
+         opcoes: ['Manhã', 'Noite', 'Tarde'],
+          correta: 'Tarde',
+         videoUrl:''
+      },
+      { pergunta: 'Qual sinal é esse?',
+         opcoes: ['12h30', 'Noite', '22h45'],
+          correta: 'Noite',
+        videoUrl:''
+      },
+
+      { pergunta: 'Qual sinal é esse?',
+        opcoes: ['Dia', 'Tarde', 'Noite'],
+        correta: 'Dia',
+        videoUrl:''
+      },
+      { pergunta: 'Que horas a pessoa falou?',
+         opcoes: ['10h00', '12h00', '14h00'],
+          correta: '14h00',
+        videoUrl:''
+      },
     ],
     Hierarquia: [
-      { pergunta: 'O que a pessoa é?', opcoes: ['Patrão', 'Líder', 'Funcionário'], correta: 'Patrão' },
-      { pergunta: 'O que a pessoa vai fazer?', opcoes: ['Pedir a conta', 'Líderar', 'Analisar'], correta: 'Líderar' },
-      { pergunta: 'A pessoa foi promovida a qual cargo?', opcoes: ['Chefe', 'Supervisor', 'Líder'], correta: 'Supervisor' },
-      { pergunta: 'O que a pessoa é da empresa?', opcoes: ['Cliente', 'Líder', 'Funcionário'], correta: 'Funcionário' },
+      { pergunta: 'O que a pessoa é?',
+         opcoes: ['Patrão', 'Líder', 'Funcionário'],
+        correta: 'Patrão',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FPatr%C3%A3o.mp4?alt=media&token=0b005007-df7c-4741-bbd9-1fce5e982674'
+      },
+      { pergunta: 'O que a pessoa vai fazer?',
+         opcoes: ['Pedir a conta', 'Líderar', 'Analisar'],
+          correta: 'Líderar',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FLiderar.mp4?alt=media&token=62e2d3c1-642e-4693-b868-3018d579564a'
+      },
+      { pergunta: 'A pessoa foi promovida a qual cargo?',
+         opcoes: ['Chefe', 'Supervisor', 'Líder'],
+          correta: 'Supervisor',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FSupervisor.mp4?alt=media&token=369aedc5-ee38-4048-8d89-1ca9cd0b940d'
+      },
+      { pergunta: 'O que a pessoa é da empresa?',
+         opcoes: ['Cliente', 'Líder', 'Funcionário'],
+          correta: 'Funcionário',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FFuncion%C3%A1rio.mp4?alt=media&token=5ba3b0c1-15e0-4c47-ab3d-35a8bb49698d'
+      },
     ],
     Gratidão: [
-      { pergunta: 'Qual sinal de agradecimento está sendo representado?', opcoes: ['Obrigado', 'Grato', 'Valeu'], correta: 'Grato' },
-      { pergunta: 'Qual sinal a pessoa falou? ', opcoes: ['Não precisava', 'De nada', 'Obrigado'], correta: 'Obrigado' },
-      { pergunta: 'Que sinal é esse? ', opcoes: ['Doação', 'Gentileza', 'Ajuda'], correta: 'Gentileza' },
-      { pergunta: 'O que a pessoa falou ouvir um obrigado?', opcoes: ['De nada', 'Satisfação', 'Tchau'], correta: 'De nada' },
+      { pergunta: 'Qual sinal de agradecimento está sendo representado?',
+        opcoes: ['Obrigado', 'Grato', 'Valeu'],
+         correta: 'Grato',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FGrato.mp4?alt=media&token=c2aaf973-dd62-4135-8a09-cb77f7a64379'
+      },
+      { pergunta: 'Qual sinal a pessoa falou? ',
+         opcoes: ['Não precisava', 'De nada', 'Obrigado'],
+          correta: 'Obrigado',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FObrigado.mp4?alt=media&token=8312b2be-874e-410d-943c-b260995dd92e'
+      },
+      { pergunta: 'Que sinal é esse? ',
+         opcoes: ['Doação', 'Gentileza', 'Ajuda'],
+          correta: 'Gentileza',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FGentileza.mp4?alt=media&token=bedd80f3-5434-4f87-a036-5bc33a20da63'
+      },
+      { pergunta: 'O que a pessoa falou ouvir um obrigado?',
+         opcoes: ['De nada', 'Satisfação', 'Tchau'],
+          correta: 'De nada',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FDe%20nada.mp4?alt=media&token=2845e3a8-3179-49a8-899d-e78ea1d3ec65'
+      },
     ],
   };
 
@@ -239,7 +304,7 @@ export default function RelaçõesScreen({ navigation }) {
             <Image
               source={trofeu.imagem}
               resizeMode="contain"
-              style={{ width: 60, height: 60, marginLeft: 4 }}
+              style={{ width: 100, height: 100, marginLeft: 4 }}
             />
           )}
           </View>
@@ -278,9 +343,18 @@ export default function RelaçõesScreen({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
+               {perguntas[perguntaAtual]?.videoUrl && (
+  <Video
+    source={{ uri: perguntas[perguntaAtual].videoUrl }}
+    rate={1.0}
+    volume={1.0}
+    isMuted={false}
+    resizeMode={ResizeMode.CONTAIN}
+    shouldPlay
+    useNativeControls
+    style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+  />
+)}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
@@ -319,8 +393,11 @@ export default function RelaçõesScreen({ navigation }) {
         <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
           <View style={styles.modalOverlay}>
             <View style={styles.quizContainer}>
-              <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
-                <Text style={styles.videoText}>Imagem aqui</Text>
+              <View style={[styles.videoBox]}>
+                <Image
+                  source={require('../../../../assets/JonathanParabens.png')}
+                  style={styles.imageStyle}
+                />
               </View>
               <Text style={styles.quizQuestion}>
                 Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:

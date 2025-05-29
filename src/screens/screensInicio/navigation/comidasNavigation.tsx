@@ -6,6 +6,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
+import { Video, ResizeMode } from 'expo-av';
 
 export default function ComidasScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -98,28 +99,97 @@ export default function ComidasScreen({ navigation }) {
 
   const perguntasPorTema = {
     Doces: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Bolo', 'Pudim', 'Brigadeiro'], correta: 'Pudim' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Bala', 'Doce de Leite', 'Chocolate'], correta: 'Chocolate' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Pirulito', 'Bolo', 'Chiclete'], correta: 'Bolo' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Paçoca', 'Sorvete', 'Algodão Doce'], correta: 'Sorvete' },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Bolo', 'Pudim', 'Brigadeiro'],
+        correta: 'Pudim',
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2Fpudim.jpg?alt=media&token=9e3768a6-76f8-4d87-a5b6-d07c1df6b84a'
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Bala', 'Doce de Leite', 'Chocolate'],
+        correta: 'Chocolate',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FChocolate.mp4?alt=media&token=47a8a8a8-2e61-44fd-9fdd-00d66a7c461f'
+        
+        },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Pirulito', 'Bolo', 'Chiclete'],
+        correta: 'Bolo',
+        videoUrl: ''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Paçoca', 'Sorvete', 'Algodão Doce'],
+          correta: 'Sorvete',
+          videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FSorvete.mp4?alt=media&token=16fdf69a-4d0a-484c-9e2b-3b8adfe6ac3d'
+      },
     ],
     Salgados: [
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Esfiha', 'Pastel', 'Coxinha'], correta: 'Pastel' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Coxinha', 'Batata Frita', 'Pizza'], correta: 'Coxinha' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Hambúrguer', 'Rissoles', 'Torta'], correta: 'Torta' },
-      { pergunta: 'Qual o significado do sinal acima?', opcoes: ['Pizza', 'Lanche', 'Coxinha'], correta: 'Pizza' },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Esfiha', 'Pastel', 'Coxinha'],
+        correta: 'Pastel',
+        videoUrl: ''
+      },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Coxinha', 'Batata Frita', 'Pizza'],
+        correta: 'Coxinha',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FCoxinha.mp4?alt=media&token=fb22d080-b3f9-4b06-9ad4-ebf3e547af72'
+       },
+      { pergunta: 'Qual o significado do sinal acima?',
+        opcoes: ['Hambúrguer', 'Rissoles', 'Torta'],
+        correta: 'Torta',
+        videoUrl: ''
+
+      },
+
+      { pergunta: 'Qual o significado do sinal acima?',
+         opcoes: ['Pizza', 'Lanche', 'Coxinha'],
+          correta: 'Pizza',
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FPizza.mp4?alt=media&token=48de489a-b79f-41e9-a9ca-abdd1111ea3d'
+      },
     ],
     Pratos: [
-      { pergunta: 'Qual alimento é esse?', opcoes: ['Farofa', 'Macarrão', 'Arroz'], correta: 'Arroz' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Feijoada', 'Strogonoff', 'Farofa'], correta: 'Feijoada' },
-      { pergunta: 'Qual alimento é esse?', opcoes: ['Arroz', 'Feijão', 'Macarrão'], correta: 'Feijão' },
-      { pergunta: 'O que a pessoa disse?', opcoes: ['Frango', 'Sopa', 'Macarrão'], correta: 'Feijão' },
+      { pergunta: 'Qual alimento é esse?',
+        opcoes: ['Farofa', 'Macarrão', 'Arroz'],
+        correta: 'Arroz',
+        videoUrl:''
+      },
+
+      { pergunta: 'O que a pessoa disse?',
+         opcoes: ['Feijoada', 'Strogonoff', 'Farofa'],
+        correta: 'Feijoada',
+        videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FFeijoada.mp4?alt=media&token=a61b233b-3437-4367-920a-46e78f9c7699'
+      },
+      { pergunta: 'Qual alimento é esse?',
+         opcoes: ['Arroz', 'Feijão', 'Macarrão'],
+        correta: 'Feijão',
+        videoUrl:''
+      },
+      { pergunta: 'O que a pessoa disse?',
+         opcoes: ['Frango', 'Sopa', 'Macarrão'],
+        correta: 'Feijão',
+        videoUrl:''
+      },
     ],
     Legumes: [
-      { pergunta: 'Qual alimento é esse?', opcoes: ['Alface', 'Repolho', 'Beterraba'], correta: 'Alface' },
-      { pergunta: 'Qual alimento é esse?', opcoes: ['Pepino', 'Alface', 'Cenoura'], correta: 'Cenoura' },
-      { pergunta: 'Qual alimento é esse?', opcoes: ['Couve', 'Brócolis', 'Chuchu'], correta: 'Chuchu' },
-      { pergunta: 'Qual alimento é esse?', opcoes: ['Pepino', 'Couve', 'Alface'], correta: 'Couve' },
+      { pergunta: 'Qual alimento é esse?',
+         opcoes: ['Alface', 'Repolho', 'Beterraba'],
+          correta: 'Alface',
+          videoUrl:''
+      },
+      { pergunta: 'Qual alimento é esse?',
+         opcoes: ['Pepino', 'Alface', 'Cenoura'],
+          correta: 'Cenoura',
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FCenoura.mp4?alt=media&token=721faca7-0cb3-446c-a2b6-adc519193ffb'
+         },
+      { pergunta: 'Qual alimento é esse?',
+         opcoes: ['Couve', 'Brócolis', 'Chuchu'],
+          correta: 'Chuchu',
+          videoUrl:''
+      },
+
+      { pergunta: 'Qual alimento é esse?',
+        opcoes: ['Pepino', 'Couve', 'Alface'],
+        correta: 'Couve',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FCouve.mp4?alt=media&token=cbda4d1c-6207-497d-9774-8a898c4aa142'
+      },
     ],
   };
 
@@ -239,7 +309,7 @@ export default function ComidasScreen({ navigation }) {
             <Image
               source={trofeu.imagem}
               resizeMode="contain"
-              style={{ width: 60, height: 60, marginLeft: 4 }}
+              style={{ width: 100, height: 100, marginLeft: 4 }}
             />
           )}
           </View>
@@ -278,9 +348,26 @@ export default function ComidasScreen({ navigation }) {
         <Modal animationType="none" transparent={true} visible={modalVisible} onRequestClose={fecharModal}>
           <View style={styles.modalOverlay}>
             <Animated.View style={[styles.quizContainer, { opacity: fadeAnim }]}>
-              <View style={styles.videoBox}>
-                <Text style={styles.videoText}>vídeo do sinal</Text>
-              </View>
+               {perguntas[perguntaAtual]?.videoUrl && (
+                <Video
+                  source={{ uri: perguntas[perguntaAtual].videoUrl }}
+                  rate={1.0}
+                  volume={1.0}
+                  isMuted={false}
+                  resizeMode={ResizeMode.CONTAIN}
+                  shouldPlay
+                  useNativeControls
+                  style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                />
+              )}
+
+              {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
+        
+        <Image
+          source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+          style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+        />
+      )}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
@@ -319,8 +406,11 @@ export default function ComidasScreen({ navigation }) {
         <Modal animationType="slide" transparent={true} visible={modalFinalVisible} onRequestClose={voltarAoMenu}>
           <View style={styles.modalOverlay}>
             <View style={styles.quizContainer}>
-              <View style={[styles.videoBox, { backgroundColor: '#ccc' }]}>
-                <Text style={styles.videoText}>Imagem aqui</Text>
+              <View style={[styles.videoBox]}>
+                <Image
+                  source={require('../../../../assets/JonathanParabens.png')}
+                  style={styles.imageStyle}
+                />
               </View>
               <Text style={styles.quizQuestion}>
                 Veja agora quantas questões você acertou ou errou e a quantidade de EXP adquirida!:

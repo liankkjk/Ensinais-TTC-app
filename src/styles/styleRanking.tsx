@@ -1,40 +1,42 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const paddingBase = 5; // Define a base padding value
-
 const { width, height } = Dimensions.get('window');
+
+const paddingHorizontal = width * 0.05;
+const paddingVertical = height * 0.025;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
-    paddingHorizontal: 20,
+    paddingVertical,
+    paddingHorizontal,
     backgroundColor: '#fff',
     alignItems: 'center',
   },
   backButton: {
     position: 'absolute',
-    top: height * 0.06, 
-    left: paddingBase, 
-    zIndex: 1, 
+    top: height * 0.06,
+    left: width * 0.02,
+    zIndex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    paddingVertical: height * 0.012,
+    paddingHorizontal: width * 0.035,
+    marginTop: height * 0.012,
   },
   backText: {
+    marginTop: height * 0.01,
     marginLeft: width * 0.015,
-    fontSize: 16, // Replace 16 with your desired base font size
+    fontSize: width * 0.04,
     color: '#fff',
   },
   title: {
-    fontSize: 26,
+    fontSize: width * 0.08,
     color: '#002366',
-    fontWeight: 'bold',
-    marginTop: 60,
-    marginBottom: 30,
+    marginTop: height * 0.09,
+    marginBottom: height * 0.04,
     textAlign: 'center',
-    left: 20,
+    left: width * 0.05,
   },
   listContent: {
     width: '100%',
@@ -45,41 +47,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 15,
+    borderRadius: width * 0.025,
+    padding: width * 0.03,
+    marginBottom: height * 0.02,
     shadowColor: '#000',
     shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: height * 0.002 },
     elevation: 3,
   },
   medalIcon: {
-    width: 30,
+    width: width * 0.07,
     textAlign: 'center',
-    marginRight: 10,
+    marginRight: width * 0.025,
   },
   rank: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    width: 30,
+    fontSize: width * 0.045,
+    width: width * 0.07,
     textAlign: 'center',
-    marginRight: 10,
+    marginRight: width * 0.025,
   },
   profilePic: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    marginRight: 15,
+    width: width * 0.13,
+    height: width * 0.13,
+    borderRadius: (width * 0.13) / 2,
+    marginRight: width * 0.04,
   },
   playerInfo: {
     flex: 1,
   },
   nickname: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: width * 0.045,
   },
   level: {
-    fontSize: 14,
+    fontSize: width * 0.038,
     color: '#666',
   },
 });
