@@ -123,7 +123,7 @@ export default function RelaçõesScreen({ navigation }) {
       { pergunta: 'Qual sinal é esse?',
          opcoes: ['Manhã', 'Noite', 'Tarde'],
           correta: 'Tarde',
-         videoUrl:''
+         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%20Tarde.png?alt=media&token=b131c1b3-76f4-49a1-99a2-9facf174fd92'
       },
       { pergunta: 'Qual sinal é esse?',
          opcoes: ['12h30', 'Noite', '22h45'],
@@ -355,6 +355,13 @@ export default function RelaçõesScreen({ navigation }) {
     style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
   />
 )}
+{perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
+        
+        <Image
+          source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+          style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+        />
+      )}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 

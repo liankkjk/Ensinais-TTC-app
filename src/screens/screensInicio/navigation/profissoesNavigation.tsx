@@ -110,9 +110,9 @@ export default function ProfissoesScreen({ navigation }) {
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FIntelig%C3%AAncia%20Artificial.mp4?alt=media&token=c59ce732-cdde-45c4-b5c8-c9f05a8e625e'
       },
       { pergunta: 'O que a pessoa disse?',
-         opcoes: ['Hardware', 'Mouse', 'Tecnologia'],
-          correta: 'Tecnologia',
-          videoUrl:''
+        opcoes: ['Hardware', 'Mouse', 'Tecnologia'],
+        correta: 'Tecnologia',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Tecnologia.png?alt=media&token=51d3e7dc-71c0-47cb-9248-c493c14f9ab3'
       },
       { pergunta: 'Qual o curso que a pessoa pretende fazer?',
          opcoes: ['Ciência da computação', 'Design Digital', 'ADS'],
@@ -122,9 +122,9 @@ export default function ProfissoesScreen({ navigation }) {
     ],
     Saúde: [
       { pergunta: 'Qual é a profissão representada?',
-         opcoes: ['Nutricionista', 'Enfermeiro', 'Socorrista'],
-          correta: 'Nutricionista',
-          videoUrl:''
+        opcoes: ['Nutricionista', 'Enfermeiro', 'Socorrista'],
+        correta: 'Nutricionista',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Nutricionista.png?alt=media&token=bce4f2d5-230a-4a35-aff4-929b54e720a6'
       },
       { pergunta: 'O que a pessoa falou?',
          opcoes: ['Exame', 'Encontro', 'Consulta'],
@@ -132,9 +132,9 @@ export default function ProfissoesScreen({ navigation }) {
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FConsulta.mp4?alt=media&token=be5d1c87-ffe7-468c-82ff-f653d45fb2e9'
       },
       { pergunta: 'Qual é a profissão representada?',
-         opcoes: ['Médico', 'Dentista', 'Psicólogo'],
-          correta: 'Médico',
-        videoUrl:''
+        opcoes: ['Médico', 'Dentista', 'Psicólogo'],
+        correta: 'Médico',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20M%C3%A9dico.png?alt=media&token=72aa486b-ca2e-4037-9b95-15cbafd62b60'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Médico', 'Enfermeiro', 'Fisioterapeuta'],
@@ -144,9 +144,9 @@ export default function ProfissoesScreen({ navigation }) {
     ],
     Serviços: [
       { pergunta: 'Qual profissão está sendo referenciada na imagem?',
-         opcoes: ['Jardineiro', 'Cozinheiro', 'Segurança'],
-          correta: 'Segurança',
-        videoUrl:''
+        opcoes: ['Jardineiro', 'Cozinheiro', 'Segurança'],
+        correta: 'Segurança',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Seguran%C3%A7a.png?alt=media&token=1bd8bd38-ee89-43d1-aff9-f4452ec6622b'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Pintor', 'Uber', 'Motorista'],
@@ -155,9 +155,9 @@ export default function ProfissoesScreen({ navigation }) {
         
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Garçom', 'Manobrista', 'Cientista'],
-          correta: 'Garçom',
-        videoUrl:''
+        opcoes: ['Garçom', 'Manobrista', 'Cientista'],
+        correta: 'Garçom',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Gar%C3%A7om.png?alt=media&token=34342d3c-a85b-4165-9f44-81020541e3c1'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Diretor', 'Professor', 'Zelador'],
@@ -167,9 +167,9 @@ export default function ProfissoesScreen({ navigation }) {
     ],
     Atendimento: [
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Atendimento', 'Pagamento', 'Cliente'],
-          correta: 'Pagamento',
-        videoUrl:''
+        opcoes: ['Atendimento', 'Pagamento', 'Cliente'],
+        correta: 'Pagamento',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Pagamento.png?alt=media&token=37d84ce4-c08a-4d78-a028-ea993de8c844'
       },
       { pergunta: 'O que a pessoa esta dizendo?',
          opcoes: ['Vendedor', 'Engenharia', 'Preço'],
@@ -177,9 +177,9 @@ export default function ProfissoesScreen({ navigation }) {
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FPre%C3%A7o.mp4?alt=media&token=828e7b72-f080-46bb-9f2f-8d5259a9a28f'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Produtos', 'Funcionário', 'Vendedor'],
-          correta: 'Vendedor',
-        videoUrl:''
+        opcoes: ['Produtos', 'Funcionário', 'Vendedor'],
+        correta: 'Vendedor',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Vendedor.png?alt=media&token=c0d1f220-7f1d-47cd-aa79-f0ca06789dd0'
       },
       { pergunta: 'O que a pessoa esta dizendo?',
         opcoes: ['Ajuda', 'Promoções', 'Pagamento'],
@@ -356,6 +356,14 @@ export default function ProfissoesScreen({ navigation }) {
                   style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
                 />
               )}
+              {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
+                      
+                      <Image
+                        source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+                        style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                      />
+                    )}
+              
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
               <View style={styles.timerContainer}>
