@@ -373,6 +373,14 @@ export default function EstudoNavigation({ navigation }) {
                   style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
                 />
               )}
+              {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
+                      
+                      <Image
+                        source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+                        style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                      />
+                    )}
+              
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 

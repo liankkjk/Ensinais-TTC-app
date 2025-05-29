@@ -447,35 +447,37 @@ const sinaisProfissoes: Sinal[] = [
 const sinaisTransporte: Sinal[] = [
     {
         id: 1,
-        title: "Oi",
-        subtitle: "Sinal de olá",
-        url: '',
+        title: "Bloqueada",
+        subtitle: "Sinal de bloqueada",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FBloqueada%20com%20legenda.mp4?alt=media&token=52cf92a0-d081-4f60-9ae9-8224dd12fa3d',
     },
     {
         id: 1,
-        title: "Bom dia",
-        subtitle: "Sinal de bom dia",
-        url: '',
+        title: "Carro",
+        subtitle: "Sinal de carro",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FCarro%20e%20moto%20com%20legenda.mp4?alt=media&token=402abc22-f7e5-4ffd-853a-a5d6dc79b61c',
     },
     {
         id: 2,
-        title: "Boa tarde",
-        subtitle: "Sinal de boa tarde",
-        url: '',
+        title: "Moto",
+        subtitle: "Sinal de moto",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FCarro%20e%20moto%20com%20legenda.mp4?alt=media&token=402abc22-f7e5-4ffd-853a-a5d6dc79b61c',
     },
     {
         id: 3,
-        title: "Boa noite",
-        subtitle: "Sinal de boa noite",
-        url: '',
+        title: "Estação",
+        subtitle: "Sinal de estação",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FEsta%C3%A7%C3%A3o%20legenda.mp4?alt=media&token=922fc0a0-70f9-425c-bd6d-873da6573b13',
     },
     {
         id: 4,
-        title: "Por favor",
-        subtitle: "Sinal de por favor",
-        url: '',
+        title: "Informação",
+        subtitle: "Sinal de informação",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FInforma%C3%A7%C3%A3o%20com%20legenda.mp4?alt=media&token=a560dbed-3681-49f5-aed1-dc065bd919cc',
     },
-    {
+
+
+    /*{
         id: 5,
         title: "Obrigado/a",
         subtitle: "Sinal de obrigado/a",
@@ -540,7 +542,7 @@ const sinaisTransporte: Sinal[] = [
         title: "Chefe",
         subtitle: "Sinal de chefe",
         url: '',
-    },
+    },*/
 
 ];
 
