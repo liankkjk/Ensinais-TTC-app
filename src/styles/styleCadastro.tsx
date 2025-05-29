@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    width: width * 0.28,
-    height: width * 0.32,  
+    width: width * 0.32,
+    height: width * 0.36,  
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: height * 0.06, 
+    marginTop: height * 0.06   , 
     marginBottom: height * 0.002,
   },
   smallText: {
