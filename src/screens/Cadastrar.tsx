@@ -89,7 +89,7 @@ const Cadastrar = () => {
     <LinearGradient colors={['#F27127', '#f6fafd']} style={{ flex: 1 }}>
       <SafeAreaView style={{ flex: 1 }}>
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-          <Image style={styles.logo} source={require('../../assets/favicon.png')} />
+          <Image style={styles.logo} source={require('../../assets/Logo branca.png')} />
 
           <Text style={styles.inputLabel}>Insira o seu usuário:</Text>
           <View style={styles.inputContainer}>
@@ -147,7 +147,7 @@ const Cadastrar = () => {
               style={styles.input}
               placeholderTextColor="#888"
             />
-            <TouchableOpacity onPress={() => setSecurePassword(!securePassword)} style={styles.iconButton}>
+            <TouchableOpacity onPress={() => setSecurePassword(!securePassword)}>
               <MaterialCommunityIcons name={securePassword ? 'eye-off' : 'eye'} size={20} color="#888" />
             </TouchableOpacity>
           </View>
@@ -164,7 +164,7 @@ const Cadastrar = () => {
               style={styles.input}
               placeholderTextColor="#888"
             />
-            <TouchableOpacity onPress={() => setSecureConfirmPassword(!secureConfirmPassword)} style={styles.iconButton}>
+            <TouchableOpacity onPress={() => setSecureConfirmPassword(!secureConfirmPassword)}>
               <MaterialCommunityIcons name={secureConfirmPassword ? 'eye-off' : 'eye'} size={20} color="#888" />
             </TouchableOpacity>
           </View>
