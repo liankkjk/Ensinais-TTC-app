@@ -127,7 +127,7 @@ const sinaisRelacoes: Sinal[] = [
         id: 3,
         title: "Boa noite",
         subtitle: "Sinal de boa noite",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FCom%20legenda%2FBoa%20noite%20com%20legenda.mp4?alt=media&token=7a6f57a3-54ee-4754-84ff-ca1b3b4c11ae',
     },
     {
         id: 4,
@@ -184,13 +184,13 @@ const sinaisRelacoes: Sinal[] = [
         url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FCom%20legenda%2FObrigado%20com%20legenda.mp4?alt=media&token=887274d6-7f69-4585-a53d-d633bc77b1bd',
     },
     {
-        id: 10,
+        id: 13,
         title: "Gentileza",
         subtitle: "Sinal de gentileza",
         url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FCom%20legenda%2FGentileza%20com%20legenda.mp4?alt=media&token=b13199a7-8246-4ca4-a43a-0c3378fac9f2',
     },
     {
-        id: 10,
+        id: 14,
         title: "De nada",
         subtitle: "Sinal de de nada",
         url: '',
@@ -447,35 +447,73 @@ const sinaisProfissoes: Sinal[] = [
 const sinaisTransporte: Sinal[] = [
     {
         id: 1,
-        title: "Oi",
-        subtitle: "Sinal de olá",
-        url: '',
+        title: "Bloqueada",
+        subtitle: "Sinal de Bloqueada",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FBloqueada%20com%20legenda.mp4?alt=media&token=52cf92a0-d081-4f60-9ae9-8224dd12fa3d',
     },
     {
         id: 1,
-        title: "Bom dia",
-        subtitle: "Sinal de bom dia",
-        url: '',
+        title: "Carro",
+        subtitle: "Sinal de Carro",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FCarro%20e%20moto%20com%20legenda.mp4?alt=media&token=402abc22-f7e5-4ffd-853a-a5d6dc79b61c',
     },
     {
         id: 2,
-        title: "Boa tarde",
-        subtitle: "Sinal de boa tarde",
-        url: '',
+        title: "Moto",
+        subtitle: "Sinal de Moto",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FCarro%20e%20moto%20com%20legenda.mp4?alt=media&token=402abc22-f7e5-4ffd-853a-a5d6dc79b61c',
     },
     {
         id: 3,
-        title: "Boa noite",
-        subtitle: "Sinal de boa noite",
-        url: '',
+        title: "Estação",
+        subtitle: "Sinal de Estação",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FEsta%C3%A7%C3%A3o%20legenda.mp4?alt=media&token=922fc0a0-70f9-425c-bd6d-873da6573b13',
     },
     {
         id: 4,
-        title: "Por favor",
-        subtitle: "Sinal de por favor",
+        title: "Informação",
+        subtitle: "Sinal de Informação",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FInforma%C3%A7%C3%A3o%20com%20legenda.mp4?alt=media&token=a560dbed-3681-49f5-aed1-dc065bd919cc',
+    },
+    {
+        id: 5,
+        title: "Sinalização",
+        subtitle: "Sinal de Sinalização",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FSinaliza%C3%A7%C3%A3o%20com%20legenda.mp4?alt=media&token=ab42dac6-046b-4be8-81d7-4e5b5acc1c2b',
+    },
+    {
+        id: 6,
+        title: "Semáforo",
+        subtitle: "Sinal de Semáforo",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FSem%C3%A1foro%20com%20legenda.mp4?alt=media&token=1be87095-39f8-4eb1-95c2-f11cbb492ada',
+    },
+    {
+        id: 7,
+        title: "Parar",
+        subtitle: "Sinal de Parar",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FParar%20com%20legenda.mp4?alt=media&token=3ece66a2-9ee3-4d17-ae6b-09114e6670f1',
+    },
+    {
+        id: 8,
+        title: "Metro",
+        subtitle: "Sinal de Metro",
         url: '',
     },
     {
+        id: 9,
+        title: "Terminal",
+        subtitle: "Sinal de Terminal",
+        url: '',
+    },
+    {
+        id: 10,
+        title: "Estação",
+        subtitle: "Sinal de Estação",
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FEsta%C3%A7%C3%A3o%20legenda.mp4?alt=media&token=922fc0a0-70f9-425c-bd6d-873da6573b13',
+    },
+
+
+    /*{
         id: 5,
         title: "Obrigado/a",
         subtitle: "Sinal de obrigado/a",
@@ -540,7 +578,7 @@ const sinaisTransporte: Sinal[] = [
         title: "Chefe",
         subtitle: "Sinal de chefe",
         url: '',
-    },
+    },*/
 
 ];
 

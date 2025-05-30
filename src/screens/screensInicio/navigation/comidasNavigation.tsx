@@ -116,16 +116,16 @@ export default function ComidasScreen({ navigation }) {
         videoUrl: ''
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Paçoca', 'Sorvete', 'Algodão Doce'],
-          correta: 'Sorvete',
-          videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FSorvete.mp4?alt=media&token=16fdf69a-4d0a-484c-9e2b-3b8adfe6ac3d'
+        opcoes: ['Paçoca', 'Sorvete', 'Algodão Doce'],
+        correta: 'Sorvete',
+        videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FSorvete.mp4?alt=media&token=16fdf69a-4d0a-484c-9e2b-3b8adfe6ac3d'
       },
     ],
     Salgados: [
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Esfiha', 'Pastel', 'Coxinha'],
         correta: 'Pastel',
-        videoUrl: ''
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2Fcomidas%2FSinal%20Pastel.png?alt=media&token=de302bc2-0169-4300-892b-06561ec85d8b'
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Coxinha', 'Batata Frita', 'Pizza'],
@@ -135,14 +135,14 @@ export default function ComidasScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Hambúrguer', 'Rissoles', 'Torta'],
         correta: 'Torta',
-        videoUrl: ''
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2Fcomidas%2FSinal%20Torta.png?alt=media&token=6fa4d274-1f39-40ae-aaa3-d180f4feee54'
 
       },
 
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Pizza', 'Lanche', 'Coxinha'],
-          correta: 'Pizza',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FPizza.mp4?alt=media&token=48de489a-b79f-41e9-a9ca-abdd1111ea3d'
+        opcoes: ['Pizza', 'Lanche', 'Coxinha'],
+        correta: 'Pizza',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FPizza.mp4?alt=media&token=48de489a-b79f-41e9-a9ca-abdd1111ea3d'
       },
     ],
     Pratos: [
