@@ -116,7 +116,7 @@ const LoginScreen = ({ navigation }) => {
           <View style={styles.inputContainer}>
             <MaterialCommunityIcons name="email" size={30} color="#888" style={styles.icon} />
             <TextInput
-              placeholder="Email"
+              placeholder="E-mail"
               value={email}
               onChangeText={setEmail}
               keyboardType="email-address"
@@ -125,6 +125,9 @@ const LoginScreen = ({ navigation }) => {
               placeholderTextColor="#888"
             />
           </View>
+          <Text style={styles.forEmailLabel}>
+              Insira o e-mail para recuperar a senha!
+          </Text>
 
           <Text style={styles.inputLabel}>Insira a senha:</Text>
           <View style={styles.inputContainer}>
