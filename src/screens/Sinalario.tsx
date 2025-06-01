@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, ScrollView, Text, Pressable, Image, Animated, Dimensions } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import style from '../styles/styleSinalario';
-import { useFonts } from 'expo-font';
+import * as Font from 'expo-font';
 
 const { height } = Dimensions.get('window');
 
@@ -39,10 +39,11 @@ const AnimatedButton = ({ icon, label, onPress }) => {
 };
 
 export default function SinalarioMenu({ navigation }) {
-  const [fontsLoaded] = useFonts({
-    'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
-    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
-  });
+    const [fontsLoaded] = Font.useFonts({
+          'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+          'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+          'Poppins-ExtraBold': require('../../assets/fonts/Poppins-ExtraBold.ttf'),
+        });
 
   if (!fontsLoaded) {
     return <Text>Carregando fontes...</Text>;
@@ -54,12 +55,12 @@ export default function SinalarioMenu({ navigation }) {
         style={style.view}
         contentContainerStyle={{ paddingBottom: height * 0.30 }}
       >
-        <Text style={[style.tituloSina, { fontFamily: 'Poppins-Bold' }]}>Com dúvidas?</Text>
-        <Text style={[style.tituloSinaSub, { fontFamily: 'Poppins-Medium' }]}>Consulte no sinalário!</Text>
+        <Text style={[style.tituloSina, { fontFamily: 'Poppins-ExtraBold' }]}>Com dúvidas?</Text>
+        <Text style={[style.tituloSinaSub, { fontFamily: 'Poppins-Bold' }]}>Consulte no sinalário!</Text>
 
         <Image
           source={require('../../assets/icons/IconSetaInicial.png')}
-          style={style.imgSeta}
+          style={style.setaMenu}
         />
 
         <AnimatedButton

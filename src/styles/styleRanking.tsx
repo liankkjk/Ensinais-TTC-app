@@ -29,10 +29,11 @@ const styles = StyleSheet.create({
     marginLeft: width * 0.015,
     fontSize: width * 0.04,
     color: '#fff',
+    fontFamily: "Poppins-Bold",
   },
   title: {
     fontSize: width * 0.08,
-    color: '#002366',
+    color: '#FFF',
     marginTop: height * 0.09,
     marginBottom: height * 0.04,
     textAlign: 'center',
