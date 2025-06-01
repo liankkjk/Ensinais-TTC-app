@@ -33,6 +33,12 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
     textDecorationLine: 'none',
   },
+  forEmailLabel: {
+    color: '#Fff',
+    fontSize: width * 0.038,
+    fontFamily: "Poppins-Medium",
+    textDecorationLine: 'underline',
+  },
   logo: {
     width: width * 0.6,
     height: width * 0.5,
@@ -41,8 +47,8 @@ const styles = StyleSheet.create({
     marginBottom: width * 0.001 ,
   },
   bottomLogo: {
-    width: width * 0.5,
-    height: width * 0.4,
+    width: width * 0.45,
+    height: width * 0.25,
     resizeMode: 'contain',
     alignSelf: 'center',
   },
@@ -50,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizeBase,
     fontFamily: "Poppins-Medium",
     color: '#FFF',
-    marginBottom: width * 0.02,
+    marginBottom: width * 0.01,
     marginLeft: width * 0.025,
   },
   inputContainer: {
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
     borderRadius: width * 0.025,
     paddingHorizontal: width * 0.025,
     paddingVertical: width * 0.035,
-    marginBottom: width * 0.04,
+    marginBottom: width * 0.01,
     shadowColor: '#D94929',
     shadowOpacity: 0.05,
     shadowOffset: { width: 0, height: 2 },
