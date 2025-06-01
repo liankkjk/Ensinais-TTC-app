@@ -1,19 +1,34 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
+const fontSizeBase = width * 0.05;
 
 const style = StyleSheet.create({
   view: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal: width * 0.03,
-    paddingVertical: 20,
+    paddingHorizontal: width * 0.07,
     paddingTop: 70,
   },
+  backButton: {
+    top: height * 0.06, 
+    zIndex: 1, 
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    marginBottom: 30,
+  },
+  backText: {
+    fontFamily: "Poppins-Bold",
+    marginLeft: width * 0.015,
+    fontSize: fontSizeBase,
+    color: '#092A95',
+  },
   pressable: {
-    height: height * 0.15, 
+    height: height * 0.13, 
     paddingHorizontal: width * 0.08,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFF',
     borderColor: '#092A95',
     borderWidth: 1,
     borderRadius: 12,  
@@ -53,22 +68,28 @@ const style = StyleSheet.create({
     backgroundColor: '#fff',
   },
   imgSeta: {
-    width: width * 0.08,     
+    width: width * 0.08,
     height: height * 0.03,  
     alignSelf: 'center',
   },
-  tituloSina: {
-    fontSize: width * 0.14,   
-    textAlign: 'center',     
-    color: '#f2921d',        
-    fontFamily: 'Poppins-SemiBold',
-    marginBottom: 0,        
+  setaMenu: {
+    width: width * 0.1,
+    height: height * 0.06,  
+    alignSelf: 'center',
+    marginBottom: 30,
+    marginTop: 15,
   },
-  tituloSinaSub: {
+  tituloSina: {
     fontSize: width * 0.11,   
     textAlign: 'center',     
-    color: '#f2a516',        
-    fontFamily: 'Poppins-SemiBold',
+    color: '#F27127',        
+    marginBottom: 0,
+    marginTop: 40,       
+  },
+  tituloSinaSub: {
+    fontSize: width * 0.07,   
+    textAlign: 'center',     
+    color: '#f2a516',
     marginBottom: 0,        
   },
   videoSinal: {
@@ -87,6 +108,13 @@ const style = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     marginTop: 30,
     marginBottom: 30,
+  },
+  noSearch: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 16,
+    textAlign: 'center',
+    marginTop: 20,
+    color: '#092A95',
   },
   buttonSinal: {
     backgroundColor: '#FFFFFF',

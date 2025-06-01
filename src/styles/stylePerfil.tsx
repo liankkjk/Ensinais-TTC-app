@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: "80%",
     height: scale(30),
-    backgroundColor: "#002366",
+    backgroundColor: "#092A95",
     borderRadius: scale(10),
   },
   expText: {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
     marginLeft: scale(10),
     fontSize: scale(24),
-    color: "#002366",
+    color: "#092A95",
   },
   editButtonText: {
     color: "white",
@@ -109,13 +109,14 @@ conqText: {
     fontSize: 18,
     color: "#fff",
     marginBottom: 10,
+    marginRight: scale(15),
   },
   conqImage: {
     marginTop: scale(15),
     width: scale(130),
     height: scale(125),
     borderRadius: scale(10),
-    marginRight: scale(10),
+    marginRight: scale(5),
   },
   conqNome: {
     fontFamily: "Poppins-Bold",
@@ -123,11 +124,12 @@ conqText: {
     fontWeight: "600",
     marginTop: 8,
     textAlign: "center",
+    color: "#092A95",
   },
   conqDescription: {
     fontFamily: "Poppins-Medium",
     fontSize: scale(13),
-    color: "#000",
+    color: "#FFF",
     marginTop: scale(4),
   },
   

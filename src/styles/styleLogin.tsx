@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Medium",
     flex: 1,
     fontSize: fontSizeBase,
-    color: '#333',
+    color: '#D94929',
   },
   iconButton: {
     position: 'absolute',

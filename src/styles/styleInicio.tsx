@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     height: scale(30),
-    backgroundColor: '#002366',
+    backgroundColor: '#092A95',
     borderRadius: scale(10),
   },
   expText: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     marginLeft: scale(10),
     fontSize: scale(22),
-    color: '#002366',
+    color: '#092A95',
   },
 
   trofeuIcon: {
