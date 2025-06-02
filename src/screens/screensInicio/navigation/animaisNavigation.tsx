@@ -7,6 +7,8 @@ import { FIREBASE_DB, FIREBASE_AUTH } from '../../../../FireBaseConfig';
 import MyAlertComponent from '../../../../components/alertCompLvl';
 import styles from '../../../styles/styleModulos';
 import { Video, ResizeMode } from 'expo-av';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
 
 export default function AnimaisNavigation({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -83,6 +85,7 @@ export default function AnimaisNavigation({ navigation }) {
     }
   };
 
+
   const trofeu = getInfoTrofeuPorNivel(nivel);
 
   const cards = [
@@ -96,6 +99,15 @@ export default function AnimaisNavigation({ navigation }) {
     Domésticos: require('../../../../assets/Domésticos.png'),
     Selvagens: require('../../../../assets/Selvagens.png'),
   };
+  
+  const [fontsLoaded] = Font.useFonts({
+            'Poppins-Bold': require('../../../../assets/fonts/Poppins-ExtraBold.ttf'),
+            'Poppins-Medium': require('../../../../assets/fonts/Poppins-Medium.ttf'),
+          });
+  
+      if (!fontsLoaded) {
+          return <Text>Carregando fontes...</Text>;
+        }
 
   const perguntasPorTema = {
     Rurais: [

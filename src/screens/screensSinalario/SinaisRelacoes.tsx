@@ -1,13 +1,23 @@
 import * as React from 'react';
-import { ScrollView, SafeAreaView, Text, Pressable } from 'react-native';
-import { Searchbar, Icon } from 'react-native-paper';
+import { ScrollView, SafeAreaView, Text, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Searchbar } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
 import { sinaisRelacoes } from '../components/Sinais';
 import SinalItem from '../components/SinalItem';
 import style from '../../styles/styleSinalario';
 import styles from '../../styles/styleNavigation';
+import * as Font from 'expo-font';
 
 export default function SinaisRelacoes({ navigation }: any) {
+    const [fontsLoaded] = Font.useFonts({
+        'Poppins-Bold': require('../../../assets/fonts/Poppins-Bold.ttf'),
+        'Poppins-Medium': require('../../../assets/fonts/Poppins-Medium.ttf'),
+    });
+            
+    if (!fontsLoaded) {
+        return <Text>Carregando fontes...</Text>;
+    }
     
     useFocusEffect(
         React.useCallback(()=>{
@@ -34,16 +44,17 @@ export default function SinaisRelacoes({ navigation }: any) {
     return (
         <SafeAreaView style={{ flex: 1, minHeight: '100%' }}>   
             <ScrollView style={style.sinais}>
-                <Pressable style={style.goBack} onPress={() => navigation.navigate('Sinalario')}>
-                    <Icon source="arrow-left-thick" size={40} color="#092A95" />
-                </Pressable>
+                <TouchableOpacity style={style.backButton} onPress={() => navigation.goBack()}>
+                    <MaterialCommunityIcons name="arrow-left" size={30} color="#092A95" />
+                    <Text style={style.backText}>Voltar</Text>
+                </TouchableOpacity>
                 <Searchbar style={style.searchBar} searchAccessibilityLabel={searchQuery} rippleColor={'#C6C6C6'} placeholder="Pesquise o sinal que deseja!" value={searchQuery} onChangeText={setSearchQuery} />
                 {sinaisFiltrados.length > 0 ? (
                     sinaisFiltrados.map((sinal) => (
                         <SinalItem key={sinal.id} {...sinal} />
                     ))
                 ) : (
-                    <Text>
+                    <Text style={style.noSearch}> 
                         Nenhum sinal foi encontrado...
                     </Text>
                 )}

@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
   titulo: {
     fontFamily: "Poppins-Bold",
     fontSize: fontSizeBase * 1.5,
-    color: '#002366',
+    color: '#FFF',
     textAlign: 'center',
-    marginBottom: height * 0.05,
+    marginBottom: height * 0.03,
   },
   imagemPerfil: {
     width: 120,
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontFamily: "Poppins-Medium",
+    color: '#092A95',
     width: '90%',
     height: 50,
     borderColor: '#ccc',

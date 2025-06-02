@@ -108,7 +108,7 @@ const ExitConfirmationAlert = ({
               <Image source={getImageSource()} style={styles.iconImage} />
             </Animatable.View>
 
-            <Text style={styles.messageText}>{isErrorMessage ? 'Problema encontrado, por favor revise!' : message}</Text>
+            <Text style={styles.messageText}>{isErrorMessage ? 'Preencha os campos corretamente!' : message}</Text>
 
             {singleButtonMode ? (
               <TouchableOpacity style={styles.button} onPress={onClose}>

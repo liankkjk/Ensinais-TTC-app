@@ -101,7 +101,7 @@ export default function RelaçõesScreen({ navigation }) {
       { pergunta: 'O que a pessoa falou?',
          opcoes: ['Boa tarde', 'Oi', 'Boa noite'],
           correta: 'Oi',
-          videoUrl:''
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FOi.mp4?alt=media&token=67b7854e-a708-4145-96ad-15783c07976e'
       },
       { pergunta: 'O que a pessoa perguntou?',
          opcoes: ['Obrigado', 'Boa noite', 'Tudo bem?'],

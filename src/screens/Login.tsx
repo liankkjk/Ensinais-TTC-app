@@ -18,6 +18,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAuth } from '../routes/authcontext';
 import styles from '../styles/styleLogin';
+import * as Font from 'expo-font';
 import { doc, getDoc } from 'firebase/firestore';
 import { FIREBASE_DB } from '../../FireBaseConfig';
 import CadAlertSair from '../../components/alertCompSair';
@@ -33,6 +34,12 @@ const LoginScreen = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [erroModalVisible, setErroModalVisible] = useState(false);
   const [erroMensagem, setErroMensagem] = useState('');
+
+  const [fontsLoaded] = Font.useFonts({
+        'Poppins-Bold': require('../../assets/fonts/Poppins-Bold.ttf'),
+        'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+        'Poppins-ExtraBold': require('../../assets/fonts/Poppins-ExtraBold.ttf'),
+      });
 
   const signIn = async () => {
     setLoading(true);
@@ -109,7 +116,7 @@ const LoginScreen = ({ navigation }) => {
           <View style={styles.inputContainer}>
             <MaterialCommunityIcons name="email" size={30} color="#888" style={styles.icon} />
             <TextInput
-              placeholder="Email"
+              placeholder="E-mail"
               value={email}
               onChangeText={setEmail}
               keyboardType="email-address"
@@ -118,6 +125,9 @@ const LoginScreen = ({ navigation }) => {
               placeholderTextColor="#888"
             />
           </View>
+          <Text style={styles.forEmailLabel}>
+              Insira o e-mail para recuperar a senha!
+          </Text>
 
           <Text style={styles.inputLabel}>Insira a senha:</Text>
           <View style={styles.inputContainer}>

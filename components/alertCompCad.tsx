@@ -78,8 +78,7 @@ const CadAlert = ({ visible, onClose, title, message, type }: AlertProps) => {
               <Image source={imageSource} style={styles.iconImage} />
             </Animatable.View>
 
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.message}>{type === 'error' ? 'Problema encontrado, por favor revise!' : message}</Text>
+            <Text style={styles.message}>{type === 'error' ? 'Preencha os campos corretamente!' : message}</Text>
 
             <Animatable.View animation="pulse" iterationCount="infinite" duration={3000}>
               <TouchableOpacity style={styles.button} onPress={onClose}>
