@@ -111,9 +111,9 @@ export default function ComidasScreen({ navigation }) {
         
         },
       { pergunta: 'Qual o significado do sinal acima?',
-        opcoes: ['Pirulito', 'Bolo', 'Chiclete'],
-        correta: 'Bolo',
-        videoUrl: ''
+        opcoes: ['Pirulito', 'Bala', 'Chiclete'],
+        correta: 'Bala',
+        imageUrl: ''
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Paçoca', 'Sorvete', 'Algodão Doce'],

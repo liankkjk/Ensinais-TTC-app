@@ -126,15 +126,14 @@ export default function RelaçõesScreen({ navigation }) {
          imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%20Tarde.png?alt=media&token=b131c1b3-76f4-49a1-99a2-9facf174fd92'
       },
       { pergunta: 'Qual sinal é esse?',
-         opcoes: ['12h30', 'Noite', '22h45'],
-          correta: 'Noite',
-        videoUrl:''
+         opcoes: ['12h30', 'Boa noite', '22h45'],
+          correta: 'Boa noite',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBoa%20noite.mp4?alt=media&token=b918d21e-5b06-4160-ab94-53051baa5888'
       },
-
       { pergunta: 'Qual sinal é esse?',
-        opcoes: ['Dia', 'Tarde', 'Noite'],
-        correta: 'Dia',
-        videoUrl:''
+        opcoes: ['Bom dia', 'Boa tarde', 'Boa noite'],
+        correta: 'Boa noite',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBoa%20noite.mp4?alt=media&token=b918d21e-5b06-4160-ab94-53051baa5888'
       },
       { pergunta: 'Que horas a pessoa falou?',
          opcoes: ['10h00', '12h00', '14h00'],

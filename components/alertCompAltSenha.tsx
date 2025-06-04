@@ -76,17 +76,19 @@ const PasswordChangedAlert = ({
               <Image
                 source={
                   type === 'erro'
-                    ? require('../assets/JonathanErro.png') 
-                    : require('../assets/JonathanParabens.png') 
+                    ? require('../assets/JonathanErro.png')
+                    : require('../assets/JonathanParabens.png')
                 }
                 style={styles.iconImage}
               />
             </Animatable.View>
 
-            <Text style={styles.title}>{title}</Text>
-            {message ? (
-              <Text style={[styles.messageText]}>{message}</Text>
-            ) : null}
+            <Text style={styles.messageText}>
+              {message ||
+                (type === 'success'
+                  ? 'Senha alterada com sucesso!'
+                  : 'Verifique os campos ou refaça o login!')}
+            </Text>
 
             <Animatable.View animation="pulse" iterationCount="infinite" duration={3000}>
               <TouchableOpacity style={styles.button} onPress={onClose}>

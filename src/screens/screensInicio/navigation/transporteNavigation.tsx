@@ -102,7 +102,7 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'Qual sinal é esse? ',
          opcoes: ['Carros', 'Sinalização', 'Pessoas'],
           correta: 'Sinalização',
-         videoUrl:''
+         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FSinaliza%C3%A7%C3%A3o.mp4?alt=media&token=b1b56104-4c74-4537-b5e8-59d0253c506d'
 
       },
       { pergunta: 'A rua está?',
@@ -118,7 +118,7 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'A placa sinaliza para?',
          opcoes: ['Seguir', 'Reduzir', 'Parar'],
           correta: 'Parar',
-          videoUrl:''
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FParar.mp4?alt=media&token=f114a280-1d50-43a0-b3f8-eef28eecc041'
         },
     ],
     Veículos: [
@@ -140,19 +140,14 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Carro', 'Ônibus', 'Farol'],
           correta: 'Ônibus',
-          videoUrl:''
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2F%C3%94nibus.mp4?alt=media&token=f3a5fa2d-5576-4a20-8cfb-f55a3de6401f'
       },
     ],
     Ônibus: [
       { pergunta: 'O que a pessoa está dizendo?',
          opcoes: ['Bom dia', 'Roda', 'Ponto de Ônibus'],
           correta: 'Ponto de Ônibus',
-          videoUrl:''
-      },
-      { pergunta: 'O que a pessoa está dizendo?',
-         opcoes: ['Parada Solicitada', 'Oi', 'Tchau'],
-          correta: 'Parada Solicitada',
-          videoUrl:''
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FPonto%20de%20%C3%B4nibus.mp4?alt=media&token=6e45b49c-5c96-410f-bff1-40566d6f2851'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Tchau', 'Terminal', 'Olá'],
@@ -162,6 +157,11 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Sentar', 'Descer', 'Passe de ônibus'],
           correta: 'Passe de ônibus',
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FPasse%20de%20%C3%B4nibus.mp4?alt=media&token=b08cedbb-8726-46dc-90b7-b7ecbe589dea'
+      },
+      { pergunta: 'O que a pessoa está dizendo?',
+         opcoes: ['Parada Solicitada', 'Oi', 'Tchau'],
+          correta: 'Parada Solicitada',
           videoUrl:''
       },
     ],
@@ -174,7 +174,7 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'Qual linha a pessoa quer ir?',
          opcoes: ['Linha Vermelha', 'Linha Azul', 'Linha Amarela'],
           correta: 'Linha Amarela',
-          videoUrl:''
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FLinha%20amarela.mp4?alt=media&token=91341ce2-d41b-41c1-aa41-44a5dea718cf'
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['11h', 'Plataforma', 'Busão'],
