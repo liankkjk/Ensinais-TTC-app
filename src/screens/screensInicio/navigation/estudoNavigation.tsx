@@ -101,7 +101,7 @@ export default function EstudoNavigation({ navigation }) {
   const perguntasPorTema = {
   Matemática: [
     {
-      pergunta: 'Qual o resultado da conta acima? (25+20)',
+      pergunta: 'Qual o número a pessoa fez acima?',
       opcoes: ['50', '55', '45'],
       correta: '45',
       videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2F45.mp4?alt=media&token=8cd62ed3-1554-42d2-823c-d8eb738be2c5'
@@ -113,7 +113,7 @@ export default function EstudoNavigation({ navigation }) {
       videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FCalculadora.mp4?alt=media&token=9161d8c2-8917-4b12-bf69-247313e00828'
     },
     {
-      pergunta: 'Qual sinal está sendo representado na imagem? ',
+      pergunta: 'Qual sinal está sendo representado no vídeo  ? ',
       opcoes: ['10', '25', '150'],
       correta: '25',
       videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FN%C3%BAmero%2025.mp4?alt=media&token=b03d240a-56df-43f9-83fc-9d39efae127f'
@@ -375,11 +375,11 @@ export default function EstudoNavigation({ navigation }) {
               )}
               {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
                       
-                      <Image
-                        source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-                        style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
-                      />
-                    )}
+     <Image
+        source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+        style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
+      />
+     )}
               
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>

@@ -162,7 +162,7 @@ export default function ProfissoesScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Diretor', 'Professor', 'Zelador'],
           correta: 'Professor',
-          videoUrl:''
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FProfessor.mp4?alt=media&token=a4d4c151-2ee2-4f9c-920c-87edf9ba9c3f'
       },
     ],
     Atendimento: [
@@ -360,7 +360,7 @@ export default function ProfissoesScreen({ navigation }) {
                       
                       <Image
                         source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-                        style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                        style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
                       />
                     )}
               

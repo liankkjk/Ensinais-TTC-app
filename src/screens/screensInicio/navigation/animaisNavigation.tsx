@@ -148,7 +148,6 @@ export default function AnimaisNavigation({ navigation }) {
         correta: 'Polvo',
         videoUrl:''
         },
-         
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Golfinho', 'Tubarão', 'Lula'],
         correta: 'Golfinho',
@@ -158,10 +157,9 @@ export default function AnimaisNavigation({ navigation }) {
     Domésticos: [
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Cachorro', 'Gato', 'Hamster'],
-        correta: 'Gato',
+         correta: 'Gato',
          videoUrl:''
       },
-
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Coelho', 'Gato', 'Cachorro'],
        correta: 'Cachorro',
@@ -184,16 +182,16 @@ export default function AnimaisNavigation({ navigation }) {
         correta: 'Elefante',
         videoUrl:''
       },
-
       { pergunta: 'O que a pessoa disse?',
          opcoes: ['Leão', 'Tigre', 'Lobo'],
-          correta: 'Leão' },
+          correta: 'Leão', 
+        videoUrl:''  
+      },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Onça', 'Cabra', 'Macaco'],
           correta: 'Macaco',
           videoUrl:''   
       },
-
       { pergunta: 'O que a pessoa disse?',
          opcoes: ['Jacaré', 'Cobra', 'Lontra '],
           correta: 'Jacaré',
@@ -371,10 +369,10 @@ export default function AnimaisNavigation({ navigation }) {
 )}
 {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
         
-        <Image
+         <Image
           source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-          style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
-        />
+          style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
+                              />
       )}
 
 
