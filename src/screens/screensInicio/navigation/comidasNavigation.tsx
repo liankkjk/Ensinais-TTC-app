@@ -125,7 +125,7 @@ export default function ComidasScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Esfiha', 'Pastel', 'Coxinha'],
         correta: 'Pastel',
-        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2Fcomidas%2FSinal%20Pastel.png?alt=media&token=de302bc2-0169-4300-892b-06561ec85d8b'
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Pastel.png?alt=media&token=abd7db02-e1be-4a8e-ba05-4439b6219724'
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Coxinha', 'Batata Frita', 'Pizza'],
@@ -135,7 +135,7 @@ export default function ComidasScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Hambúrguer', 'Rissoles', 'Torta'],
         correta: 'Torta',
-        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2Fcomidas%2FSinal%20Torta.png?alt=media&token=6fa4d274-1f39-40ae-aaa3-d180f4feee54'
+        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Torta.png?alt=media&token=90a98c24-35d0-4b13-acda-460566cc5224'
 
       },
 
@@ -184,7 +184,6 @@ export default function ComidasScreen({ navigation }) {
           correta: 'Chuchu',
           videoUrl:''
       },
-
       { pergunta: 'Qual alimento é esse?',
         opcoes: ['Pepino', 'Couve', 'Alface'],
         correta: 'Couve',
@@ -363,12 +362,11 @@ export default function ComidasScreen({ navigation }) {
 
               {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
         
-        <Image
-          source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-          style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
-        />
-      )}
-
+       <Image
+             source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+             style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
+            />
+            )}
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 
               <View style={styles.timerContainer}>

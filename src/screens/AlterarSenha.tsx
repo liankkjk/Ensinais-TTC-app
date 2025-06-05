@@ -19,6 +19,7 @@ const AlterarSenha = ({ navigation }) => {
   const [erroMensagem, setErroMensagem] = useState('');
 
   const alterarSenha = async () => {
+    const errorMsg = 'Realize o login novamente para alterar a senha.';
     const auth = FIREBASE_AUTH;
     const user = auth.currentUser;
 
@@ -41,8 +42,8 @@ const AlterarSenha = ({ navigation }) => {
       setModalVisible(true);
       setNovaSenha('');
       setConfirmarSenha('');
-    } catch (error) {
-      setErroMensagem(error.message);
+    } catch (errorMsg) {
+      setErroMensagem(errorMsg.message);
       setErroModalVisible(true);
     }
   };

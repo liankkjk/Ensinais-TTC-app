@@ -17,7 +17,7 @@ const PasswordChangedAlert = ({
   onClose,
   title = '',
   message = '',
-  type = 'sucesso',
+  type = 'success',
 }: AlertProps) => {
   const [showModal, setShowModal] = useState(visible);
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
@@ -84,7 +84,7 @@ const PasswordChangedAlert = ({
             </Animatable.View>
 
             <Text style={styles.messageText}>
-              {message ||
+              {
                 (type === 'success'
                   ? 'Senha alterada com sucesso!'
                   : 'Verifique os campos ou refaça o login!')}

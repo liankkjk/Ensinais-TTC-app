@@ -125,12 +125,12 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Carro', 'Ônibus', 'Moto'],
         correta: 'Carro',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FTransporte%2FSinal%20Carro.png?alt=media&token=33920420-155c-4a97-a7fb-01b1f1032fde'
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FCarro.mp4?alt=media&token=caba32e1-5393-4589-9b9e-bf467366cb05'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Caminhão', 'Pedestre', 'Moto'],
           correta: 'Moto',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FCarro%20e%20moto.mp4?alt=media&token=422d0324-b6be-47c6-9eac-a0b3b385e52a'
+          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FMoto.mp4?alt=media&token=1aaf3fbe-70b8-4861-80d4-b3150988b1c1'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Bicicleta', 'Navio', 'Metro'],
@@ -187,7 +187,7 @@ export default function TransporteNavigation({ navigation }) {
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FInforma%C3%A7%C3%A3o.mp4?alt=media&token=7ad8d7ba-a2eb-47b3-9a70-ec1a64e8e049'
       },
     ]
-  };
+  }; 
 
   const abrirModal = (tema: string) => {
     setCardSelecionado(tema);
@@ -358,11 +358,11 @@ export default function TransporteNavigation({ navigation }) {
 )}
 {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
         
-        <Image
-          source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-          style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
-        />
-      )}
+ <Image
+  source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+  style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
+  />
+ )}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
 

@@ -360,7 +360,7 @@ export default function ProfissoesScreen({ navigation }) {
                       
                       <Image
                         source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-                        style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
+                        style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
                       />
                     )}
               

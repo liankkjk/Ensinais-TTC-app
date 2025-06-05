@@ -182,7 +182,7 @@ export default function RelaçõesScreen({ navigation }) {
       { pergunta: 'O que a pessoa falou ouvir um obrigado?',
          opcoes: ['De nada', 'Satisfação', 'Tchau'],
           correta: 'De nada',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FDe%20nada.mp4?alt=media&token=2845e3a8-3179-49a8-899d-e78ea1d3ec65'
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FDe%20nada.mp4?alt=media&token=2b23de68-a3ea-4d93-86c8-0435ea325bd9'
       },
     ],
   };
@@ -356,10 +356,10 @@ export default function RelaçõesScreen({ navigation }) {
 )}
 {perguntas[perguntaAtual]?.imageUrl && !perguntas[perguntaAtual]?.videoUrl && (
         
-        <Image
-          source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
-          style={{ width: '100%', height: 200, borderRadius: 12, backgroundColor: '#000' }}
-        />
+     <Image
+       source={{ uri: perguntas[perguntaAtual].imageUrl }} // URL da imagem
+       style={{ width: '100%', height: 161, borderRadius: 12, backgroundColor: '#000', resizeMode: 'contain', }}
+      />
       )}
 
               <Text style={styles.quizQuestion}>{perguntas[perguntaAtual]?.pergunta}</Text>
