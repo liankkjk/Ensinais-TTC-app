@@ -9,7 +9,7 @@ interface AlertProps {
   onClose: () => void;
   title?: string;
   message?: string;
-  type?: 'sucesso' | 'erro';
+  type?: 'success' | 'erro';
 }
 
 const PasswordChangedAlert = ({
@@ -85,9 +85,9 @@ const PasswordChangedAlert = ({
 
             <Text style={styles.messageText}>
               {
-                (type === 'success'
-                  ? 'Senha alterada com sucesso!'
-                  : 'Verifique os campos ou refaça o login!')}
+                (type === 'erro'
+                  ? 'Verifique os campos ou refaça o login! '
+                  : 'Senha alterada com sucesso!')}
             </Text>
 
             <Animatable.View animation="pulse" iterationCount="infinite" duration={3000}>
