@@ -307,7 +307,7 @@ const sinaisComidas: Sinal[] = [
         id: 1,
         title: "Pastel",
         subtitle: "Sinal de pastel",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FPastel%20com%20legenda.mp4?alt=media&token=6fd24556-f37c-4b72-83ec-667a9741f85e',
     },
     {
         id: 2,
@@ -319,7 +319,7 @@ const sinaisComidas: Sinal[] = [
         id: 3,
         title: "Torta",
         subtitle: "Sinal de torta",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FTorta%20com%20legenda.mp4?alt=media&token=d5046ced-048e-4de3-9cf3-de32c04b8717',
     },
     {
         id: 4,
@@ -331,7 +331,7 @@ const sinaisComidas: Sinal[] = [
         id: 5,
         title: "Pudim",
         subtitle: "Sinal de pudim",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FPudim%20com%20legenda.mp4?alt=media&token=ffe5a723-a395-4b12-8b2f-3b360aaf1b9e',
     },
     {
         id: 6,
@@ -343,7 +343,7 @@ const sinaisComidas: Sinal[] = [
         id: 7,
         title: "Bala",
         subtitle: "Sinal de bala",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FBala%20com%20legenda.mp4?alt=media&token=17d59e64-5954-47d0-8b7b-cdb43e562818',
     },
     {
         id: 8,
@@ -355,7 +355,7 @@ const sinaisComidas: Sinal[] = [
         id: 9,
         title: "Alface",
         subtitle: "Sinal de alface",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FAlface%20com%20legenda.mp4?alt=media&token=1e3909b5-c18c-4fbf-b2d2-942f654f0e71',
     },
     {
         id: 10,
@@ -367,7 +367,7 @@ const sinaisComidas: Sinal[] = [
         id: 11,
         title: "Chuchu",
         subtitle: "Sinal de chuchu",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FChuchu%20com%20legenda.mp4?alt=media&token=85154500-b705-426b-a5ef-3b35956dfcef',
     },
     {
         id: 12,
@@ -379,7 +379,7 @@ const sinaisComidas: Sinal[] = [
         id: 13,
         title: "Arroz",
         subtitle: "Sinal de arroz",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FArroz%20com%20legenda.mp4?alt=media&token=2cddaccc-022b-4ae2-8363-590aaa0fefb5',
     },
     {
         id: 14,
@@ -391,7 +391,7 @@ const sinaisComidas: Sinal[] = [
         id: 15,
         title: "Feijão",
         subtitle: "Sinal de feijão",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FCom%20legenda%2FFeij%C3%A3o%20com%20legenda.mp4?alt=media&token=c369d90a-bba0-4962-8348-97ee093608d8',
     },
     {
         id: 16,
