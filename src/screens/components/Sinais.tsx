@@ -208,7 +208,7 @@ const sinaisNatureza: Sinal[] = [
         id: 1,
         title: "Baleia",
         subtitle: "Sinal de baleia",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FBaleia%20com%20legenda.mp4?alt=media&token=e910b422-6631-4e3e-b234-4d637b5ce01a',
     },
     {
         id: 2,
@@ -220,7 +220,7 @@ const sinaisNatureza: Sinal[] = [
         id: 3,
         title: "Polvo",
         subtitle: "Sinal de polvo",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FPolvo%20com%20legenda.mp4?alt=media&token=78aa16db-bf41-4f79-8a33-5e1bccf52d9e',
     },
     {
         id: 4,
@@ -232,7 +232,7 @@ const sinaisNatureza: Sinal[] = [
         id: 5,
         title: "Gato",
         subtitle: "Sinal de gato",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FGato%20com%20legenda.mp4?alt=media&token=bbc3840b-5599-4a0a-8738-a27a0f951f31',
     },
     {
         id: 6,
@@ -244,7 +244,7 @@ const sinaisNatureza: Sinal[] = [
         id: 7,
         title: "Cachorro",
         subtitle: "Sinal de cachorro",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FCachorro%20com%20legenda.mp4?alt=media&token=8a3ebbaa-e150-434a-9f08-1595491ee17c',
     },
     {
         id: 8,
@@ -256,7 +256,7 @@ const sinaisNatureza: Sinal[] = [
         id: 9,
         title: "Vaca",
         subtitle: "Sinal de vaca",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FVaca%20com%20legenda.mp4?alt=media&token=78a8d75b-7838-46a9-b828-aaa4f263f31d',
     },
     {
         id: 10,
@@ -268,7 +268,7 @@ const sinaisNatureza: Sinal[] = [
         id: 11,
         title: "Galinha",
         subtitle: "Sinal de galinha",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FGalinha%20com%20legenda.mp4?alt=media&token=5abbf8ae-b3e7-4a2c-8b94-ad5a88e82039',
     },
     {
         id: 12,
@@ -280,7 +280,7 @@ const sinaisNatureza: Sinal[] = [
         id: 13,
         title: "Elefante",
         subtitle: "Sinal de elefante",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FElefante%20com%20legenda.mp4?alt=media&token=dfa6c26a-4ccf-4681-a981-3c7c5633e4d0',
     },
     {
         id: 14,
@@ -292,7 +292,7 @@ const sinaisNatureza: Sinal[] = [
         id: 15,
         title: "Macaco",
         subtitle: "Sinal de macaco",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FCom%20legenda%2FMacaco%20com%20legenda.mp4?alt=media&token=61b46cdf-dcaf-4fc2-b2e1-2788118f8492',
     },
     {
         id: 16,
@@ -419,7 +419,7 @@ const sinaisProfissoes: Sinal[] = [
         id: 3,
         title: "Tecnologia",
         subtitle: "Sinal de tecnologia",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FTecnologia%20com%20legenda.mp4?alt=media&token=0f58a11e-2150-47c0-a729-5f46ec222bb3',
     },
     {
         id: 4,
@@ -431,7 +431,7 @@ const sinaisProfissoes: Sinal[] = [
         id: 5,
         title: "Nutricionista",
         subtitle: "Sinal de nutricionista",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FNutricionista%20com%20legenda.mp4?alt=media&token=cad537f0-6a22-44ab-94cf-5c3f420321f1',
     },
     {
         id: 6,
@@ -443,7 +443,7 @@ const sinaisProfissoes: Sinal[] = [
         id: 7,
         title: "Médico",
         subtitle: "Sinal de médico",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FM%C3%A9dico%20com%20legenda.mp4?alt=media&token=c2376563-60ba-44e7-aa03-1679124dd7e4',
     },
     {
         id: 8,
@@ -455,7 +455,7 @@ const sinaisProfissoes: Sinal[] = [
         id: 9,
         title: "Segurança",
         subtitle: "Sinal de segurança",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FSeguran%C3%A7a%20com%20legenda.mp4?alt=media&token=69c01828-7b3c-4902-a82f-e52bd94346ac',
     },
     {
         id: 10,
@@ -467,19 +467,19 @@ const sinaisProfissoes: Sinal[] = [
         id: 11,
         title: "Garçom",
         subtitle: "Sinal de garçom",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FGar%C3%A7om%20com%20legenda.mp4?alt=media&token=7d5483dd-5b5b-49ad-bb20-52d6543a4ac4',
     },
     {
         id: 12,
         title: "Professor",
         subtitle: "Sinal de professor",
-        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FProfessor%20com%20legenda.mp4?alt=media&token=413db6f7-f62f-4b3e-a55e-5d69c5e91fbf',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FProfessor%20com%20legenda.mp4?alt=media&token=51aafea6-595f-4a84-937e-11bb4ed863b0',
     },
     {
         id: 13,
         title: "Pagamento",
         subtitle: "Sinal de pagamento",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FPagamento%20com%20legenda.mp4?alt=media&token=6be6d998-9ec2-4e8e-8f1a-eaee1c1c2a8b',
     },
     {
         id: 14,
@@ -491,7 +491,7 @@ const sinaisProfissoes: Sinal[] = [
         id: 15,
         title: "Vendedor",
         subtitle: "Sinal de vendedor",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FCom%20legenda%2FVendedor%20com%20legenda.mp4?alt=media&token=02e17bbd-c75d-4e17-9978-2497286ad7cd',
     },
     {
         id: 16,
@@ -536,13 +536,13 @@ const sinaisTransporte: Sinal[] = [
         id: 6,
         title: "Moto",
         subtitle: "Sinal de moto",
-        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FCarro%20e%20moto%20com%20legenda.mp4?alt=media&token=402abc22-f7e5-4ffd-853a-a5d6dc79b61c',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FMoto%20com%20legenda.mp4?alt=media&token=387db7cd-c23c-482d-9d87-d04a1aae0dee',
     },
     {
         id: 7,
         title: "Metro",
         subtitle: "Sinal de metro",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FMetro%20com%20legenda.mp4?alt=media&token=7d6a3464-e858-4512-bb4b-3b0d20d94aca',
     },
     {
         id: 8,
@@ -560,7 +560,7 @@ const sinaisTransporte: Sinal[] = [
         id: 10,
         title: "Rodoviária",
         subtitle: "Sinal de rodoviária",
-        url: '',
+        url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FCom%20legenda%2FRodovi%C3%A1ria%20com%20legenda.mp4?alt=media&token=fdff6692-9d4f-4816-97e7-adbeb93ef0a8',
     },
     {
         id: 11,
