@@ -132,13 +132,13 @@ export default function RelaçõesScreen({ navigation }) {
       },
       { pergunta: 'Qual sinal é esse?',
         opcoes: ['Bom dia', 'Boa tarde', 'Boa noite'],
-        correta: 'Boa noite',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBoa%20noite.mp4?alt=media&token=b918d21e-5b06-4160-ab94-53051baa5888'
+        correta: 'Boa tarde',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBoa%20tarde.mp4?alt=media&token=7de9524f-f12f-4d12-bdab-c9372de6c793'
       },
       { pergunta: 'Que horas a pessoa falou?',
          opcoes: ['10h00', '12h00', '14h00'],
           correta: '14h00',
-        videoUrl:''
+        videoUrl:'' //Adicionar URL do vídeo aqui
       },
     ],
     Hierarquia: [

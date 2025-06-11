@@ -162,7 +162,7 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'O que a pessoa está dizendo?',
          opcoes: ['Parada Solicitada', 'Oi', 'Tchau'],
           correta: 'Parada Solicitada',
-          videoUrl:''
+          videoUrl:'' //Adicionar vídeo sem legenda aqui
       },
     ],
     Metro: [

@@ -152,7 +152,6 @@ export default function ProfissoesScreen({ navigation }) {
          opcoes: ['Pintor', 'Uber', 'Motorista'],
           correta: 'Uber',
           videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FUber.mp4?alt=media&token=b3b253f6-4987-4880-96c0-77bb152addc3'
-        
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Garçom', 'Manobrista', 'Cientista'],
@@ -162,7 +161,7 @@ export default function ProfissoesScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Diretor', 'Professor', 'Zelador'],
           correta: 'Professor',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FProfessor.mp4?alt=media&token=a4d4c151-2ee2-4f9c-920c-87edf9ba9c3f'
+          videoUrl:'' //Colocar o vídeo do professor sem legenda
       },
     ],
     Atendimento: [
