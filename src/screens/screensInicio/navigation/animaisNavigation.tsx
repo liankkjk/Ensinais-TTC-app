@@ -114,7 +114,7 @@ export default function AnimaisNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Porco', 'Galinha', 'Vaca'],
         correta: 'Vaca',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FVaca.mp4?alt=media&token=cc6354ae-670c-4424-b2fc-fccffa9aaf58'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Vaca.png?alt=media&token=b004f6f8-0f97-464d-8c9c-77df214cd534'
       },
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Vaca', 'Cavalo', 'Bode'],
@@ -124,7 +124,7 @@ export default function AnimaisNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?', 
         opcoes: ['Boi', 'Galinha', 'Porco'],
         correta: 'Galinha',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FGalinha.mp4?alt=media&token=59448886-0773-43aa-9374-9c83aa9a67f6'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Galinha.png?alt=media&token=05635506-d6e5-47e7-a574-1c3b629d3de4'
       },
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Porco', 'Galo', 'Pato'],
@@ -136,7 +136,7 @@ export default function AnimaisNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Tubarão', 'Baleia', 'Golfinho'],
         correta: 'Baleia',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FBaleia.mp4?alt=media&token=0e03ef4c-3ce9-47ce-b823-56eafecf4865'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Baleia.png?alt=media&token=19e1bd8e-5e67-45c4-927c-31364d7bd0b5'
       },
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Polvo', 'Peixe', 'Golfinho'],
@@ -146,7 +146,7 @@ export default function AnimaisNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Baleia', 'Tubarão', 'Polvo'],
         correta: 'Polvo',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FPolvo.mp4?alt=media&token=22cb7ae6-6a13-4df8-9881-2e92655c3122'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Polvo.png?alt=media&token=33781511-ca3e-4f10-922d-a650f57279b7'
         },
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Golfinho', 'Tubarão', 'Lula'],
@@ -156,19 +156,19 @@ export default function AnimaisNavigation({ navigation }) {
     ],
     Domésticos: [
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Cachorro', 'Gato', 'Hamster'],
-         correta: 'Gato',
-         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FGato.mp4?alt=media&token=adf0fdd3-01de-433e-9ff1-955461031138'
-      },
-      { pergunta: 'O que a pessoa disse?',
-        opcoes: ['Coelho', 'Gato', 'Cachorro'],
-       correta: 'Cachorro',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FCachorro.mp4?alt=media&token=be98c048-7b05-4b8e-bb52-e8ebfe0c203a'
+        opcoes: ['Cachorro', 'Gato', 'Hamster'],
+        correta: 'Gato',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Gato.png?alt=media&token=e12ff53f-8c87-4c55-acb4-6299f063a771'
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Papagaio', 'Pássaro', 'Calopsita '],
         correta: 'Pássaro',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FPassarinho.mp4?alt=media&token=a9ddeb1b-5d00-4965-a05e-8985ad6b6e79'
+      },
+      { pergunta: 'O que a pessoa disse?',
+        opcoes: ['Coelho', 'Gato', 'Cachorro'],
+        correta: 'Cachorro',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Cachorro.png?alt=media&token=5843b5e1-427e-41e3-944f-d60530e1cb28'
       },
       { pergunta: 'O que a pessoa disse?',
         opcoes: ['Coelho', 'Gato', 'Tartaruga'],
@@ -178,24 +178,24 @@ export default function AnimaisNavigation({ navigation }) {
     ],
     Selvagens: [
       { pergunta: 'Qual o significado do sinal acima?',
-       opcoes: ['Girafa', 'Elefante', 'Leão'],
+        opcoes: ['Girafa', 'Elefante', 'Leão'],
         correta: 'Elefante',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FElefante.mp4?alt=media&token=62e2a6e5-94c3-46f1-b289-93cd72a1ec50'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Elefante.png?alt=media&token=ca3329ae-3826-4a26-9e65-883f626ce069'
       },
       { pergunta: 'O que a pessoa disse?',
-         opcoes: ['Leão', 'Tigre', 'Lobo'],
-          correta: 'Leão', 
+        opcoes: ['Leão', 'Tigre', 'Lobo'],
+        correta: 'Leão', 
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FLe%C3%A3o.mp4?alt=media&token=0c015cd7-622c-407e-8fc5-d8aa76e6275e'  
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Onça', 'Cabra', 'Macaco'],
-          correta: 'Macaco',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FMacaco.mp4?alt=media&token=9909fcd8-dcde-41ab-af5c-d38c52e0cdf4'   
+        opcoes: ['Onça', 'Cabra', 'Macaco'],
+        correta: 'Macaco',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FAnimais%2FSinal%20Macaco.png?alt=media&token=6b033e4f-f30c-4e34-ae4a-81001fbbe79f'   
       },
       { pergunta: 'O que a pessoa disse?',
-         opcoes: ['Jacaré', 'Cobra', 'Lontra '],
-          correta: 'Jacaré',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FJacar%C3%A9.mp4?alt=media&token=44d7ef1b-c21c-44b2-8e36-023d666c4cd3'
+        opcoes: ['Jacaré', 'Cobra', 'Lontra '],
+        correta: 'Jacaré',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FAnimais%2FSem%20legenda%2FJacar%C3%A9.mp4?alt=media&token=44d7ef1b-c21c-44b2-8e36-023d666c4cd3'
       },
     ],
   };

@@ -113,37 +113,37 @@ export default function RelaçõesScreen({ navigation }) {
           correta: 'Bom dia',
          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBom%20dia.mp4?alt=media&token=d8642e4c-1ea6-4dc3-b3cd-339c7e58b030'
       },
-      { pergunta: 'Aonde a pessoa está indo? ',
+      { pergunta: 'Aonde a pessoa está indo?',
          opcoes: ['Chácara', 'Restaurante', 'Festa'],
           correta: 'Restaurante',
-          videoUrl:''
+          imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%20Restaurante.png?alt=media&token=283a4d52-b7fb-4037-9c85-e898e7e9fbb6'
       },
     ],
     Horário: [
-      { pergunta: 'Qual sinal é esse?',
+      { pergunta: 'Qual é esse sinal?',
          opcoes: ['Manhã', 'Noite', 'Tarde'],
           correta: 'Tarde',
          imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%20Tarde.png?alt=media&token=b131c1b3-76f4-49a1-99a2-9facf174fd92'
       },
-      { pergunta: 'Qual sinal é esse?',
+      { pergunta: 'Qual é esse sinal?',
          opcoes: ['12h30', 'Boa noite', '22h45'],
           correta: 'Boa noite',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBoa%20noite.mp4?alt=media&token=b918d21e-5b06-4160-ab94-53051baa5888'
       },
-      { pergunta: 'Qual sinal é esse?',
+      { pergunta: 'Qual é esse sinal?',
         opcoes: ['Bom dia', 'Boa tarde', 'Boa noite'],
         correta: 'Boa tarde',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FBoa%20tarde.mp4?alt=media&token=7de9524f-f12f-4d12-bdab-c9372de6c793'
       },
       { pergunta: 'Que horas a pessoa falou?',
-         opcoes: ['10h00', '12h00', '14h00'],
-          correta: '14h00',
+        opcoes: ['10h00', '12h00', '14h00'],
+        correta: '14h00',
         videoUrl:'' //Adicionar URL do vídeo aqui
       },
     ],
     Hierarquia: [
       { pergunta: 'O que a pessoa é?',
-         opcoes: ['Patrão', 'Líder', 'Funcionário'],
+        opcoes: ['Patrão', 'Líder', 'Funcionário'],
         correta: 'Patrão',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FPatr%C3%A3o.mp4?alt=media&token=0b005007-df7c-4741-bbd9-1fce5e982674'
       },
@@ -167,19 +167,19 @@ export default function RelaçõesScreen({ navigation }) {
       { pergunta: 'Qual sinal de agradecimento está sendo representado?',
         opcoes: ['Obrigado', 'Grato', 'Valeu'],
          correta: 'Grato',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FGrato.mp4?alt=media&token=c2aaf973-dd62-4135-8a09-cb77f7a64379'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%20Restaurante.png?alt=media&token=283a4d52-b7fb-4037-9c85-e898e7e9fbb6'
       },
-      { pergunta: 'Qual sinal a pessoa falou? ',
+      { pergunta: 'Qual sinal a pessoa falou?',
          opcoes: ['Não precisava', 'De nada', 'Obrigado'],
           correta: 'Obrigado',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FObrigado.mp4?alt=media&token=8312b2be-874e-410d-943c-b260995dd92e'
       },
-      { pergunta: 'Que sinal é esse? ',
+      { pergunta: 'Que sinal é esse?',
          opcoes: ['Doação', 'Gentileza', 'Ajuda'],
           correta: 'Gentileza',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FGentileza.mp4?alt=media&token=bedd80f3-5434-4f87-a036-5bc33a20da63'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%20Gentileza.png?alt=media&token=c6b1cb10-2249-4a97-9e1e-c1aa77fa1ad9'
       },
-      { pergunta: 'O que a pessoa falou ouvir um obrigado?',
+      { pergunta: 'O que a pessoa falou ao ouvir um obrigado?',
          opcoes: ['De nada', 'Satisfação', 'Tchau'],
           correta: 'De nada',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FSem%20legenda%2FDe%20nada.mp4?alt=media&token=2b23de68-a3ea-4d93-86c8-0435ea325bd9'

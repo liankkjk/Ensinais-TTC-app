@@ -104,7 +104,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual o número a pessoa fez acima?',
       opcoes: ['50', '55', '45'],
       correta: '45',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2F45.mp4?alt=media&token=8cd62ed3-1554-42d2-823c-d8eb738be2c5'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%2045.png?alt=media&token=25c9a1a4-50c4-4cb1-beca-b47bd4035ab6'
     },
     {
       pergunta: 'Qual sinal a pessoa fez?',
@@ -116,7 +116,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual sinal está sendo representado no vídeo  ? ',
       opcoes: ['10', '25', '150'],
       correta: '25',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FN%C3%BAmero%2025.mp4?alt=media&token=b03d240a-56df-43f9-83fc-9d39efae127f'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%2025.png?alt=media&token=e863ec1c-5b8c-46dc-92a4-5536d24e0cfa'
     },
     {
       pergunta: 'O sinal representa qual operação aritmética?',
@@ -130,7 +130,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual sinal está sendo representado na imagem?',
       opcoes: ['Escrever', 'Ler', 'Aprender'],
       correta: 'Ler',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FLer.mp4?alt=media&token=be10ef7b-76d7-4ca3-8442-7741cf7088eb'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%20Ler.png?alt=media&token=9612c5db-0e8f-4b50-b96d-82491c2512b1'
     },
     {
       pergunta: 'A pessoa gosta de?',
@@ -142,7 +142,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual classe gramatical está sendo representada no vídeo?',
       opcoes: ['Verbo', 'Substantivo', 'Pronome'],
       correta: 'Verbo',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FVerbo.mp4?alt=media&token=a0f6ac38-2e45-4af9-bb1d-d25dab1ede76'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%20Verbo.png?alt=media&token=e42504c6-24b7-4a5b-8fa9-d9d85e7907d3'
     },
     {
       pergunta: 'Qual a dificuldade da pessoa no português?',
@@ -156,7 +156,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual evento está sendo representado?',
       opcoes: ['Colonização', 'Guerra', 'Revolução'],
       correta: 'Colonização',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FColoniza%C3%A7%C3%A3o.mp4?alt=media&token=a20a57a9-9e3d-4c1e-8393-ca06c3f366c0'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%20Coloniza%C3%A7%C3%A3o.png?alt=media&token=53570fa0-19b9-442c-ae43-f5d92d6d9185'
     },
     {
       pergunta: 'O que a pessoa falou?',
@@ -168,7 +168,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual estrutura antiga está sendo representada?',
       opcoes: ['Castelo', 'Pirâmide', 'Igreja'],
       correta: 'Castelo',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FCastelo.mp4?alt=media&token=decea706-764a-4476-9648-3fa6118b0dd7'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%20Castelo.png?alt=media&token=7dae53a0-b82e-4a59-bca4-615b4d82aeeb'
     },
     {
       pergunta: 'Qual o sinal é esse?',
@@ -182,7 +182,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'Qual sinal a pessoa fez?',
       opcoes: ['Cidade', 'Pais', 'Estado'],
       correta: 'Pais',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FPa%C3%ADs.mp4?alt=media&token=113cb39c-171e-49d6-811b-5cfce9df249a'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%20Pa%C3%ADs.png?alt=media&token=24c10dea-99dc-4f4f-91fd-688eec1472df'
     },
     {
       pergunta: 'Qual país a pessoa tem vontade de conhecer?',
@@ -194,7 +194,7 @@ export default function EstudoNavigation({ navigation }) {
       pergunta: 'A região onde a pessoa vive é: ',
       opcoes: ['Plana', 'Montanhosa', 'Arenosa'],
       correta: 'Plana',
-      videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FEstudo%2FSem%20legenda%2FPlano.mp4?alt=media&token=5f220d86-e82d-40c1-b899-5a8ae829063c'
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FEstudo%2FSinal%20Plano.png?alt=media&token=4cd85fdb-83b7-47db-8e4a-dafa11af1389'
     },
     {
       pergunta: 'Qual continente a pessoa falou?',

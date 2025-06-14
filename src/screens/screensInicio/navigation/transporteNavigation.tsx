@@ -103,7 +103,6 @@ export default function TransporteNavigation({ navigation }) {
          opcoes: ['Carros', 'Sinalização', 'Pessoas'],
           correta: 'Sinalização',
          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FSinaliza%C3%A7%C3%A3o.mp4?alt=media&token=b1b56104-4c74-4537-b5e8-59d0253c506d'
-
       },
       { pergunta: 'A rua está?',
          opcoes: ['Bloqueada', 'Estreita', 'Vazia'],
@@ -125,7 +124,7 @@ export default function TransporteNavigation({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Carro', 'Ônibus', 'Moto'],
         correta: 'Carro',
-        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FCarro.mp4?alt=media&token=caba32e1-5393-4589-9b9e-bf467366cb05'
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FTransporte%2FSinal%20Carro.png?alt=media&token=33920420-155c-4a97-a7fb-01b1f1032fde'
       },
       { pergunta: 'Qual o significado do sinal acima?',
          opcoes: ['Caminhão', 'Pedestre', 'Moto'],
@@ -145,36 +144,36 @@ export default function TransporteNavigation({ navigation }) {
     ],
     Ônibus: [
       { pergunta: 'O que a pessoa está dizendo?',
-         opcoes: ['Bom dia', 'Roda', 'Ponto de Ônibus'],
-          correta: 'Ponto de Ônibus',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FPonto%20de%20%C3%B4nibus.mp4?alt=media&token=6e45b49c-5c96-410f-bff1-40566d6f2851'
+        opcoes: ['Bom dia', 'Roda', 'Ponto de Ônibus'],
+        correta: 'Ponto de Ônibus',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FPonto%20de%20%C3%B4nibus.mp4?alt=media&token=6e45b49c-5c96-410f-bff1-40566d6f2851'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Tchau', 'Terminal', 'Olá'],
-          correta: 'Terminal',
-          imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FTransporte%2FSinal%20Terminal.png?alt=media&token=f7ad5a29-0d58-4411-b12b-b39b9b3d1078'
+        opcoes: ['Passe', 'Terminal', 'Motorista'],
+        correta: 'Terminal',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FTransporte%2FSinal%20Terminal.png?alt=media&token=f7ad5a29-0d58-4411-b12b-b39b9b3d1078'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Sentar', 'Descer', 'Passe de ônibus'],
-          correta: 'Passe de ônibus',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FPasse%20de%20%C3%B4nibus.mp4?alt=media&token=b08cedbb-8726-46dc-90b7-b7ecbe589dea'
+        opcoes: ['Sentar', 'Descer', 'Passe de ônibus'],
+        correta: 'Passe de ônibus',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FPasse%20de%20%C3%B4nibus.mp4?alt=media&token=b08cedbb-8726-46dc-90b7-b7ecbe589dea'
       },
       { pergunta: 'O que a pessoa está dizendo?',
-         opcoes: ['Parada Solicitada', 'Oi', 'Tchau'],
-          correta: 'Parada Solicitada',
-          videoUrl:'' //Adicionar vídeo sem legenda aqui
+        opcoes: ['Rodoviária', 'Terminal', 'Roda'],
+        correta: 'Rodoviária',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FRodovi%C3%A1ria.mp4?alt=media&token=c17f65e5-8987-436e-9a0f-12f60df7407d' //Adicionar vídeo sem legenda aqui
       },
     ],
     Metro: [
       { pergunta: 'Que lugar é esse?',
-         opcoes: ['Estação', 'Trem', 'Trilhos'],
-          correta: 'Estação',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FEsta%C3%A7%C3%A3o.mp4?alt=media&token=64e9cebd-8ac1-46e0-999b-c001dbe6ec9d'
+        opcoes: ['Estação', 'Trem', 'Trilhos'],
+        correta: 'Estação',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FTransporte%2FSinal%20Esta%C3%A7%C3%A3o.png?alt=media&token=db091ff6-d931-46ba-bbb1-fa2d689aa2f5'
       },
       { pergunta: 'Qual linha a pessoa quer ir?',
-         opcoes: ['Linha Vermelha', 'Linha Azul', 'Linha Amarela'],
-          correta: 'Linha Amarela',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FLinha%20amarela.mp4?alt=media&token=91341ce2-d41b-41c1-aa41-44a5dea718cf'
+        opcoes: ['Linha Vermelha', 'Linha Azul', 'Linha Amarela'],
+        correta: 'Linha Amarela',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FTransporte%2FSem%20legenda%2FLinha%20amarela.mp4?alt=media&token=91341ce2-d41b-41c1-aa41-44a5dea718cf'
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['11h', 'Plataforma', 'Busão'],
