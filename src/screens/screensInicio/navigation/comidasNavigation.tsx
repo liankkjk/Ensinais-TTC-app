@@ -100,12 +100,12 @@ export default function ComidasScreen({ navigation }) {
   const perguntasPorTema = {
     Doces: [
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Bolo', 'Pudim', 'Brigadeiro'],
+        opcoes: ['Bolo', 'Pudim', 'Brigadeiro'],
         correta: 'Pudim',
         imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Pudim.png?alt=media&token=8f1a04bd-481f-4d38-895d-24940c2d972a'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Bala', 'Doce de Leite', 'Chocolate'],
+        opcoes: ['Bala', 'Doce de Leite', 'Chocolate'],
         correta: 'Chocolate',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FChocolate.mp4?alt=media&token=47a8a8a8-2e61-44fd-9fdd-00d66a7c461f'
         
@@ -135,10 +135,8 @@ export default function ComidasScreen({ navigation }) {
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Hambúrguer', 'Rissoles', 'Torta'],
         correta: 'Torta',
-        imageUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Torta.png?alt=media&token=90a98c24-35d0-4b13-acda-460566cc5224'
-
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Torta.png?alt=media&token=5a613ed9-8a16-47ce-a543-ad26b47cf2ab'
       },
-
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Pizza', 'Lanche', 'Coxinha'],
         correta: 'Pizza',
@@ -146,43 +144,42 @@ export default function ComidasScreen({ navigation }) {
       },
     ],
     Pratos: [
-      { pergunta: 'Qual alimento é esse?',
+      { pergunta: 'Qual prato é esse?',
         opcoes: ['Farofa', 'Macarrão', 'Arroz'],
         correta: 'Arroz',
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Arroz.png?alt=media&token=fad8221f-7e2b-4c22-aca0-9a890e03b9da'
       },
-
       { pergunta: 'O que a pessoa disse?',
-         opcoes: ['Feijoada', 'Strogonoff', 'Farofa'],
+        opcoes: ['Feijoada', 'Strogonoff', 'Farofa'],
         correta: 'Feijoada',
         videoUrl: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FFeijoada.mp4?alt=media&token=a61b233b-3437-4367-920a-46e78f9c7699'
       },
-      { pergunta: 'Qual alimento é esse?',
-         opcoes: ['Arroz', 'Feijão', 'Macarrão'],
+      { pergunta: 'Qual prato é esse?',
+        opcoes: ['Arroz', 'Feijão', 'Macarrão'],
         correta: 'Feijão',
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Feij%C3%A3o.png?alt=media&token=1245e113-6ce8-4cf9-a040-91b9333fed31'
       },
       { pergunta: 'O que a pessoa disse?',
-         opcoes: ['Frango', 'Sopa', 'Macarrão'],
-        correta: 'Feijão',
-        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Feij%C3%A3o.png?alt=media&token=1245e113-6ce8-4cf9-a040-91b9333fed31'
+        opcoes: ['Frango', 'Sopa', 'Macarrão'],
+        correta: 'Sopa',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FSopa.mp4?alt=media&token=7c5b047c-f983-4dd3-b6e1-b7397f737464'
       },
     ],
     Legumes: [
       { pergunta: 'Qual alimento é esse?',
-         opcoes: ['Alface', 'Repolho', 'Beterraba'],
-          correta: 'Alface',
-          imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Arroz.png?alt=media&token=fad8221f-7e2b-4c22-aca0-9a890e03b9da'
+        opcoes: ['Alface', 'Repolho', 'Beterraba'],
+        correta: 'Alface',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Alface.png?alt=media&token=a2617540-cbc5-4188-a5de-b1f04121b6c5'
       },
       { pergunta: 'Qual alimento é esse?',
-         opcoes: ['Pepino', 'Alface', 'Cenoura'],
-          correta: 'Cenoura',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FCenoura.mp4?alt=media&token=721faca7-0cb3-446c-a2b6-adc519193ffb'
-         },
+        opcoes: ['Pepino', 'Alface', 'Cenoura'],
+        correta: 'Cenoura',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FComidas%2FSem%20legenda%2FCenoura.mp4?alt=media&token=721faca7-0cb3-446c-a2b6-adc519193ffb'
+      },
       { pergunta: 'Qual alimento é esse?',
-         opcoes: ['Couve', 'Brócolis', 'Chuchu'],
-          correta: 'Chuchu',
-          imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Chuchu.png?alt=media&token=50d96660-52b4-41e2-b3e4-a212ba07bca8'
+        opcoes: ['Couve', 'Brócolis', 'Chuchu'],
+        correta: 'Chuchu',
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FComidas%2FSinal%20Chuchu.png?alt=media&token=50d96660-52b4-41e2-b3e4-a212ba07bca8'
       },
       { pergunta: 'Qual alimento é esse?',
         opcoes: ['Pepino', 'Couve', 'Alface'],

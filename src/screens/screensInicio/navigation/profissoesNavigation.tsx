@@ -115,9 +115,9 @@ export default function ProfissoesScreen({ navigation }) {
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Tecnologia.png?alt=media&token=51d3e7dc-71c0-47cb-9248-c493c14f9ab3'
       },
       { pergunta: 'Qual o curso que a pessoa pretende fazer?',
-         opcoes: ['Ciência da computação', 'Design Digital', 'ADS'],
-          correta: 'Design Digital',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FDesign%20Digital.mp4?alt=media&token=b6390e21-b7b0-48f6-8a46-247dbaa4a66e'
+        opcoes: ['Ciência da computação', 'Design Digital', 'ADS'],
+        correta: 'Design Digital',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FDesign%20Digital.mp4?alt=media&token=b6390e21-b7b0-48f6-8a46-247dbaa4a66e'
       },
     ],
     Saúde: [
@@ -127,8 +127,8 @@ export default function ProfissoesScreen({ navigation }) {
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Nutricionista.png?alt=media&token=bce4f2d5-230a-4a35-aff4-929b54e720a6'
       },
       { pergunta: 'O que a pessoa falou?',
-         opcoes: ['Exame', 'Encontro', 'Consulta'],
-          correta: 'Consulta',
+        opcoes: ['Exame', 'Encontro', 'Consulta'],
+        correta: 'Consulta',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FConsulta.mp4?alt=media&token=be5d1c87-ffe7-468c-82ff-f653d45fb2e9'
       },
       { pergunta: 'Qual é a profissão representada?',
@@ -137,8 +137,8 @@ export default function ProfissoesScreen({ navigation }) {
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20M%C3%A9dico.png?alt=media&token=72aa486b-ca2e-4037-9b95-15cbafd62b60'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Médico', 'Enfermeiro', 'Fisioterapeuta'],
-          correta: 'Enfermeiro',
+        opcoes: ['Médico', 'Enfermeiro', 'Fisioterapeuta'],
+        correta: 'Enfermeiro',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FEnfermeira.mp4?alt=media&token=0d678a66-116b-4644-95d8-626cbfb6ea99'
       },
     ],
@@ -149,9 +149,9 @@ export default function ProfissoesScreen({ navigation }) {
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Seguran%C3%A7a.png?alt=media&token=1bd8bd38-ee89-43d1-aff9-f4452ec6622b'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Pintor', 'Uber', 'Motorista'],
-          correta: 'Uber',
-          videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FUber.mp4?alt=media&token=b3b253f6-4987-4880-96c0-77bb152addc3'
+        opcoes: ['Pintor', 'Uber', 'Motorista'],
+        correta: 'Uber',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FUber.mp4?alt=media&token=b3b253f6-4987-4880-96c0-77bb152addc3'
       },
       { pergunta: 'Qual o significado do sinal acima?',
         opcoes: ['Garçom', 'Manobrista', 'Cientista'],
@@ -159,9 +159,9 @@ export default function ProfissoesScreen({ navigation }) {
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Gar%C3%A7om.png?alt=media&token=34342d3c-a85b-4165-9f44-81020541e3c1'
       },
       { pergunta: 'Qual o significado do sinal acima?',
-         opcoes: ['Diretor', 'Professor', 'Zelador'],
-          correta: 'Professor',
-          videoUrl:'' //Colocar o vídeo do professor sem legenda
+        opcoes: ['Diretor', 'Professor', 'Zelador'],
+        correta: 'Professor',
+        videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FProfessor.mp4?alt=media&token=09798b06-1af2-4456-adfb-430a22ea024b'
       },
     ],
     Atendimento: [
@@ -171,8 +171,8 @@ export default function ProfissoesScreen({ navigation }) {
         imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FProfiss%C3%B5es%2FSinal%20Pagamento.png?alt=media&token=37d84ce4-c08a-4d78-a028-ea993de8c844'
       },
       { pergunta: 'O que a pessoa esta dizendo?',
-         opcoes: ['Vendedor', 'Engenharia', 'Preço'],
-          correta: 'Preço',
+        opcoes: ['Vendedor', 'Engenharia', 'Preço'],
+        correta: 'Preço',
         videoUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FProfiss%C3%B5es%2FSem%20legenda%2FPre%C3%A7o.mp4?alt=media&token=828e7b72-f080-46bb-9f2f-8d5259a9a28f'
       },
       { pergunta: 'Qual o significado do sinal acima?',
