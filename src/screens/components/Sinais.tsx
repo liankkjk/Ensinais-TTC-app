@@ -195,12 +195,6 @@ const sinaisRelacoes: Sinal[] = [
         subtitle: "Sinal de de nada",
         url: 'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/videos%2FRela%C3%A7%C3%B5es%2FCom%20legenda%2FDe%20nada%20com%20legenda.mp4?alt=media&token=ad04defc-be42-4057-aad7-c7dd430e958f',
     },
-    {
-        id: 16,
-        title: "Restaurante",
-        subtitle: "Sinal de restaurante",
-        url: '',
-    },
 ];
 
 const sinaisNatureza: Sinal[] = [
