@@ -138,7 +138,7 @@ export default function RelaçõesScreen({ navigation }) {
       { pergunta: 'Que horas a pessoa falou?',
         opcoes: ['10h00', '12h00', '14h00'],
         correta: '14h00',
-        videoUrl:'' //Adicionar URL do vídeo aqui
+        imageUrl:'https://firebasestorage.googleapis.com/v0/b/ensinais-tcc.firebasestorage.app/o/imagens%2FRela%C3%A7oes%2FSinal%2014%20horas.png?alt=media&token=86d2ac7b-b637-4b02-a180-d706115c1bc6'
       },
     ],
     Hierarquia: [
